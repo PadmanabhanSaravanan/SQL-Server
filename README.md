@@ -98,7 +98,7 @@ SQLOS provides many operating system services such as memory and I/O management.
 ### Installation of SQL Server
 <br>
 
-For complete installation guide [click here](https://www.sqlservertutorial.net/install-sql-server/)
+For complete installation guide [click here](/pdf/SQL-Server-Installation-Guide.pdf)
 
 
 ## Data Types
