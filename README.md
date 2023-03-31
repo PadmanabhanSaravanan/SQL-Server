@@ -187,3 +187,148 @@ For complete installation guide [click here](/pdf/SQL-Server-Installation-Guide.
 | Spatial Geometry type  | It represents data in a flat coordinate system.                                                              |
 | Spatial Geography type | It represents data in the round-earth coordinate system.                                                     |
 | table                  | It stores a result set for later processing.                                                                 |
+
+
+## Constraints
+
+* Constraint is used to define rules to allow or restrict what values can be stored in columns. The purpose of inducing constraints is to enforce the integrity of a database.
+* Constraint are used to limit the type of data that can be inserted into a table.
+* Constraint can be classified into two types - column level and table level.
+* The column level Constraint can apply only to one column where as table level constraints are applied to the entire table.
+* Constraint is declared at the time of creating a table.
+
+<br>
+
+**SQL Server Constraints are :**
+
+
+1. NOT NULL
+2. UNIQUE
+3. PRIMARY KEY
+4. FOREIGN KEY
+5. DEFAULT
+6. CHECK
+
+<br>
+
+### NOT NULL
+
+<br>
+
+The **_NOT NULL_** constraint enforces a column to NOT accept NULL values.
+
+This enforces a field to always contain a value, which means that you cannot insert a new record, or update a record without adding a value to this field.
+
+<br>
+
+```markdown NOT NULL Example
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    Age int
+);
+```
+
+<br>
+
+### UNIQUE
+
+<br>
+
+The ***UNIQUE*** constraint ensures that all values in a column are different.
+
+<br>
+
+```markdown UNIQUE Constraint Example
+CREATE TABLE Persons (
+    ID int NOT NULL UNIQUE,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
+
+```
+
+### PRIMARY KEY
+
+<br>
+
+The ***PRIMARY KEY*** constraint uniquely identifies each record in a table.
+
+Primary keys must contain UNIQUE values, and cannot contain NULL values.
+
+<br>
+
+```markdown PRIMARY KEY Example
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+);
+```
+<br>
+
+### FOREIGN KEY
+
+<br>
+
+The ***FOREIGN KEY*** constraint is used to prevent actions that would destroy links between tables.
+
+A FOREIGN KEY is a field (or collection of fields) in one table, that refers to the ***PRIMARY KEY*** in another table.
+
+![image rdbms](/image/related-tables.png)
+
+<br>
+
+```markdown FOREIGN KEY Example
+CREATE TABLE orders (
+    order_id int NOT NULL,
+    product varchar(255),
+    total int,
+    customer_id int,
+    PRIMARY KEY (order_id),
+    FOREIGN KEY (customer_id) REFERENCES Persons(order_id)
+);
+```
+
+### DEFAULT
+
+<br>
+
+The ***DEFAULT*** constraint is used to set a default value for a column.
+
+<br>
+
+```markdown DEFAULT Example
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255) DEFAULT 'Sandnes'
+);
+```
+
+### CHECK
+
+<br>
+
+The ***CHECK*** constraint is used to limit the value range that can be placed in a column.
+
+If you define a ***CHECK*** constraint on a column it will allow only certain values for this column.
+
+If you define a ***CHECK*** constraint on a table it can limit the values in certain columns based on values in other columns in the row.
+
+<br>
+
+```markdown CHECK Example
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int CHECK (Age>=18)
+);
+```
