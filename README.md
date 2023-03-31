@@ -145,7 +145,7 @@ For complete installation guide [click here](https://www.sqlservertutorial.net/i
 <br>
 
 <!-- data-transpose data-type="none" -->
-| **_Data Type_** **_Description_**                                                                                    | **_Lower limit_** | **_Upper limit_**     | **_Memory_**|
+|**_Data Type_**| **_Description_**                                                                                  |**_Lower limit_**| **_Upper limit_**   | **_Memory_**      |
 |---------------|----------------------------------------------------------------------------------------------------|-----------------|---------------------|-------------------|
 | char          | It is a character string with a fixed width. It stores a maximum of 8,000 characters.              | 0 chars         | 8000 chars          | n bytes           |
 | varchar       | This is a character string with variable width                                                     | 0 chars         | 8000 chars          | n bytes + 2 bytes |
