@@ -83,6 +83,7 @@ SQLOS provides many operating system services such as memory and I/O management.
 
 **SQL Server** is owned and developed by Microsoft Corporation. The primary function of SQL Server is the storage and access of data as it is required by other applications, whether they are running on other computers that are connected to a network, or the computer on which the server is stored.
 
+
 |                                          **_MS SQL Server_**                                          |                                                 **_MySQL_**                                                 |
 |:-----------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|
 | Developed by Microsoft.                                                                         | Developed by Oracle.                                                                                  |
@@ -102,25 +103,25 @@ For complete installation guide [click here](https://www.sqlservertutorial.net/i
 
 ## Data Types
 
-![image MSSQLSERVER Data Types](/image/datatypes.jpg)
-
 ### Exact Numeric 
 <br>
+
 <!-- data-transpose data-type="none" -->
-| **_Data Type_**  | **_Description_**                                | **_Lower limit_**                         | **_Upper limit_**                         | **_Memory_**             |
-|------------|--------------------------------------------|-------------------------------------|--------------------------------------|--------------------|
-| bigint     | It stores whole numbers in the range given | −2^63 (−9,223,372, 036,854,775,808) | 2^63−1 (−9,223,372, 036,854,775,807) | 8 bytes            |
-| int        | It stores whole numbers in the range given | −2^31 (−2,147, 483,648)             | 2^31−1 (−2,147, 483,647)             | 4 bytes            |
-| smallint   | It stores whole numbers in the range given | −2^15 (−32,767)                     | 2^15 (−32,768)                       | 2 bytes            |
-| tinyint    | It stores whole numbers in the range given | 0                                   | 255                                  | 1 byte             |
-| bit        | It can take 0, 1, or NULL values.          | 0                                   | 1                                    | 1 byte/8bit column |
-| decimal    | Used for scale and fixed precision numbers | −10^38+1                            | 10^381−1                             | 5 to 17 bytes      |
-| numeric    | Used for scale and fixed precision numbers | −10^38+1                            | 10^381−1                             | 5 to 17 bytes      |
-| money      | Used monetary data                         | −922,337, 203, 685,477.5808         | +922,337, 203, 685,477.5807          | 8 bytes            |
-| smallmoney | Used monetary data                         | −214,478.3648                       | +214,478.3647                        | 4 bytes            |
+| **_Data Type_** | **_Description_**                          | **_Lower limit_**                   | **_Upper limit_**                    | **_Memory_**       |
+|-----------------|--------------------------------------------|-------------------------------------|--------------------------------------|--------------------|
+| bigint          | It stores whole numbers in the range given | −2^63 (−9,223,372, 036,854,775,808) | 2^63−1 (−9,223,372, 036,854,775,807) | 8 bytes            |
+| int             | It stores whole numbers in the range given | −2^31 (−2,147, 483,648)             | 2^31−1 (−2,147, 483,647)             | 4 bytes            |
+| smallint        | It stores whole numbers in the range given | −2^15 (−32,767)                     | 2^15 (−32,768)                       | 2 bytes            |
+| tinyint         | It stores whole numbers in the range given | 0                                   | 255                                  | 1 byte             |
+| bit             | It can take 0, 1, or NULL values.          | 0                                   | 1                                    | 1 byte/8bit column |
+| decimal         | Used for scale and fixed precision numbers | −10^38+1                            | 10^381−1                             | 5 to 17 bytes      |
+| numeric         | Used for scale and fixed precision numbers | −10^38+1                            | 10^381−1                             | 5 to 17 bytes      |
+| money           | Used monetary data                         | −922,337, 203, 685,477.5808         | +922,337, 203, 685,477.5807          | 8 bytes            |
+| smallmoney      | Used monetary data                         | −214,478.3648                       | +214,478.3647                        | 4 bytes            |
 
 ### Approximate Numeric
  <br>
+
 <!-- data-transpose data-type="none" -->
 | **_Data Type_** | **_Description_**                      | **_Lower limit_** | **_Upper limit_** | **_Memory_**                | **_Precision_** |
 |---------------|--------------------------------------|-----------------|-----------------|---------------------------|---------------|
@@ -129,6 +130,7 @@ For complete installation guide [click here](https://www.sqlservertutorial.net/i
 
 ### Date & Time
 <br>
+
 <!-- data-transpose data-type="none" -->
 | **_Data Type_**  | **_Description_**                                                                                                         | **_Storage size_** | **_Accuracy_**                              | **_Lower Range_**  | **_Upper Range_**  |
 |----------------|-------------------------------------------------------------------------------------------------------------------------|------------------|-------------------------------------------|------------------|------------------|
@@ -141,8 +143,9 @@ For complete installation guide [click here](https://www.sqlservertutorial.net/i
 
 ### Character Strings
 <br>
+
 <!-- data-transpose data-type="none" -->
-| **_Data Type_** | **_Description_**                                                                                    | **_Lower limit_** | **_Upper limit_**     | **_Memory_**        |
+| **_Data Type_** **_Description_**                                                                                    | **_Lower limit_** | **_Upper limit_**     | **_Memory_**|
 |---------------|----------------------------------------------------------------------------------------------------|-----------------|---------------------|-------------------|
 | char          | It is a character string with a fixed width. It stores a maximum of 8,000 characters.              | 0 chars         | 8000 chars          | n bytes           |
 | varchar       | This is a character string with variable width                                                     | 0 chars         | 8000 chars          | n bytes + 2 bytes |
@@ -161,6 +164,7 @@ For complete installation guide [click here](https://www.sqlservertutorial.net/i
 
 ### Binary Strings
 <br>
+
 <!-- data-transpose data-type="none" -->
 | **_Data Type_** | **_Description_**                                                             | **_Lower limit_** | **_Upper limit_**   | **_Memory_**                                |
 |-----------------|-------------------------------------------------------------------------------|-------------------|---------------------|---------------------------------------------|
@@ -170,6 +174,7 @@ For complete installation guide [click here](https://www.sqlservertutorial.net/i
 
 ###  Other Data Type
 <br>
+
 <!-- data-transpose data-type="none" -->
 | **_Data Type_**        | **_Description_**                                                                                            |
 |------------------------|--------------------------------------------------------------------------------------------------------------|
