@@ -1,6 +1,6 @@
 # SQL-Server
 
-![image sql-server-logo](/image/sql-server_logo.png)<!--style="width:30%;" -->
+![image sql-server-logo](/image/sql-server_logo.png)
 
 ## Introduction to SQLServer
 
@@ -10,11 +10,11 @@ A database is an organized collection of data so that it can be easily accessed.
 
 
 
-**Database Management System**<!-- style="font-size:20px;" -->
+**Database Management System**
 
 Database management System is software which is used to store and retrieve the database.
 
-**Types of DBMS**<!-- style="font-size:20px;" -->
+**Types of DBMS**
 
 In general, there are two common types of databases:
 
@@ -22,17 +22,17 @@ In general, there are two common types of databases:
 
 * Relational
 
-**Non-Relational Database Management System (Non-RDBMS)**<!-- style="font-size:20px;" -->
+**Non-Relational Database Management System (Non-RDBMS)**
 
 In Non-RDBMS, data is stored in key-value pairs. For example:
 
-![image Non-RDBMS](/image/Nosql.png)<!--style="width:50%;" -->
+![image Non-RDBMS](/image/Nosql.png)
 
 Here, customers' data are stored in key-value pairs.
 
 Commonly used Non-RDBMS: MongoDB, Amazon DynamoDB, Redis, etc.
 
-**Relational Database Management System**<!-- style="font-size:20px;" -->
+**Relational Database Management System**
 
 In RDBMS, data is stored in tabular format. For example,
 
@@ -56,7 +56,7 @@ SQL Server is a relational database management system, or RDBMS, developed and m
 
 Similar to other RDBMS software, SQL Server is built on top of SQL, a standard programming language for interacting with relational databases. SQL Server is tied to Transact-SQL, or T-SQL, the Microsoft’s implementation of SQL that adds a set of proprietary programming constructs.
 
-**SQL Server Architecture** <!-- style="font-size:20px;" -->
+**SQL Server Architecture** 
 
 ![image sql-arch](/image/sql-arch.jpg)
 
@@ -65,15 +65,15 @@ SQL Server consists of two main components:
 * Database Engine
 * SQLOS
 
-**Database Engine**<!-- style="font-size:20px;" -->
+**Database Engine**
 
-![image database engine](/image/database-engine.jpg)<!--style="width:50%;" -->
+![image database engine](/image/database-engine.jpg)
 
 The core component of the SQL Server is the Database Engine. 
 
 The Database Engine consists of a relational engine that processes queries and a storage engine that manages database files, pages, indexes, etc. The database objects such as stored procedures, views, and triggers are also created and executed by the Database Engine.
 
-**SQLOS**<!-- style="font-size:20px;" -->(SQL Server Operating System)
+**SQLOS**(SQL Server Operating System)
 
 SQLOS provides many operating system services such as memory and I/O management. Other services include exception handling and synchronization services.
 
@@ -331,4 +331,183 @@ CREATE TABLE Persons (
     FirstName varchar(255),
     Age int CHECK (Age>=18)
 );
+```
+
+## Data Definition Language
+
+A data definition language (DDL) is a computer language used to create and modify the structure of database objects in a database. These database objects include views, schemas, tables, indexes, etc.
+
+<br>
+
+| **_Object_**          | **_Description_**                                                         |
+|-----------------------|---------------------------------------------------------------------------|
+|     Table             |     Basic   unit of storage composed     of rows and columns              |
+|     View              |     Logically   represents subsets of     data from one or more tables    |
+|     Sequence Index    |     Numeric value generator                                               |
+|     Index             |     Improves   the performance of     some queries                        |
+|     Synonym           |     Gives   alternative names to     objects                              |
+| Schema                | collection of database objects associated with a database                 |
+
+<br>
+
+**Data Definition Laungauge Commands are as follows**
+
+1. CREATE
+2. ALTER
+3. DROP
+4. TRUNCATE
+
+### Create Command
+
+create is a DDL SQL command used to create a table ,database & Schema in relational database management system.
+
+The table creation command requires the following details −
+
+*	Name of the table
+*	Name of the fields(Column) 
+*	Definitions for each field(Datatype)
+
+<br>
+
+```markdown Syntax
+    /* to create database */
+    CREATE DATABASE database_name;
+
+    /* to create schema */
+    CREATE SCHEMA schema_name;
+
+    /* to create table */
+	CREATE TABLE schema_name.table_name 
+	( 
+		column_name1 datatype1, 
+		column_name2 datatype2, 
+		column_name3 datatype3, 
+		column_name4 datatype4 
+	);
+```
+
+<br>
+
+```markdown Create Command Example
+
+    /* to create database */
+    CREATE DATABASE EmployeeManagement;
+
+    /* to create schema */
+    CREATE SCHEMA employee;
+
+    /* to create table */
+    CREATE TABLE employee.regions (
+	    region_id INT IDENTITY(1,1) PRIMARY KEY,
+	    region_name VARCHAR (25) DEFAULT NULL
+    );
+
+    CREATE TABLE employee.countries (
+	    country_id CHAR (2) PRIMARY KEY,
+	    country_name VARCHAR (40) DEFAULT NULL,
+	    region_id INT NOT NULL,
+	    FOREIGN KEY (region_id) REFERENCES employee.regions (region_id)
+    );
+```
+
+### Alter Command 
+
+Alter statement is used to add, delete or modify columns in an exisiting table
+
+<br>
+
+* **Add column**
+
+The basic syntax of an ALTER TABLE command to add a New Column in an existing table is as follows.
+
+```markdown Syntax:
+	ALTER  TABLE table_name
+	ADD column_name datatype;
+```
+
+```markdown Example:
+    ALTER TABLE employee.employees
+    ADD resigned_date DATE;
+```
+
+<br>
+
+* **Modify column**
+
+The basic syntax of an ALTER TABLE command to change the DATA TYPE of a column in a table is as follows.
+
+```markdown Syntax:
+    ALTER  TABLE  table_name 
+    MODIFY  COLUMN column_name  datatype;
+```
+
+```markdown Example:
+    ALTER TABLE employee.employees
+    ALTER COLUMN resigned_date DateTime;
+```
+
+<br>
+
+* **Delete column**
+
+The basic syntax of an ALTER TABLE command to DROP COLUMN in an existing table is as follows.
+
+```markdown Syntax:
+    ALTER  TABLE table_name 
+    DROP  COLUMN column_name;
+```
+
+
+```markdown Example:
+    ALTER TABLE employee.employees
+    DROP COLUMN resigned_date;
+```
+
+<br>
+
+* **Adding constraints**
+
+```markdown Example:
+    ALTER TABLE employee.employees ADD UNIQUE (email);
+```
+
+### Drop Command
+
+It is very easy to drop an existing table, but you need to be very careful while deleting any existing table because the data lost will not be recovered after deleting a table. 
+
+<br>
+
+```markdown Syntax:
+    DROP DATABASE database_name;
+
+    DROP  TABLE  table_name;
+```
+
+<br>
+
+```markdown Example:
+    /* to drop database */
+    DROP DATABASE IF EXISTS EmployeeManagement;
+
+    /* to drop schema */
+    DROP SCHEMA IF EXISTS employee;
+
+    /* to drop table */
+    DROP TABLE IF EXISTS employee.employees;
+```
+
+### Truncate Command
+
+TRUNCATE command removes all the records from a table. But this command will not destroy the table's structure. 
+
+<br>
+
+```markdown Syntax:
+    TRUNCATE TABLE table_name ;
+```
+
+<br>
+
+```markdown Example:
+    TRUNCATE TABLE employee.employees;
 ```
