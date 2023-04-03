@@ -98,7 +98,7 @@ SQLOS provides many operating system services such as memory and I/O management.
 ### Installation of SQL Server
 <br>
 
-For complete installation guide [click here](/pdf/SQL-Server-Installation-Guide.pdf)
+For complete installation guide [click here](https://github.com/PadmanabhanSwayaan/SQL-Server/blob/sqlserver-v15.0/pdf/SQL-Server-Installation-Guide.pdf)
 
 
 ## Data Types
@@ -637,7 +637,7 @@ It is used to take back the privileges from any user, use the REVOKE command.
 <br>
 
 ```markdown Syntax:
-/* revokr read only from a User */
+/* revoke read only from a User */
 REVOKE SELECT ON table_name TO user_name;
 
 /* revoke insert,update,delete & select function from a user */
@@ -652,4 +652,89 @@ GRANT SELECT ON employee.employees TO user1;
 
 /* revoke insert,update,delete & select function from a user */
 GRANT INSERT, UPDATE, DELETE, SELECT ON employee.employees TO user1;
+```
+
+## Transaction Control Language
+
+**Database Transactions:**
+
+A transaction begins with the first statement is encounterd and ends when one of the following occurs.
+
+* A commit or rollback statement is issued.
+* A DDL statement, such as create is issued.
+* A DCL statement is issued.
+* The system crashes.
+* After one transaction ends, the next executable SQL statement automatically starts the next transaction.
+* A DDL statement or a DCL statement is automatically committed and therefore implicitly ends a transaction.
+
+You can control the logic of transactions by using the
+
+* Commit
+* Savepoint
+* Rollback
+
+### Commit 
+
+* COMMIT command is used to permanently save any transaction into the database.
+* When we use any DML command like INSERT, UPDATE or DELETE, the changes made by these commands are not permanent, until the current session is closed, the changes made by these commands can be rolled back.
+* To avoid that, we use the COMMIT command to mark the changes as permanent.
+
+<br>
+
+```markdown Syntax:
+/* start a transaction */
+BEGIN TRANSACTION;
+
+-- other statements
+
+-- commit the transaction
+
+COMMIT;
+```
+
+<br>
+
+```markdown Example:
+    BEGIN TRANSACTION;
+    INSERT INTO employee.regions(region_id,region_name) VALUES ('7','Sri Lanka');
+    COMMIT;
+```
+
+### Savepoint 
+
+SAVEPOINT command is used to temporarily save a transaction so that you can rollback to that point whenever required.
+
+<br>
+
+```markdown Syntax:
+/* start a transaction */
+BEGIN TRANSACTION;
+SAVE TRANSACTION savepoint_name;
+-- other statements
+
+```
+
+<br>
+
+```markdown Example:
+BEGIN TRANSACTION;
+SAVE TRANSACTION TransactionA;
+INSERT INTO employee.regions(region_id,region_name) VALUES ('6','India');
+```
+
+### Rollback 
+
+* This command restores the database to last commited state. It is also used with SAVEPOINT command to jump to a savepoint in an ongoing transaction.
+* If we have used the UPDATE command to make some changes into the database, and realise that those changes were not required, then we can use the ROLLBACK command to rollback those changes, if they were not commited using the COMMIT command.
+
+<br>
+
+```markdown Syntax:
+ROLLBACK TRANSACTION savepoint_name;
+```
+
+<br>
+
+```markdown Example:
+ROLLBACK TRANSACTION TransactionA;
 ```
