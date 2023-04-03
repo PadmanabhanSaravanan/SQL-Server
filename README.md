@@ -345,7 +345,7 @@ CREATE TABLE Persons (
 );
 ```
 
-## Data Definition Language
+## Data Definition Language(DDL)
 
 A data definition language (DDL) is a computer language used to create and modify the structure of database objects in a database. These database objects include views, schemas, tables, indexes, etc.
 
@@ -439,8 +439,8 @@ The basic syntax of an ALTER TABLE command to add a New Column in an existing ta
 Syntax:
 
 ```markdown
-	ALTER  TABLE table_name
-	ADD column_name datatype;
+    ALTER  TABLE table_name
+    ADD column_name datatype;
 ```
 
 Example:
@@ -460,7 +460,7 @@ Syntax:
 
 ```markdown
     ALTER  TABLE  table_name 
-    MODIFY  COLUMN column_name  datatype;
+    ALTER  COLUMN column_name  datatype;
 ```
 
 Example:
@@ -549,7 +549,7 @@ Example:
     TRUNCATE TABLE employee.employees;
 ```
 
-## Data Manipulation Langauage
+## Data Manipulation Langauage(DML)
 
 The DML commands in Structured Query Language change the data present in the SQL database. We can easily access, store, modify, update and delete the existing records from the database using DML commands.
 
@@ -710,7 +710,7 @@ GRANT SELECT ON employee.employees TO user1;
 GRANT INSERT, UPDATE, DELETE, SELECT ON employee.employees TO user1;
 ```
 
-## Transaction Control Language
+## Transaction Control Language(TCL)
 
 **Database Transactions:**
 
@@ -756,7 +756,7 @@ Example:
 
 ```markdown
     BEGIN TRANSACTION;
-    INSERT INTO employee.regions(region_id,region_name) VALUES ('7','Sri Lanka');
+    INSERT INTO employee.regions(region_id,region_name) VALUES ('6','India');
     COMMIT;
 ```
 
@@ -806,3 +806,332 @@ Example:
 ```markdown
 ROLLBACK TRANSACTION TransactionA;
 ```
+
+## Data Query/Retrival Language(DQL/DRL)
+
+***SELECT*** statement is used to retrieve the information from database using select statement you can do the following
+
+* **Projection**: It is used to choose columns in a table that you want returned by the query.
+
+* **Selection**: It is used to choose rows in a table that you want returned by your query.
+
+* **Joining**: You can choose the join capability in SQL to bring together data that is stored in            different tables by creating a link between them.
+
+<br>
+
+Syntax:
+
+```markdown
+SELECT column1, column2, ...FROM table_name;
+
+/* select all the fields available in the table */
+SELECT * FROM table_name;
+
+Select identifies what columns
+From identifies which table
+```
+
+Example:
+
+```markdown
+SELECT * FROM employee.employees;
+
+SELECT employee_id,first_name,last_name FROM employee.employees;
+```
+<br>
+
+### Arithmetic Expressions:
+
+* Create expressions with number and date data by using arithematic operators
+* Operator Precedence : * , / , + , - 
+* If the operators within an expression are of same priority then evaluation is done from left to right.
+
+Example:
+
+```markdown
+SELECT employee_id,first_name + last_name,salary,(20*salary-100)/2 FROM employee.employees;
+```
+
+### Column aliases
+
+* Renames column heading
+* It is useful for calculations
+* Immediately followed by the column name, there can also be optional keyword AS keyword betweeen the column name and alias.
+* Enclose alias name in double quotations if it contains a special characters such as # or $ or is case sensitive.
+* Column aliases can be used in both select clause and the order by clause you cannot use column aliases in where clause.
+
+Example:
+
+```markdown
+SELECT employee_id , first_name+ ' ' + last_name AS 'full_name' FROM employee.employees;
+``` 
+
+### Clauses
+
+* DISTINCT
+* WHERE
+* ORDER BY
+* GROUP BY
+* HAVING 
+
+#### DISTINCT
+
+* The SQL DISTINCT keyword is used in conjunction with the SELECT statement to eliminate all the duplicate records and fetching only unique records.
+* There may be a situation when you have multiple duplicate records in a table. While fetching such records, it makes more sense to fetch only those unique records instead of fetching duplicate records and can be used for more than one column
+* Distinct keyword should be used immediately after the select keyword.
+* Distinct can also be used with multiple columns and it affects all the columns selected
+
+Syntax:
+
+```markdown
+SELECT DISTINCT column1, column2, ...FROM table_name;
+```
+
+Example:
+
+```markdown
+SELECT DISTINCT manager_id FROM employee.employees;
+```
+
+#### WHERE
+
+* We restrict the rows returned by using the WHERE clause.
+* Where restricts the query to rows that meets the condition
+* Condition is composed of column names ,expressions constants ,and a comparison operator.
+* Where consists of three elements.
+
+        => column name
+
+        => comparison condition
+
+        => column name, constant or list of values
+
+* Character strings and date values are enclosed in single quotation marks.
+* The WHERE clause is not only used in the SELECT statement, but it is also used in the UPDATE, DELETE statement, etc.,
+
+Syntax:
+
+```markdown
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+Example:
+
+```markdown
+SELECT first_name + ' ' + last_name AS 'full_name' FROM employee.employees WHERE manager_id='101';
+```
+
+#### ORDER BY 
+
+* We sort rows by using order by clause .
+
+        => ASC: ascending order , default
+
+        => DSC: descending order.
+
+* The order by clause comes last in the select statement.
+* Order by clause is executed last in the query execution .it is placed last unless the for update clause is used.
+* Default sorting is ascending
+* Numeric values are displayed with lowest values first ex: 1-999
+* Date values are displayed with earliest value first ex: 01-jan-92 before 01-jan-95.
+* Character values are displayed in alphabetic order ex: A-Z.
+* Null values are displayed last for ascending sequences and first for descending sequences.
+* We can also sort by a column number in the select list.
+
+Syntax:
+
+```markdown
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+```
+
+Example:
+
+```markdown
+SELECT first_name + ' ' + last_name AS 'full_name',manager_id 
+FROM employee.employees 
+ORDER BY manager_id DESC;
+```
+
+#### GROUP BY
+
+* We use GROUP BY clause to divide the rows in a table into groups.
+* If you include a group function in a select statement, you cannot select individual results as well ,unless the individual column appears in the GROUP BY clause.
+* Using WHERE clause you can include rows before dividing them into groups.
+* You must include the columns in the GROUP BY clause.
+* You cannot use a column alias in the GROUP BY clause.
+* By default, rows are sorted by ascending order of the columns included in the group by list. You can override this by using ORDER BY clause.
+* You cannot use WHERE clause to restrict groups
+
+Syntax:
+
+```markdown
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);
+```
+
+Example:
+
+```markdown
+SELECT job_id,
+COUNT (job_id) job_count
+FROM employee.employees 
+GROUP BY job_id
+ORDER BY job_id DESC;
+```
+
+#### HAVING
+
+* The HAVING Clause enables you to specify conditions that filter which group results appear in the results.
+* The WHERE clause places conditions on the selected columns, whereas the HAVING clause places conditions on groups created by the GROUP BY clause.
+* The HAVING clause must follow the GROUP BY clause in a query and must also precede the ORDER BY clause if used.
+
+Syntax: 
+
+```markdown
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+```
+
+Example:
+
+```markdown
+SELECT job_id,
+COUNT (job_id) job_count
+FROM employee.employees 
+GROUP BY job_id
+HAVING COUNT (job_id) >= 3
+ORDER BY job_id DESC;
+```
+
+### Logical conditions
+
+<br>
+
+| **_Operator_**        | **_Meaning_**                                                 |
+|-----------------------|---------------------------------------------------------------|
+|     AND               |     Returns true if both component conditions   are true      |
+|     OR                |     Returns true if either component conditions   are true    |
+|     NOT               |     Returns true if false, Returns false if   true            |
+
+Example:
+
+* **AND**
+
+```markdown
+SELECT first_name+' '+last_name AS full_name,salary,job_id 
+FROM employee.employees
+WHERE (salary>1000 AND job_id='1');
+```
+
+* **OR**
+
+```markdown
+SELECT first_name+' '+last_name AS full_name,salary,job_id 
+FROM employee.employees
+WHERE (salary>5000 OR job_id='5');
+```
+
+* **NOT**
+
+```markdown
+SELECT first_name+' '+last_name AS full_name,salary,job_id 
+FROM employee.employees
+WHERE NOT job_id=5;
+```
+
+### Comparision conditions
+
+| **_Operator_**  | **_Meaning_**                   |
+|-----------------|---------------------------------|
+|     =           |     Equal to                    |
+|     >           |     Greater than                |
+|     >=          |     Greater than or Equal to    |
+|     <           |     Less than                   |
+|     <=          |     Less than or Equal to       |
+|     <>,!=,^=    |     Not equal to                |
+
+Example:
+
+```markdown
+SELECT first_name+' '+last_name AS full_name,salary 
+FROM employee.employees
+WHERE salary>=5000;
+```
+
+### Other Comparision operator
+
+* BETWEEN AND
+* IN
+* LIKE
+* IS NULL
+
+#### BETWEEN AND
+
+* BETWEEN and AND are actually translated by the mysql server to a pair of AND conditions (a>=lower limit) AND (a<= higher limit).
+* Using BETWEEN AND has no performance benefits, and it is used logical simplicity.
+
+Example:
+
+```markdown
+SELECT first_name+' '+last_name AS full_name,salary 
+FROM employee.employees
+WHERE salary BETWEEN 1000 AND 10000;
+```
+
+#### IN
+
+* It is used to test the values in a list. IN condition is also known as member ship condition
+* If characters or dates are used in a list they must be enclosed in a single quotation marks .
+* IN is actually translated by a mysql server to a set of OR conditions a=value1 or a= value2 or a=value3.
+* Using IN has no performance benefits ,and is used for logical simplicity.
+
+Example:
+
+```markdown
+SELECT first_name+' '+last_name AS full_name,job_id 
+FROM employee.employees
+WHERE job_id IN(1,5);
+```
+
+#### LIKE
+
+* It is used for performing wildcard searches of valid search string values.
+* Search conditions can contain either literal characters or numbers .
+* % denotes zero or many characters .
+* _ denotes one character or any single character.
+
+Example:
+
+```markdown
+SELECT employee_id,first_name
+FROM employee.employees
+WHERE first_name LIKE 'a%';
+```
+
+#### IS NULL
+	
+Example:
+
+```markdown
+SELECT employee_id,first_name,manager_id
+FROM employee.employees
+WHERE manager_id is NULL;
+```
+
+```markdown
+SELECT employee_id,first_name,manager_id
+FROM employee.employees
+WHERE manager_id is NOT NULL;
+```
+
