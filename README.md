@@ -221,7 +221,9 @@ This enforces a field to always contain a value, which means that you cannot ins
 
 <br>
 
-```markdown NOT NULL Example
+NOT NULL Example
+
+```markdown 
 CREATE TABLE Persons (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,
@@ -240,7 +242,9 @@ The ***UNIQUE*** constraint ensures that all values in a column are different.
 
 <br>
 
-```markdown UNIQUE Constraint Example
+UNIQUE Constraint Example
+
+```markdown
 CREATE TABLE Persons (
     ID int NOT NULL UNIQUE,
     LastName varchar(255) NOT NULL,
@@ -260,7 +264,9 @@ Primary keys must contain UNIQUE values, and cannot contain NULL values.
 
 <br>
 
-```markdown PRIMARY KEY Example
+PRIMARY KEY Example
+
+```markdown 
 CREATE TABLE Persons (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,
@@ -283,7 +289,9 @@ A FOREIGN KEY is a field (or collection of fields) in one table, that refers to 
 
 <br>
 
-```markdown FOREIGN KEY Example
+FOREIGN KEY Example
+
+```markdown
 CREATE TABLE orders (
     order_id int NOT NULL,
     product varchar(255),
@@ -302,7 +310,9 @@ The ***DEFAULT*** constraint is used to set a default value for a column.
 
 <br>
 
-```markdown DEFAULT Example
+DEFAULT Example
+
+```markdown
 CREATE TABLE Persons (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,
@@ -324,7 +334,9 @@ If you define a ***CHECK*** constraint on a table it can limit the values in cer
 
 <br>
 
-```markdown CHECK Example
+CHECK Example
+
+```markdown
 CREATE TABLE Persons (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,
@@ -369,7 +381,9 @@ The table creation command requires the following details −
 
 <br>
 
-```markdown Syntax
+Syntax:
+
+```markdown
     /* to create database */
     CREATE DATABASE database_name;
 
@@ -388,7 +402,9 @@ The table creation command requires the following details −
 
 <br>
 
-```markdown Create Command Example
+Create Command Example
+
+```markdown
 
     /* to create database */
     CREATE DATABASE EmployeeManagement;
@@ -420,12 +436,16 @@ Alter statement is used to add, delete or modify columns in an exisiting table
 
 The basic syntax of an ALTER TABLE command to add a New Column in an existing table is as follows.
 
-```markdown Syntax:
+Syntax:
+
+```markdown
 	ALTER  TABLE table_name
 	ADD column_name datatype;
 ```
 
-```markdown Example:
+Example:
+
+```markdown 
     ALTER TABLE employee.employees
     ADD resigned_date DATE;
 ```
@@ -436,12 +456,16 @@ The basic syntax of an ALTER TABLE command to add a New Column in an existing ta
 
 The basic syntax of an ALTER TABLE command to change the DATA TYPE of a column in a table is as follows.
 
-```markdown Syntax:
+Syntax:
+
+```markdown
     ALTER  TABLE  table_name 
     MODIFY  COLUMN column_name  datatype;
 ```
 
-```markdown Example:
+Example:
+
+```markdown
     ALTER TABLE employee.employees
     ALTER COLUMN resigned_date DateTime;
 ```
@@ -452,13 +476,16 @@ The basic syntax of an ALTER TABLE command to change the DATA TYPE of a column i
 
 The basic syntax of an ALTER TABLE command to DROP COLUMN in an existing table is as follows.
 
-```markdown Syntax:
+ Syntax:
+
+```markdown
     ALTER  TABLE table_name 
     DROP  COLUMN column_name;
 ```
 
+Example:
 
-```markdown Example:
+```markdown
     ALTER TABLE employee.employees
     DROP COLUMN resigned_date;
 ```
@@ -467,7 +494,9 @@ The basic syntax of an ALTER TABLE command to DROP COLUMN in an existing table i
 
 * **Adding constraints**
 
-```markdown Example:
+Example:
+
+```markdown
     ALTER TABLE employee.employees ADD UNIQUE (email);
 ```
 
@@ -477,7 +506,9 @@ It is very easy to drop an existing table, but you need to be very careful while
 
 <br>
 
-```markdown Syntax:
+Syntax:
+
+```markdown
     DROP DATABASE database_name;
 
     DROP  TABLE  table_name;
@@ -485,7 +516,9 @@ It is very easy to drop an existing table, but you need to be very careful while
 
 <br>
 
-```markdown Example:
+Example:
+
+```markdown
     /* to drop database */
     DROP DATABASE IF EXISTS EmployeeManagement;
 
@@ -502,13 +535,17 @@ TRUNCATE command removes all the records from a table. But this command will not
 
 <br>
 
-```markdown Syntax:
+Syntax:
+
+```markdown 
     TRUNCATE TABLE table_name ;
 ```
 
 <br>
 
-```markdown Example:
+Example:
+
+```markdown
     TRUNCATE TABLE employee.employees;
 ```
 
@@ -533,13 +570,17 @@ DML Commands are :
 
 <br>
 
-```markdown Syntax:
+Syntax:
+
+```markdown
 INSERT INTO table_name[(column[,column…..])] VALUES (value[,value….]);
 
 ```
 <br>
 
-```markdown Example :
+Example:
+
+```markdown 
 INSERT INTO employee.regions(region_id,region_name) VALUES (1,'Europe');
 ```
 
@@ -557,7 +598,9 @@ INSERT INTO employee.regions(region_id,region_name) VALUES (1,'Europe');
 
 <br>
 
-```markdown Syntax:
+Syntax:
+
+```markdown 
 UPDATE table_name
 SET column1 = value1, column2 = value2, ...
 WHERE condition;
@@ -565,7 +608,9 @@ WHERE condition;
 
 <br>
 
-```markdown Example:
+Example:
+
+```markdown
 UPDATE employee.employees
 SET first_name='steve'
 WHERE employee_id='100';
@@ -578,7 +623,9 @@ WHERE employee_id='100';
 
 <br>
 
-```markdown Syntax:
+Syntax:
+
+```markdown 
 /* Delete all record from table */
 DELETE FROM table_name;
 
@@ -588,8 +635,9 @@ DELETE FROM table_name WHERE condition;
 
 <br>
 
+Example:
 
-```markdown Example:
+```markdown 
 /* Delete all record from table */
 DELETE FROM employee.employees;
 
@@ -612,7 +660,9 @@ It is used to provide any user access privileges or other priviliges for the dat
 
 <br>
 
-```markdown Syntax:
+Syntax:
+
+```markdown 
 /* Grant read only to a User */
 GRANT SELECT ON table_name TO user_name;
 
@@ -622,7 +672,9 @@ GRANT INSERT, UPDATE, DELETE, SELECT ON table_name TO user_name;
 
 <br>
 
-```markdown Example:
+Example:
+
+```markdown
 /* Grant read only to a User */
 GRANT SELECT ON employee.employees TO user1;
 
@@ -636,7 +688,9 @@ It is used to take back the privileges from any user, use the REVOKE command.
 
 <br>
 
-```markdown Syntax:
+Syntax:
+
+```markdown
 /* revoke read only from a User */
 REVOKE SELECT ON table_name TO user_name;
 
@@ -646,7 +700,9 @@ REVOKE INSERT, UPDATE, DELETE, SELECT ON table_name TO user_name;
 
 <br>
 
-```markdown Example:
+Example:
+
+```markdown
 /* revoke read only from a User */
 GRANT SELECT ON employee.employees TO user1;
 
@@ -681,7 +737,9 @@ You can control the logic of transactions by using the
 
 <br>
 
-```markdown Syntax:
+Syntax:
+
+```markdown
 /* start a transaction */
 BEGIN TRANSACTION;
 
@@ -694,7 +752,9 @@ COMMIT;
 
 <br>
 
-```markdown Example:
+Example:
+
+```markdown
     BEGIN TRANSACTION;
     INSERT INTO employee.regions(region_id,region_name) VALUES ('7','Sri Lanka');
     COMMIT;
@@ -706,7 +766,9 @@ SAVEPOINT command is used to temporarily save a transaction so that you can roll
 
 <br>
 
-```markdown Syntax:
+Syntax:
+
+```markdown
 /* start a transaction */
 BEGIN TRANSACTION;
 SAVE TRANSACTION savepoint_name;
@@ -716,7 +778,9 @@ SAVE TRANSACTION savepoint_name;
 
 <br>
 
-```markdown Example:
+Example:
+
+```markdown
 BEGIN TRANSACTION;
 SAVE TRANSACTION TransactionA;
 INSERT INTO employee.regions(region_id,region_name) VALUES ('6','India');
@@ -729,12 +793,16 @@ INSERT INTO employee.regions(region_id,region_name) VALUES ('6','India');
 
 <br>
 
-```markdown Syntax:
+Syntax:
+
+```markdown
 ROLLBACK TRANSACTION savepoint_name;
 ```
 
 <br>
 
-```markdown Example:
+Example:
+
+```markdown
 ROLLBACK TRANSACTION TransactionA;
 ```
