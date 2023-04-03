@@ -597,3 +597,59 @@ DELETE FROM employee.employees;
 DELETE FROM employee.employees WHERE employee_id='100';
 ```
 
+## Data Control Language
+
+It is used to control privileges in Database. To perform any operation in the database, such as for creating tables, sequences or views, a user needs privileges. 
+
+The DCL statements are
+
+* GRANT
+* REVOKE 
+
+### Grant Command
+
+It is used to provide any user access privileges or other priviliges for the database.
+
+<br>
+
+```markdown Syntax:
+/* Grant read only to a User */
+GRANT SELECT ON table_name TO user_name;
+
+/* Grant insert,update,delete & select function to a user */
+GRANT INSERT, UPDATE, DELETE, SELECT ON table_name TO user_name;
+```
+
+<br>
+
+```markdown Example:
+/* Grant read only to a User */
+GRANT SELECT ON employee.employees TO user1;
+
+/* Grant insert,update,delete & select function to a user */
+GRANT INSERT, UPDATE, DELETE, SELECT ON employee.employees TO user1;
+```
+
+### Revoke Command
+
+It is used to take back the privileges from any user, use the REVOKE command.
+
+<br>
+
+```markdown Syntax:
+/* revokr read only from a User */
+REVOKE SELECT ON table_name TO user_name;
+
+/* revoke insert,update,delete & select function from a user */
+REVOKE INSERT, UPDATE, DELETE, SELECT ON table_name TO user_name;
+```
+
+<br>
+
+```markdown Example:
+/* revoke read only from a User */
+GRANT SELECT ON employee.employees TO user1;
+
+/* revoke insert,update,delete & select function from a user */
+GRANT INSERT, UPDATE, DELETE, SELECT ON employee.employees TO user1;
+```

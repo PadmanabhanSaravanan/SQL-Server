@@ -53,7 +53,6 @@ CREATE TABLE employee.employees (
 	department_id INT DEFAULT NULL,
 	FOREIGN KEY (job_id) REFERENCES employee.jobs (job_id) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (department_id) REFERENCES employee.departments (department_id) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (manager_id) REFERENCES employee.employees (employee_id)
 );
 
 CREATE TABLE employee.dependents (
