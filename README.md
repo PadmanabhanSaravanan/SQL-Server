@@ -511,3 +511,89 @@ TRUNCATE command removes all the records from a table. But this command will not
 ```markdown Example:
     TRUNCATE TABLE employee.employees;
 ```
+
+## Data Manipulation Langauage
+
+The DML commands in Structured Query Language change the data present in the SQL database. We can easily access, store, modify, update and delete the existing records from the database using DML commands.
+
+DML Commands are :
+
+* Insert Command
+* Update Command
+* Delete Command
+
+### Insert Command
+
+* The SQL INSERT INTO Statement is used to add new rows of data to a table in the database.
+* Only one row is inserted with this syntax.
+* Insert a new row containing values for each column.
+* List values in the default order of the columns in the table.
+* Optionally,list the columns in the insert clause.
+* Enclose character and data values within single quotation marks.
+
+<br>
+
+```markdown Syntax:
+INSERT INTO table_name[(column[,column…..])] VALUES (value[,value….]);
+
+```
+<br>
+
+```markdown Example :
+INSERT INTO employee.regions(region_id,region_name) VALUES (1,'Europe');
+```
+
+<br>
+
+**Methods of inserting null values:**
+
+* Implict:  Omit the column from the column list
+* Explicit:  Specify the null keyword in the values list,specify the empty string(‘’) in the values list for character strings and dates.
+
+### Update Command
+
+* The UPDATE Query is used to modify the existing records in a table. 
+* You can use the WHERE clause with the UPDATE query to update the selected rows, otherwise all the rows would be affected.
+
+<br>
+
+```markdown Syntax:
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+```
+
+<br>
+
+```markdown Example:
+UPDATE employee.employees
+SET first_name='steve'
+WHERE employee_id='100';
+```
+
+### Delete Command
+
+* The SQL DELETE Query is used to delete the existing records from a table.
+* You can use the WHERE clause with a DELETE query to delete the selected rows, otherwise all the records would be deleted. 
+
+<br>
+
+```markdown Syntax:
+/* Delete all record from table */
+DELETE FROM table_name;
+
+/* To Delete single record */
+DELETE FROM table_name WHERE condition;
+```
+
+<br>
+
+
+```markdown Example:
+/* Delete all record from table */
+DELETE FROM employee.employees;
+
+/* To Delete single record */
+DELETE FROM employee.employees WHERE employee_id='100';
+```
+
