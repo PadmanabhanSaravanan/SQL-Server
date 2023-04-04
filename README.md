@@ -1,6 +1,6 @@
 # SQL-Server
 
-![image sql-server-logo](/image/sql-server_logo.png)
+![image sql-server-logo](image/sql-server_logo.png)
 
 ## Introduction to SQLServer
 
@@ -26,7 +26,7 @@ In general, there are two common types of databases:
 
 In Non-RDBMS, data is stored in key-value pairs. For example:
 
-![image Non-RDBMS](/image/Nosql.png)
+![image Non-RDBMS](image/Nosql.png)
 
 Here, customers' data are stored in key-value pairs.
 
@@ -36,7 +36,7 @@ Commonly used Non-RDBMS: MongoDB, Amazon DynamoDB, Redis, etc.
 
 In RDBMS, data is stored in tabular format. For example,
 
-![image RDBMS](/image/rdbms.png)
+![image RDBMS](image/rdbms.png)
 
 Here, customers is a table inside the database.
 
@@ -44,7 +44,7 @@ The first row is the attributes of the table. Each row after that contains the d
 
 In RDBMS, two or more tables may be related to each other. Hence the term "Relational". For example,
 
-![image RDBMS](/image/related-tables.png)
+![image RDBMS](image/related-tables.png)
 
 Here, orders and customers are related through customer_id.
 
@@ -58,7 +58,7 @@ Similar to other RDBMS software, SQL Server is built on top of SQL, a standard p
 
 **SQL Server Architecture** 
 
-![image sql-arch](/image/sql-arch.jpg)
+![image sql-arch](image/sql-arch.jpg)
 
 SQL Server consists of two main components:
 
@@ -67,7 +67,7 @@ SQL Server consists of two main components:
 
 **Database Engine**
 
-![image database engine](/image/database-engine.jpg)
+![image database engine](image/database-engine.jpg)
 
 The core component of the SQL Server is the Database Engine. 
 
@@ -285,7 +285,7 @@ The ***FOREIGN KEY*** constraint is used to prevent actions that would destroy l
 
 A FOREIGN KEY is a field (or collection of fields) in one table, that refers to the ***PRIMARY KEY*** in another table.
 
-![image rdbms](/image/related-tables.png)
+![image rdbms](image/related-tables.png)
 
 <br>
 
@@ -1135,3 +1135,548 @@ FROM employee.employees
 WHERE manager_id is NOT NULL;
 ```
 
+## SQL SERVER FUNCTIONS
+
+### Aggregate functions
+
+SQL-Server aggregate functions retrieve a single value after performing a calculation on a set of values.
+
+<br>
+
+SQL Server provides various aggregate functions, and the most commonly used aggregate functions are shown in the below table:
+
+| **_Aggregate Function_** | **_Descriptions_**                                                                                   |
+|--------------------------|------------------------------------------------------------------------------------------------------|
+| COUNT()                  | This function counts the number of elements or rows, including NULL values in the defined set.       |
+| SUM()                    | This function calculates the total sum of all NON-NULL values in the given set.                      |
+| AVG()                    | This function performs a calculation on NON-NULL values to get the average of them in a defined set. |
+| MIN()                    | This function returns the minimum (lowest) value in a set.                                           |
+| MAX()                    | This function returns the maximum (highest) value in a set.                                          |
+
+<br>
+
+This table shows some other aggregate functions used in SQL Server:
+
+| **_Aggregate Function_** | **_Descriptions_**                                                                                                                                                                                       |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CHECKSUM_AGG             | It calculates the checksum of the values in a defined set.                                                                                                                                               |
+| COUNT_BIG()              | It counts the number of elements, including NULL values in a defined set. This function is the same as the COUNT() function, but it returns a BIG INT data type, whereas COUNT returns an INT data type. |
+| STDEV()                  | It calculates the statistical standard deviation of each value in the defined expression on the basis of a sample data population.                                                                       |
+| STDEVP()                 | It calculates the standard deviation for each value in the given expression on the basis of an entire data population.                                                                                   |
+| VAR()                    | It calculates the statistical variance of each element in the defined expression on the basis of a sample data population.                                                                               |
+| VARP()                   | It calculates the statistical variance of each element in the defined expression on the basis of an entire data population.                                                                              |
+| GROUPING()               | It signifies whether or not a GROUP BY lists specified column expression is aggregated. If the result set shows 1, it means the result set is aggregated and, if not, returns 0.                         |
+| GROUPING_ID()            | It is used to computes the level of grouping.                                                                                                                                                            |
+
+**COUNT**
+
+SQL Server COUNT() is an aggregate function that returns the number of items found in a set.
+
+Example:
+
+```markdown
+SELECT COUNT (*) AS total_employee FROM employee.employees;
+```
+
+**SUM**
+
+The SUM() function calculates the sum of a set of values.
+
+Example:
+
+```markdown
+SELECT SUM(salary) AS total_salary FROM employee.employees;
+```
+
+**AVG**
+
+The AVG() function returns the average value of an expression.
+
+Example:
+
+```markdown
+SELECT AVG(salary) AS avg_salary FROM employee.employees;
+```
+
+**MAX**
+
+The MAX() function returns the maximum value in a set of values.
+
+Example:
+
+```markdown
+SELECT MAX(salary) AS max_salary FROM employee.employees;
+```
+
+**MIN**
+
+The MIN() function returns the minimum value in a set of values.
+
+Example:
+
+```markdown
+SELECT MIN(salary) AS min_salary FROM employee.employees;
+```
+
+### String Functions
+
+SQL string functions are used primarily for string manipulation.
+
+The following table listed each of the functions with a brief description:
+
+| **_Function Name_** | **_Descriptions_**                                                                                                                                         |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ASCII               | This function displays the ASCII value of a character.                                                                                                     |
+| CHAR                | This function converts the specified integer code (ASCII) into a single-byte character.                                                                    |
+| CHARINDEX           | This function returns the first expression's starting position if a character expression is found inside a second character expression.                    |
+| CONCAT              | This function returns a single string by joining two or more strings.                                                                                      |
+| CONCAT_WS           | This function concatenates multiple strings into a single and spate them with a separator specified in the first position.                                 |
+| DIFFERENCE          | This function returns an integer value by comparing the two strings SOUNDEX() values.                                                                      |
+| FORMAT              | This function is used to change the text format of the string into any other format.                                                                       |
+| LEFT                | This function returns the substring from the left of the string to a specified number of characters.                                                       |
+| LEN                 | This function returns the number of characters in a string, including trailing spaces.                                                                     |
+| LOWER               | This function is used to convert the upper case character into lower case.                                                                                 |
+| LTRIM               | This function returns a string from a given string after removing all leading spaces.                                                                      |
+| NCHAR               | This function is used to get the Unicode character with the provided integer code based on the UNICODE standard.                                           |
+| PATINDEX            | This function returns the first occurrence of a pattern in a string's starting place. If the string is not found, it returns zero.                         |
+| QUOTENAME           | This function returns a Unicode string including the delimiters, converting the input string into a valid delimited identifier.                            |
+| REPLACE             | This function is used to replace all occurrences of the substring in a specified string with another string value.                                         |
+| REPLICATE           | This function repeats the string with the specified number of times.                                                                                       |
+| REVERSE             | This function displays the character string in reverse order.                                                                                              |
+| RIGHT               | This function returns the substring from the right of the string to a specified number of characters.                                                      |
+| RTRIM               | This function returns a string from a given string after removing all trailing spaces.                                                                     |
+| SOUNDEX             | It is used to calculate the similarity of two strings using a four-character (SOUNDEX) code.                                                               |
+| SPACE               | This function is used to finds the string of repeated spaces.                                                                                              |
+| STR                 | This function is used to return the character data converted from numeric data.                                                                            |
+| STRING_AGG          | This function concatenates the values of string expressions and inserts separator values in between. It does not add a separator at the end of the string. |
+| STRING_ESCAPE       | This function escapes special characters in a string and produces a new string containing the characters that were escaped.                                |
+| STRING_SPLIT        | It is a table-valued function that divides a string into rows of substrings using a separator of your choice.                                              |
+| STUFF               | This function removes a portion of a string and replaces it with another substring beginning at a specified position.                                      |
+| SUBSTRING           | This function extracts a substring from a string that begins at a specific position and ends at a specific length.                                         |
+| TRANSLATE           | This function combines several one-to-one translations into a single operation.                                                                            |
+| TRIM                | This function returns a new string after removing all leading and trailing blanks from a given string.                                                     |
+| UNICODE             | This function returns a character's integer value as defined by the Unicode standard.                                                                      |
+| UPPER               | This function converts the lower case character into the upper case.                                                                                       |
+
+**ASCII**
+
+The ASCII() function returns the ASCII value for the specific character.
+
+Example:
+
+```markdown
+SELECT ASCII('A') FROM employee.employees;
+SELECT first_name,ASCII(first_name) FROM employee.employees;
+```
+
+**CHARINDEX**
+
+The CHARINDEX() function searches for a substring in a string, and returns the position.
+
+Syntax:
+
+```markdown
+CHARINDEX(substring, string, start)
+```
+
+Example:
+
+```markdown
+SELECT CHARINDEX('l', 'Employee') AS Position;
+```
+
+**CONCAT**
+
+The CONCAT() function adds two or more strings together.
+
+Example:
+
+```markdown
+SELECT CONCAT('employee','name');
+```
+
+**SOUNDEX**
+
+The SOUNDEX() function returns a four-character code to evaluate the similarity of two expressions.
+
+Example:
+
+```markdown
+SELECT SOUNDEX('employee'), SOUNDEX('location');
+```
+
+**DIFFERENCE**
+
+The DIFFERENCE() function compares two SOUNDEX values, and returns an integer. The integer value indicates the match for the two SOUNDEX values, from 0 to 4.
+
+0 indicates weak or no similarity between the SOUNDEX values. 4 indicates strong similarity or identically SOUNDEX values.
+
+Example:
+
+```markdown
+SELECT DIFFERENCE('employee','student');
+SELECT DIFFERENCE('Juice','Jucy');
+```
+
+**LEFT**
+
+The LEFT() function extracts a number of characters from a string (starting from left).
+
+Example:
+
+```markdown
+SELECT LEFT (first_name, 2) AS ExtractString FROM employee.employees;
+```
+
+**RIGHT**
+
+The RIGHT() function extracts a number of characters from a string (starting from right).
+
+Example:
+
+```markdown
+SELECT RIGHT (first_name, 2) AS ExtractString FROM employee.employees;
+```
+
+**LOWER**
+
+The LOWER() function converts a string to lower-case.
+
+Example:
+
+```markdown
+SELECT LOWER('EMPLOYEE') AS lowercase;
+```
+
+**UPPER**
+
+The UPPER() function converts a string to upper-case.
+
+Example:
+
+```markdown
+SELECT UPPER('employee') AS uppercase;
+```
+
+**LTRIM**
+
+The LTRIM() function removes leading spaces from a string.
+
+Example:
+
+```markdown
+SELECT LTRIM('       Employee') AS lefttrim;
+```
+
+**RTRIM**
+
+The RTRIM() function removes trailing spaces from a string.
+
+Example:
+
+```markdown
+SELECT RTRIM('Employee     ')AS righttrim;
+```
+
+**QUOTENAME**
+
+The QUOTENAME() function returns a Unicode string with delimiters added to make the string a valid SQL Server delimited identifier.
+
+Example:
+
+```markdown
+SELECT QUOTENAME('Employee','()');
+```
+
+**REPLICATE**
+
+The REPLICATE() function repeats a string a specified number of times.
+
+Example:
+
+```markdown
+SELECT REPLICATE (first_name, 3) AS Replicate_name FROM employee.employees;
+```
+
+### Date Functions
+
+**Returning the current date and time**
+
+| **_Function_**    | **_Descriptions_**                                                                                                                            |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| CURRENT_TIMESTAMP | This function is used to get the current date and time values without including the time zone offset.                                         |
+| GETUTCDATE        | This function is used to get the current UTC date and time values as an integer.                                                              |
+| GETDATE           | This function is used to get the system's current date and time on which the SQL Server is installed.                                         |
+| SYSDATETIME       | This function is used to get the system's current date and time with more fractional second precision without including the time zone offset. |
+| SYSUTCDATETIME    | This function is used to get the system's current date and time value based on the UTC timestamp as an integer.                               |
+| SYSDATETIMEOFFSET | This function is used to get the system's current date and time with the time zone offset.                                                    |
+
+**Returning the date and time Parts**
+
+| **_Function_** | **_Descriptions_**                                                                               |
+|----------------|--------------------------------------------------------------------------------------------------|
+| DATENAME       | This function is used to get a portion of the date in day, month, or year as a character string. |
+| DATEPART       | This function is used to get the portion of the date as an integer number.                       |
+| DAY            | This function is used to get the day value from the input dates as an integer.                   |
+| MONTH          | This function is used to get the month value from the input dates as an integer.                 |
+| YEAR           | This function is used to get the year value from the input dates as an integer.                  |
+
+**Returning a difference between two dates**
+
+| **_Function_** | **_Descriptions_**                                                                   |
+|----------------|--------------------------------------------------------------------------------------|
+| DATEDIFF       | This function is to get the difference in a date part of the two input dates values. |
+
+**Modifying dates**
+
+| **_Function_**   | **_Descriptions_**                                                                                              |
+|------------------|-----------------------------------------------------------------------------------------------------------------|
+| DATEADD          | This function is used to add an integer value to a date part of the input dates and returns the new date value. |
+| EOMONTH          | This function is used to get the last day of the month with the specified date and an optional offset.          |
+| SWITCHOFFSET     | This function is used to modify the timezone offset of a datetime offset value and preserves the UTC value.     |
+| TODATETIMEOFFSET | This function is used to change the DATETIME2 value into a DATETIMEOFFSET value.                                |
+
+**Constructing date and time from their parts**
+
+| **_Function_**          | **_Descriptions_**                                                                    |
+|-------------------------|---------------------------------------------------------------------------------------|
+| DATEFROMPARTS           | This function is used to get a date value from the specified day, month, or year.     |
+| DATETIME2FROMPARTS      | This function is used to get a DATETIME2 value from the date and time arguments.      |
+| DATETIMEOFFSETFROMPARTS | This function is used to get a DATETIMEOFFSET value from the date and time arguments. |
+| TIMEFROMPARTS           | This function is used to get a time value from the time parts with precision.         |
+
+**Validating date and time values**
+
+| **_Function_** | **_Descriptions_**                                                                                                    |
+|----------------|-----------------------------------------------------------------------------------------------------------------------|
+| ISDATE         | This function is used to check the entered dates follows the standard format of date, time, or datetime value or not. |
+
+#### Returning the current date and time
+
+**CURRENT_TIMESTAMP()**
+
+The CURRENT_TIMESTAMP function returns the current date and time, in a 'YYYY-MM-DD hh:mm:ss.mmm' format.
+
+Example:
+
+```markdown
+SELECT CURRENT_TIMESTAMP AS currentDateAndTime;
+```
+
+**GETDATE()**
+
+The GETDATE() function returns the current database system date and time, in a 'YYYY-MM-DD hh:mm:ss.mmm' format.
+
+Example:
+
+```markdown
+SELECT GETDATE() AS currentDate;
+```
+
+**GETUTCDATE()**
+
+The GETUTCDATE() function returns the current database system UTC date and time, in a 'YYYY-MM-DD hh:mm:ss.mmm' format.
+
+Example:
+
+```markdown
+SELECT GETUTCDATE();
+```
+
+**SYSDATETIME**
+
+The SYSDATETIME() function returns the date and time of the computer where the SQL Server is running.
+
+Example:
+
+```markdown
+SELECT SYSDATETIME();
+```
+
+**SYSUTCDATETIME**
+
+The SYSUTCDATETIME() function returns the system's current date and time based on the UTC timestamp as an integer.
+
+Example:
+
+```markdown
+SELECT SYSUTCDATETIME() AS Date;  
+```
+
+**SYSDATETIMEOFFSET()**
+
+The SYSDATETIMEOFFSET() function returns the system's current date and time with the timezone offset.
+
+Example:
+
+```markdown
+SELECT SYSDATETIMEOFFSET() AS Date;  
+```
+
+#### Returning the date and time Parts
+
+**DATENAME()**
+
+This function is used to get a portion of the date in day, month, or year as a character string.
+
+Example:
+
+```markdown
+SELECT DATENAME(yy, '2017/08/25') AS DatePartString;
+SELECT DATENAME(month, '2017/08/25') AS DatePartString;
+SELECT DATENAME(hour, '2017/08/25 08:36') AS DatePartString;
+SELECT DATENAME(minute, '2017/08/25 08:36') AS DatePartString;
+SELECT DATENAME(second, '2017/08/25 08:36:58') AS DatePartString;
+```
+
+**DATEPART()**
+
+This function is used to get the portion of the date as an integer number.
+
+Example:
+
+```markdown
+SELECT DATEPART(yy, '2017/08/25') AS DatePartString;
+SELECT DATEPART(month, '2017/08/25') AS DatePartString;
+```
+
+**YEAR()**
+
+This function is used to get the year value from the input dates as an integer.
+
+Example:
+
+```markdown
+SELECT YEAR(hire_date) AS year FROM employee.employees;
+```
+
+**MONTH()**
+
+This function is used to get the month value from the input dates as an integer.
+
+Example:
+
+```markdown
+SELECT MONTH(hire_date) AS month FROM employee.employees;
+```
+
+**DAY()**
+
+This function is used to get the day value from the input dates as an integer.  
+
+Example:
+
+```markdown
+SELECT DAY(hire_date) AS day FROM employee.employees;
+```
+
+#### Returning a difference between two dates
+
+**DATEDIFF**
+
+This function is to get the difference in a date part of the two input dates values.
+
+Example:
+
+```markdown
+SELECT DATEDIFF(hour, '2017/08/25 07:00', '2017/08/30 12:45') AS HourDiff;
+SELECT DATEDIFF(month, '2011/08/25', '2017/08/25') AS MonthDiff;
+SELECT DATEDIFF(day, '2011/08/25', '2011/08/30') AS MonthDiff;
+```
+
+#### Modifying dates
+
+**DATEADD()**
+
+This function is used to add an integer value to a date part of the input dates and returns the new date value.
+
+Example:
+
+```markdown
+SELECT DATEADD(year, 11, hire_date) AS YearAdd FROM employee.employees;
+```
+
+**EOMONTH**
+
+This function is used to get the last day of the month with the specified date and an optional offset.   
+
+Example:
+
+```markdown
+SELECT EOMONTH(hire_date) AS EndDateoftheMonth FROM employee.employees;
+```
+
+**SWITCHOFFSET**
+
+This function is used to modify the timezone offset of a datetime offset value and preserves the UTC value.
+
+Example:
+
+```markdown
+SELECT SWITCHOFFSET(hire_date,'-05:00') AS result FROM employee.employees;
+```
+
+**TODATETIMEOFFSET**
+
+This function is used to change the DATETIME2 value into a DATETIMEOFFSET value. 
+
+Example:
+
+```markdown
+SELECT TODATETIMEOFFSET(GETDATE(),'-05:00') AS result,TODATETIMEOFFSET(GETDATE(),180);
+```
+
+#### Constructing date and time from their parts
+
+**DATEFROMPARTS**
+
+This function is used to get a date value from the specified day, month, or year.
+
+Example:
+
+```markdown
+SELECT DATEFROMPARTS(2023, 04, 04) AS Result1, DATEFROMPARTS(2023, NULL, 04) AS Result2;  
+```
+
+**DATETIME2FROMPARTS**
+
+This function is used to get a DATETIME2 value from the date and time arguments.
+
+Example:
+
+```markdown
+SELECT DATETIME2FROMPARTS ( 2023, 10, 31, 11, 59, 59, 0, 0 ) AS Result1,  DATETIME2FROMPARTS(2023, NULL, 31, 11, 59, 59, 0, 0) AS Result2;    
+```
+
+**DATETIMEOFFSETFROMPARTS**
+
+This function is used to get a DATETIMEOFFSET value from the date and time arguments.
+
+Example:
+
+```markdown
+SELECT DATETIMEOFFSETFROMPARTS(2023, 10, 11, 20, 35, 30, 4000, 10, 30, 4) AS Result1,  
+DATETIMEOFFSETFROMPARTS(NULL, 10, 11, 20, 35, 30, 4000, 10, 30, 4) AS Result2;  
+```
+
+**TIMEFROMPARTS**
+
+This function is used to get a time value from the time parts with precision.
+
+Example:
+
+```markdown
+SELECT TIMEFROMPARTS(20, 55, 59, 55, 3) AS Result1,  TIMEFROMPARTS(10, NULL, 19, 5, 2) AS Result2;  
+```
+
+#### Validating date and time values
+
+**ISDATE**
+
+This function is used to check the entered dates follows the standard format of date, time, or datetime value or not.
+
+Example:
+
+```markdown
+SELECT ISDATE('2020-25-01') AS Result1, ISDATE('2020-12-06') AS Result2;
+```
