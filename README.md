@@ -809,13 +809,13 @@ ROLLBACK TRANSACTION TransactionA;
 
 ## Data Query/Retrival Language(DQL/DRL)
 
-***SELECT*** statement is used to retrieve the information from database using select statement you can do the following
+**SELECT** statement is used to retrieve the information from database using select statement you can do the following
 
 * **Projection**: It is used to choose columns in a table that you want returned by the query.
 
 * **Selection**: It is used to choose rows in a table that you want returned by your query.
 
-* **Joining**: You can choose the join capability in SQL to bring together data that is stored in            different tables by creating a link between them.
+* **Joining**: You can choose the join capability in SQL to bring together data that is stored in different tables by creating a link between them.
 
 <br>
 
@@ -900,11 +900,11 @@ SELECT DISTINCT manager_id FROM employee.employees;
 * Condition is composed of column names ,expressions constants ,and a comparison operator.
 * Where consists of three elements.
 
-        => column name
+        -> column name
 
-        => comparison condition
+        -> comparison condition
 
-        => column name, constant or list of values
+        -> column name, constant or list of values
 
 * Character strings and date values are enclosed in single quotation marks.
 * The WHERE clause is not only used in the SELECT statement, but it is also used in the UPDATE, DELETE statement, etc.,
@@ -927,9 +927,9 @@ SELECT first_name + ' ' + last_name AS 'full_name' FROM employee.employees WHERE
 
 * We sort rows by using order by clause .
 
-        => ASC: ascending order , default
+        -> ASC: ascending order , default
 
-        => DSC: descending order.
+        -> DSC: descending order.
 
 * The order by clause comes last in the select statement.
 * Order by clause is executed last in the query execution .it is placed last unless the for update clause is used.
@@ -1680,3 +1680,43 @@ Example:
 ```markdown
 SELECT ISDATE('2020-25-01') AS Result1, ISDATE('2020-12-06') AS Result2;
 ```
+
+### Windows Function
+
+Window functions operate on a set of rows and return a single aggregated value for each row. The term Window describes the set of rows in the database on which the function will operate.
+
+<br>
+
+| **_Name_**   | **_Description_**                                                                                           |
+|--------------|-------------------------------------------------------------------------------------------------------------|
+| DENSE_RANK   | Assign a rank value to each row within a partition of a result, with no gaps in rank values.                |
+| FIRST_VALUE  | Get the value of the first row in an ordered partition of a result set.                                     |
+| LAG          | Provide access to a row at a given physical offset that comes before the current row.                       |
+| LAST_VALUE   | Get the value of the last row in an ordered partition of a result set.                                      |
+| LEAD         | Provide access to a row at a given physical offset that follows the current row.                            |
+| NTILE        | Distribute rows of an ordered partition into a number of groups or buckets                                  |
+| PERCENT_RANK | Calculate the percent rank of a value in a set of values.                                                   |
+| RANK         | Assign a rank value to each row within a partition of a result set                                          |
+| ROW_NUMBER   | Assign a unique sequential integer to rows within a partition of a result set, the first row starts from 1. |
+
+
+**DENSE_RANK**
+
+Assign a rank value to each row within a partition of a result, with no gaps in rank values.
+
+Example:
+
+```markdown
+SELECT first_name,last_name,
+       DENSE_RANK() OVER (ORDER BY salary) AS Rank_No 
+	   FROM employee.employees;
+```
+
+**FIRST_VALUE**
+
+Get the value of the first row in an ordered partition of a result set.  
+
+Example:
+
+
+
