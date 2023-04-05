@@ -4,53 +4,108 @@
 
 ## Introduction to SQLServer
 
-### What is Database ?
+* [**What is Database**](#what-is-database) <!-- style="font-size:20px" -->
+* [**What is SQL Server**](#what-is-sql-server) <!-- style="font-size:20px" -->
+* [**Installation of SQL Server**](#installation-of-sql-server) <!-- style="font-size:20px" -->
 
-A database is an organized collection of data so that it can be easily accessed. To manage these databases, **Database Management Systems (DBMS)** are used.
+### What is Database
 
+> A database is a systematic collection of data. They support electronic storage and manipulation of data. Databases make data management easy.
 
+{{1-2}}
+> **Types of Databases**
+> <br>
+> <hr>
+> <li> [Centralized Database](#centralized-database) </li> 
+> <li> [Distributed Databse](#distributed-databse) </li>
+> <li> [NoSql Database](#nosql-database) </li>
+> <li> [Cloud Database](#cloud-database) </li>
+> <li> [Relational Database](#relational-database) </li>
+> <li> [Network Database](#network-database) </li>
+> <li> [Object-Oriented Database](#object-oriented-database) </li>
+> <li> [Hierarchical Database](#hierarchical-database) </li>
 
-**Database Management System**
+#### Centralized Database
 
-Database management System is software which is used to store and retrieve the database.
+> A centralized database is stored at a single location such as a mainframe computer. It is maintained and modified from that location only and usually accessed using an internet connection such as a LAN or WAN. The centralized database is used by organisations such as colleges, companies, banks etc.
 
-**Types of DBMS**
+![img centralized](image/Centralized.png)
 
-In general, there are two common types of databases:
+#### Distributed Databse
 
-* Non-Relational
+> A distributed database is basically a database that is not limited to one system, it is spread over different sites, i.e, on multiple computers or over a network of computers.
 
-* Relational
+![img distributed](image/distributed.jpg)
 
-**Non-Relational Database Management System (Non-RDBMS)**
+#### NoSql Database
 
-In Non-RDBMS, data is stored in key-value pairs. For example:
+> NoSQL Database is a non-relational Data Management System, that does not require a fixed schema.
 
-![image Non-RDBMS](image/Nosql.png)
+![img nosql](image/Nosql-1.png)
 
-Here, customers' data are stored in key-value pairs.
+#### Cloud Database
 
-Commonly used Non-RDBMS: MongoDB, Amazon DynamoDB, Redis, etc.
+> A cloud database is a database service built and accessed through a cloud platform. It serves many of the same functions as a traditional database with the added flexibility of cloud computing.
 
-**Relational Database Management System**
+![img cloud](image/cloud.png)
 
-In RDBMS, data is stored in tabular format. For example,
+#### Relational Database
 
-![image RDBMS](image/rdbms.png)
+> A relational database organizes data into rows and columns, which collectively form a table. Data is typically structured across multiple tables, which can be joined together via a primary key or a foreign key.
 
-Here, customers is a table inside the database.
+![img relational](image/relational.png)
 
-The first row is the attributes of the table. Each row after that contains the data of a customer.
+#### Network Database
 
-In RDBMS, two or more tables may be related to each other. Hence the term "Relational". For example,
+> A network database is a type of database model wherein multiple member records or files can be linked to multiple owner files and vice versa.
 
-![image RDBMS](image/related-tables.png)
+![img network](image/network.png)
 
-Here, orders and customers are related through customer_id.
+#### Object-Oriented Database
 
-Commonly used RDBMS: MySQL, PostgreSQL, MSSQL, Oracle etc.
+> object-oriented database management system is the data model in which data is stored in form of objects, which are instances of classes. These classes and objects together make an object-oriented data model.
 
-### What is SQL Server ?
+![img oops](image/oops.png)
+
+#### Hierarchical Database
+
+> A hierarchical model represents the data in a tree-like structure in which there is a single parent for each record.
+
+![img Hierarchical](image/hierarchical.png)
+
+### **What is Database Management System**
+
+> Database management System is software which is used to store and retrieve the database.
+
+> **Types of DBMS**
+> <br>
+> In general, there are two common types of databases:
+> <br>
+> <li> Non-Relational </li>
+> <li> Relational </li>
+
+> **Non-Relational Database Management System (Non-RDBMS)**
+> <br>
+> In Non-RDBMS, data is stored in key-value pairs. For example:
+> ![image Non-RDBMS](image/Nosql.png)
+> Here, customers' data are stored in key-value pairs.
+> <br>
+> Commonly used Non-RDBMS: MongoDB, Amazon DynamoDB, Redis, etc.
+
+> **Relational Database Management System**
+> In RDBMS, data is stored in tabular format. For example,
+> ![image RDBMS](image/rdbms.png)
+> Here, customers is a table inside the database.
+> <br>
+> The first row is the attributes of the table. Each row after that contains the data of a customer.
+> <br>
+> In RDBMS, two or more tables may be related to each other. Hence the term "Relational". For example,
+> ![image RDBMS](image/related-tables.png)
+> Here, orders and customers are related through customer_id.
+> <br>
+> Commonly used RDBMS: MySQL, PostgreSQL, MSSQL, Oracle etc.
+
+### What is SQL Server
 
 SQL Server is a relational database management system, or RDBMS, developed and marketed by Microsoft.
 
@@ -76,24 +131,6 @@ The Database Engine consists of a relational engine that processes queries and a
 **SQLOS**(SQL Server Operating System)
 
 SQLOS provides many operating system services such as memory and I/O management. Other services include exception handling and synchronization services.
-
-### Difference between MySql and MS Sql Server
-
-**MySQL** is an open source Relational Database Management System (RDBMS) based on Structured Query Language (SQL). It runs on platforms like Linux, UNIX and Windows.
-
-**SQL Server** is owned and developed by Microsoft Corporation. The primary function of SQL Server is the storage and access of data as it is required by other applications, whether they are running on other computers that are connected to a network, or the computer on which the server is stored.
-
-
-|                                          **_MS SQL Server_**                                          |                                                 **_MySQL_**                                                 |
-|:-----------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|
-| Developed by Microsoft.                                                                         | Developed by Oracle.                                                                                  |
-| It supports programming languages like C++, JAVA, Ruby, Visual Basic, Delphi, R etc.            | MySQL offers extended running support for languages like Perl, Tcl, Haskey etc.                       |
-| Expects a large amount of operational storage space.                                            | Expects less amount of operational storage space.                                                     |
-| It enables for stopping query execution.                                                        | It doesn’t allow query cancellation mid-way in the process.                                           |
-| Doesn’t block the database while backing up the data.                                           | Blocks the database while backing up the data.                                                        |
-| It is not free.                                                                                 | It is open source. It is freely available.                                                            |
-| It is a highly secured and doesn’t allow any kind of database file manipulation while running.  | It allows database file manipulation while running.                                                   |
-| It is available in multiple editions, such as Enterprise, Standard, Web, Workgroup, or Express. | It is available in MySQL Standard Edition, MySQL Enterprise Edition, and MySQL Cluster Grade Edition. |
 
 ### Installation of SQL Server
 <br>
