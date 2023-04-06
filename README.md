@@ -73,38 +73,6 @@
 
 ![img Hierarchical](image/hierarchical.png)
 
-### **What is Database Management System**
-
-> Database management System is software which is used to store and retrieve the database.
-
-> **Types of DBMS**
-> <br>
-> In general, there are two common types of databases:
-> <br>
-> <li> Non-Relational </li>
-> <li> Relational </li>
-
-> **Non-Relational Database Management System (Non-RDBMS)**
-> <br>
-> In Non-RDBMS, data is stored in key-value pairs. For example:
-> ![image Non-RDBMS](image/Nosql.png)
-> Here, customers' data are stored in key-value pairs.
-> <br>
-> Commonly used Non-RDBMS: MongoDB, Amazon DynamoDB, Redis, etc.
-
-> **Relational Database Management System**
-> In RDBMS, data is stored in tabular format. For example,
-> ![image RDBMS](image/rdbms.png)
-> Here, customers is a table inside the database.
-> <br>
-> The first row is the attributes of the table. Each row after that contains the data of a customer.
-> <br>
-> In RDBMS, two or more tables may be related to each other. Hence the term "Relational". For example,
-> ![image RDBMS](image/related-tables.png)
-> Here, orders and customers are related through customer_id.
-> <br>
-> Commonly used RDBMS: MySQL, PostgreSQL, MSSQL, Oracle etc.
-
 ### What is SQL Server
 
 SQL Server is a relational database management system, or RDBMS, developed and marketed by Microsoft.
@@ -135,8 +103,130 @@ SQLOS provides many operating system services such as memory and I/O management.
 ### Installation of SQL Server
 <br>
 
-For complete installation guide [click here](https://github.com/PadmanabhanSwayaan/SQL-Server/blob/sqlserver-v15.0/pdf/SQL-Server-Installation-Guide.pdf)
+* [**Normal Installation**](#normal-installation) 
+* [**Docker SQL Server Installation**](#docker-sql-server-installation)
 
+#### Normal Installation 
+
+* [**Download SQL-Server**](#download-sql-server)
+* [**Install SQL-Server**](#install-sql-server)
+* [**Install SQL-Server Management Studio**](#install-sql-server-management-studio)
+* [**Connect to SQL-Server**](#connect-to-sql-server)
+
+##### Download SQL-Server
+
+{{1-4}}
+> **Step 1:** Go to the official page through this URL: https://www.microsoft.com/en-in/sql-server/sql-server-downloads.
+
+{{2-4}}
+> **Step 2:** Sekect the Developer version ,Click on the "Download now" button. Immediately the SQL Server setup starts downloading on our system.
+> ![image sql-step1](image/sql-step-1.PNG)
+
+{{3-4}}
+> **Step 3:** Once the file has been downloaded, we will get the setup named "SQL2022-SSEI-DEV.exe."
+> ![image sql-step2](image/sql-step-2.PNG)
+
+##### Install SQL-server
+
+{{1-15}}
+> **Step 1:** Double click on "SQL2022-SSEI-DEV.exe" setup file. We will get the below screen with three options: Basic, Custom, and Download Media files. Here, we will select the 'Basic' option to install the basic version that includes all of the default configurations needed to learn Microsoft SQL Server.
+> ![image install-sql-server](image/install-ms-sql-step1.png)
+
+{{2-15}}
+> **Step 2:** Next, the installer will ask where to save the download. Once selected press Install.
+> <br>
+> ![image install-sql-server](image/install-ms-sql-server2.png)
+
+{{3-15}}
+> **Step 3:** This will download and run the install package.
+> ![image install-sql-server](image/install-ms-sql-server3.png)
+
+{{4-15}}
+> **Step 4:** The SQL Server Installation Center will open after the download completes and on the Installation page, we have the following install options:
+> ![image install-sql-server](image/install-ms-sql-server4.png)
+> We will pick "New SQL Server stand-alone installation or add features to an existing installation".
+
+{{5-15}}
+> **Step 5:** On the next screen, you can enter a product key or use a free edition. The free evaluation edition is good for 180 days, which is what we will use.
+> ![image install-sql-server](image/install-ms-sql-server5.png)
+
+{{6-15}}
+> **Step 6:** Read the license terms to make sure that you agree and press Next.
+> ![image install-sql-server](image/install-ms-sql-server6.png)
+
+{{7-15}}
+> **Step 7:** The Microsoft Update can check if there are updates. You can enable this option and Microsoft Update will check for updates. Press Next to continue.
+> ![image install-sql-server](image/install-ms-sql-server7.png)
+
+{{8-15}}
+> **Step 8:** The install rules window verifies possible problems during the installation.
+> ![image install-sql-server](image/install-ms-sql-server8.png)
+
+{{9-15}}
+> **Step 9:** Feature Selection, Select Database Engine Service
+> ![image install-sql-server](image/install-ms-sql-server10.png)
+
+{{10-15}}
+> **Step 10:** In the instance configuration, we enter a name to be used for the SQL Server instance.
+> ![image install-sql-server](image/install-ms-sql-server11.png)
+
+{{11-15}}
+> **Step 11:** The server configuration allows creating or adding service accounts for the different services used by SQL Server. You can use the defaults or create new accounts with custom security and passwords to run the services.
+> ![image install-sql-server](image/install-ms-sql-server12.png)
+
+{{12-15}}
+> **Step 12:** The database engine configuration allows you to configure several parts of the installation.
+> ![image install-sql-server](image/install-ms-sql-server13.png)
+
+{{13-15}}
+> **Step 13:** Once everything is configured, you can check the configuration and press the Install button to continue.
+> ![image install-sql-server](image/install-ms-sql-server14.png)
+
+{{14-15}}
+> **Step 14:** If everything is successful, MS SQL Server 2022 will be installed, and the relational database management system is ready for use.
+> ![image install-sql-server](image/install-ms-sql-server15.png)
+
+##### Install SQL-Server Management Studio
+
+{{1-5}}
+> **Step 1:** Click to download sql server management studio from below link
+> <br>
+> https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16
+> <br>
+> double-click the installation file SSMS-Setup-ENU.exe to launch the SSM installer. The installation process of SMSS is straightforward. you need to follow the screen sequence.
+
+{{2-5}}
+> **Step 2:** Click the Install button
+> ![image install-sql-server](image/install-SSMS-step-1-1.png)
+
+{{3-5}}
+> **Step 3:** Wait for a few minutes while the installer sets up the software:
+> ![image install-sql-server](image/install-SSMS-step-2-1.png)
+
+{{4-5}}
+> **Step 4:** Once setup is completed, click the Close button:
+> ![image install-sql-server](image/install-SSMS-step-3-1.png)
+> Now, you should have SQL Server 2022  and SQL Server Management Studio installed on your computer.
+
+##### Connect to SQL Server
+
+{{1-5}}
+> **Step 1:** First, launch the Microsoft SQL Server Management Studio from the Start menu:
+> ![image connect-sql-server](image/SSMS-connect-to-SQL-Server.png)
+
+{{2-5}}
+> **Step 2:** Next, from the Connect menu under the Object Explorer, choose the Database Engine…
+> ![image connect-sql-server](image/SSMS-connect-to-SQL-Server-2.png)
+
+{{3-5}}
+> **Step 3:** Then, enter the information for the Server name (localhost), Authentication (SQL Server Authentication), and password for the  sa user and click the Connect button to connect to the SQL Server. Note that you should use the sa user and password that you entered during the installation.
+> ![image connect-sql-server](image/SSMS-connect-to-SQL-Server-3.png)
+
+{{4-5}}
+> **Step 4:** if the connection is established successfully, then you will see the following Object Explorer panel:
+> ![image connect-sql-server](image/SSMS-connect-to-SQL-Server-4.png)
+
+#### Docker SQL Server Installation
 
 ## Data Types
 
