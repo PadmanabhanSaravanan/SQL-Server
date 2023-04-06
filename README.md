@@ -237,7 +237,7 @@ SQLOS provides many operating system services such as memory and I/O management.
 >  **Step 2:** Now that you’ve installed Docker, you can open up the terminal and supply the following command to check if Docker has been successfully installed on your device:
 > <br>
 >  <p style="padding: 10px; border: 2px solid black; background-color:white;"> docker -v </p>
-> ![image docker](image/docker-1.png)
+> ![image docker](image/docker-1.jpg)
 
 {{3-6}}
 > **Step 3:** As you can see from the figure above, Docker has been installed successfully and you can see the installed version as well. With Docker up and running, the next step is to pull the official SQL Server Docker image from Docker Hub and get down to brass tacks.
@@ -245,19 +245,19 @@ SQLOS provides many operating system services such as memory and I/O management.
 > Next, you will be creating a directory for this exercise and opening the terminal in that directory. Once in the directory, run the command given below to pull the docker image from the repository to your local device:
 > <br>
 >  <p style="padding: 10px; border: 2px solid black; background-color:white;"> docker pull mcr.microsoft.com/mssql/server </p>
-> ![image docker](image/docker-2.png)
+> ![image docker](image/docker-2.jpg)
 
 {{4-6}}
 > **Step 4:** Once the SQL Server Docker Image has been pulled and extracted, you need to start the SQL Server Docker Container for this image. A Container in Docker is a running instance of the Docker image that can be started by performing the command as follows:
 > <br>
 > <p style="padding: 10px; border: 2px solid black; background-color:white;"> docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" -p 1433:1433 --name sql1 --hostname sql1 -d mcr.microsoft.com/mssql/server:2022-latest </p>
-> ![image docker](image/docker-3.png)
+> ![image docker](image/docker-3.jpg)
 
 {{5-6}}
 > **Step 5:** As visible from the figure above, on running the command as mentioned in the previous step, an ID is returned. This is the unique ID of the SQL Server Docker Container that is currently running the SQL Server Instance. You can also verify the containers that currently running by leveraging the command as follows:
 > <br>
 > <p style="padding: 10px; border: 2px solid black; background-color:white;"> docker container ls </p>
-> ![image docker](image/docker-4.png)
+> ![image docker](image/docker-4.jpg)
 
 ## Data Types
 
