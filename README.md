@@ -263,7 +263,30 @@ SQLOS provides many operating system services such as memory and I/O management.
 > <br>
 > ![image docker](image/docker-4.jpg)
 
+## Data Objects 
+
+| **_Object_**          | **_Description_**                                                         |
+|-----------------------|---------------------------------------------------------------------------|
+|     Table             |     Basic   unit of storage composed     of rows and columns              |
+|     View              |     Logically   represents subsets of     data from one or more tables    |
+|     Sequence Index    |     Numeric value generator                                               |
+|     Index             |     Improves   the performance of     some queries                        |
+|     Synonym           |     Gives   alternative names to     objects                              |
+| Schema                | collection of database objects associated with a database                 |
+
 ## Data Types
+
+A Data Type in SQL server is defined as the type of data that any column or variable can store. It is a type of data that an object holds like integer, character, string, etc.
+
+The Different types of datatypes are :
+
+* [**Exact Numeric**](#exact-numeric)
+* [**Approximate Numeric**](#approximate-numeric)
+* [**Date & Time**](#date-and-time)
+* [**Character Strings**](#character-strings)
+* [**Unicode Character Strings**](#unicode-character-strings)
+* [**Binary Strings**](#binary-strings)
+* [**Other DataTypes**](#other-data-type)
 
 ### Exact Numeric 
 <br>
@@ -290,7 +313,7 @@ SQLOS provides many operating system services such as memory and I/O management.
 | float(n)      | Used for a floating precision number | −1.79E+308      | 1.79E+308       | Depends on the value of n | 7 Digit       |
 | real          | Used for a floating precision number | −3.40E+38       | 3.40E+38        | 4 bytes                   | 15 Digit      |
 
-### Date & Time
+### Date and Time
 <br>
 
 <!-- data-transpose data-type="none" -->
@@ -715,6 +738,12 @@ Example:
 
 The DML commands in Structured Query Language change the data present in the SQL database. We can easily access, store, modify, update and delete the existing records from the database using DML commands.
 
+<br>
+
+| **_Object_**          | **_Description_**                                                         |
+|-----------------------|---------------------------------------------------------------------------|
+|     Table             |     Basic   unit of storage composed     of rows and columns              |
+
 DML Commands are :
 
 * Insert Command
@@ -811,6 +840,17 @@ DELETE FROM employee.employees WHERE employee_id='100';
 
 It is used to control privileges in Database. To perform any operation in the database, such as for creating tables, sequences or views, a user needs privileges. 
 
+<br>
+
+| **_Object_**          | **_Description_**                                                         |
+|-----------------------|---------------------------------------------------------------------------|
+|     Table             |     Basic   unit of storage composed     of rows and columns              |
+|     View              |     Logically   represents subsets of     data from one or more tables    |
+|     Sequence Index    |     Numeric value generator                                               |
+|     Index             |     Improves   the performance of     some queries                        |
+|     Synonym           |     Gives   alternative names to     objects                              |
+| Schema                | collection of database objects associated with a database                 |
+
 The DCL statements are
 
 * GRANT
@@ -876,7 +916,7 @@ GRANT INSERT, UPDATE, DELETE, SELECT ON employee.employees TO user1;
 
 **Database Transactions:**
 
-A transaction begins with the first statement is encounterd and ends when one of the following occurs.
+A transaction begins with the first statement is encounterd and ends when one of the following occurs.This command is used to manage changes to DML statements.
 
 * A commit or rollback statement is issued.
 * A DDL statement, such as create is issued.
@@ -1296,6 +1336,10 @@ SELECT employee_id,first_name,manager_id
 FROM employee.employees
 WHERE manager_id is NOT NULL;
 ```
+
+## Joins 
+
+
 
 ## SQL SERVER FUNCTIONS
 
