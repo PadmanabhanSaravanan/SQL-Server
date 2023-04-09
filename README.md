@@ -265,6 +265,10 @@ SQLOS provides many operating system services such as memory and I/O management.
 
 ## Data Objects 
 
+A database object is any defined object in a database that is used to store or reference data.Anything which we make from create command is known as Database Object.It can be used to hold and manipulate the data.Some of the examples of database objects are : view, sequence, indexes, etc.
+
+<br>
+
 | **_Object_**          | **_Description_**                                                         |
 |-----------------------|---------------------------------------------------------------------------|
 |     Table             |     Basic   unit of storage composed     of rows and columns              |
@@ -1339,7 +1343,123 @@ WHERE manager_id is NOT NULL;
 
 ## Joins 
 
+SQL Server (Transact-SQL) JOINS are used to retrieve data from multiple tables. A SQL Server JOIN is performed whenever two or more tables are joined in a SQL statement.
 
+There are 4 different types of SQL Server joins:
+
+* [INNER JOIN](#inner-join) 
+* [LEFT JOIN](#left-join) 
+* [RIGHT JOIN](#right-join)
+* [FULL JOIN](#full-join)
+
+### INNER JOIN
+
+The INNER JOIN keyword selects records that have matching values in both tables.
+
+Syntax:
+
+```markdown
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+```
+
+<br>
+
+Example:
+
+```markdown
+SELECT departments.location_id,locations.city
+FROM employee.departments
+INNER JOIN employee.locations
+ON departments.location_id = locations.location_id;
+```
+
+Output:
+
+![image output](image/output1.PNG)
+
+### LEFT JOIN
+
+The LEFT JOIN keyword returns all records from the left table (table1), and the matching records from the right table (table2). The result is 0 records from the right side, if there is no match.
+
+Syntax:
+
+```markdown
+SELECT column_name(s)
+FROM table1
+LEFT JOIN table2
+ON table1.column_name = table2.column_name;
+```
+
+Example:
+
+```markdown
+SELECT departments.location_id,locations.city
+FROM employee.locations
+LEFT JOIN employee.departments
+ON locations.location_id = departments.location_id;
+```
+
+Output:
+
+![image output](image/output2.PNG)
+
+### RIGHT JOIN
+
+The RIGHT JOIN keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is 0 records from the left side, if there is no match.
+
+Syntax:
+
+```markdown
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name;
+```
+
+Example:
+
+```markdown
+SELECT employees.employee_id, employees.first_name AS Parent ,dependents.first_name AS Child
+FROM employee.employees
+RIGHT JOIN employee.dependents
+ON employees.employee_id = dependents.employee_id
+ORDER BY employees.employee_id ASC;
+```
+
+Output:
+
+![image output](image/output3.PNG)
+
+### FULL JOIN
+
+The FULL JOIN keyword returns all records when there is a match in left (table1) or right (table2) table records.
+
+Syntax:
+
+```markdown
+SELECT column_name(s)
+FROM table1
+FULL JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition;
+```
+
+Example:
+
+```markdown
+SELECT employees.employee_id, employees.first_name AS Parent ,dependents.first_name AS Child
+FROM employee.employees
+FULL JOIN employee.dependents
+ON employees.employee_id = dependents.employee_id
+ORDER BY employees.employee_id;
+```
+
+Output:
+
+![image output](image/output4.PNG)
 
 ## SQL SERVER FUNCTIONS
 
