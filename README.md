@@ -1872,6 +1872,105 @@ Output:
 
 ![image output](image/output22.PNG)
 
+## SQL-Server IF ELSE Statement
+
+The IF...ELSE statement is a control-flow statement that allows you to execute based on a specified condition.
+
+Syntax:
+
+```markdown
+IF boolean_expression   
+BEGIN
+    { statement_block }
+END
+```
+
+Example:
+
+```markdown
+DECLARE @marks INT = 30 ;  
+  
+IF @marks >= 45  
+BEGIN  
+   PRINT 'Congratulations! You pass the Examination';  
+END  
+ELSE 
+BEGIN 
+     PRINT 'You failed in Examination';
+END
+```
+
+Output:
+
+![image output](image/output23.PNG)
+
+![image output](image/output24.PNG)
+
+## SQL-Server WHILE Loop
+
+The WHILE statement is a control-flow statement that allows you to execute a statement block repeatedly as long as a specified condition is TRUE.
+
+Syntax:
+
+```markdown
+WHILE Boolean_expression   
+BEGIN
+     { sql_statement | statement_block}  
+END
+```
+
+Example:
+
+```markdown
+DECLARE @count INT = 10;
+
+WHILE @count <= 13
+BEGIN
+    PRINT @count;
+    SET @count = @count + 1;
+END;
+PRINT 'Query Executed';
+```
+
+Output:
+
+![image output](image/output25.PNG)
+
+## SQL-Server BREAK
+
+We use WHILE statement to create a loop,To exit the current iteration of a loop use the BREAK statement.
+
+Syntax:
+
+```markdown
+WHILE Boolean_expression
+BEGIN
+    -- statements
+   IF condition
+        BREAK;
+    -- other statements    
+END
+```
+
+Example:
+
+```markdown
+DECLARE @count INT = 10;
+
+WHILE @count <= 20
+BEGIN
+	SET @count = @count + 1;
+	IF (@count =15)
+	BREAK;
+    PRINT @count;
+END;
+PRINT 'Query Executed';
+```
+
+Output:
+
+![image output](image/output26.PNG)
+
 ## SQL SERVER FUNCTIONS
 
 ### Aggregate functions
