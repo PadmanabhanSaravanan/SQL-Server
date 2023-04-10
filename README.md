@@ -1883,14 +1883,6 @@ Output:
     2. Read only: Not updatable
     3. Nonscrollable: Can be traversed only in one direction and cannot skip rows
 
-To use cursors in SQL-Server procedures, you need to do the following:
-
-1. Declare a cursor. 
-2. Open a cursor. 
-3. Fetch the data into variables. 
-4. Close the cursor when done.
-5. Deallocate the cursor
-
 SQL Server Cursor Life Cycle:
 
 ![image cursor](image/SQL-Server-Cursor.png)
