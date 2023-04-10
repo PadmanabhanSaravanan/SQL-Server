@@ -1872,6 +1872,130 @@ Output:
 
 ![image output](image/output22.PNG)
 
+## SQL-Server Cursor
+
+* A database cursor is a control structure that enables traversal over the records in a database. Cursors are used by database programmers to process individual rows returned by database system queries. 
+* Cursors enable manipulation of whole result sets at once. In this scenario, a cursor enables the rows in a result set to be processed sequentially. 
+* In SQL procedures, a cursor makes it possible to define a result set (a set of data rows) and perform complex logic on a row by row basis. 
+* MySQL supports cursors inside stored programs. The syntax is as in embedded SQL. Cursors have these properties
+
+    1. Asensitive: The server may or may not make a copy of its result table
+    2. Read only: Not updatable
+    3. Nonscrollable: Can be traversed only in one direction and cannot skip rows
+
+To use cursors in SQL-Server procedures, you need to do the following:
+
+1. Declare a cursor. 
+2. Open a cursor. 
+3. Fetch the data into variables. 
+4. Close the cursor when done.
+5. Deallocate the cursor
+
+SQL Server Cursor Life Cycle:
+
+![image cursor](image/SQL-Server-Cursor.png)
+
+### To use cursors in SQL-Server procedures
+
+**Declare a cursor:**
+
+The following statement declares a cursor and associates it with a SELECT statement that retrieves the rows to be traversed by the cursor.
+
+```markdown
+DECLARE cursor_name 
+CURSOR FOR select_statement
+```
+
+**Open a cursor:**
+
+The following statement opens a previously declared cursor.
+
+```markdown
+OPEN cursor_name
+```
+
+**Fetch the data into variables :**
+
+This statement fetches the next row for the SELECT statement associated with the specified cursor (which must be open) and advances the cursor pointer.
+
+If a row exists, the fetched columns are stored in the named variables. The number of columns retrieved by the SELECT statement must match the number of output variables specified in the FETCH statement.
+
+```markdown
+FETCH NEXT FROM cursor INTO variable_list;
+```
+
+**Close the cursor when done :**
+
+This statement closes a previously opened cursor. An error occurs if the cursor is not open.
+
+```markdown
+CLOSE cursor_name
+```
+
+**Deallocate the cursor:**
+
+It is used to delete a cursor and releases all resources used by cursor.
+
+```markdown
+DEALLOCATE cursor_name
+```
+
+### Example:
+
+```markdown
+DECLARE @employeeid int;
+DECLARE @employeename nvarchar(30);
+
+DECLARE EmployeeCursor CURSOR FOR 
+SELECT employee_id, first_name+' '+last_name AS employeename FROM employee.employees where employee_id <= 150
+
+OPEN EmployeeCursor 
+
+FETCH NEXT FROM EmployeeCursor INTO @employeeid,@employeename
+
+WHILE(@@FETCH_STATUS = 0)
+BEGIN 
+	PRINT 'Id = ' + CAST(@employeeid as NVARCHAR(10))+'  ' + 'Name = ' + @employeename
+
+	FETCH NEXT FROM EmployeeCursor INTO @employeeid,@employeename
+END
+
+CLOSE EmployeeCursor
+
+DEALLOCATE EmployeeCursor
+```
+
+Output:
+
+![image output](image/output28.PNG)
+
+### Example 2:
+
+```markdown
+DECLARE @employeename nvarchar(30);
+DECLARE @employeesalary decimal;
+
+DECLARE EmployeeCursor CURSOR FOR 
+SELECT first_name+' '+last_name AS employeename,salary FROM employee.employees where employee_id <= 108
+
+OPEN EmployeeCursor 
+
+FETCH NEXT FROM EmployeeCursor INTO @employeename,@employeesalary
+
+WHILE(@@FETCH_STATUS = 0)
+BEGIN 
+	PRINT @employeename +' = ' + CAST(@employeesalary AS varchar)
+
+	FETCH NEXT FROM EmployeeCursor INTO @employeename,@employeesalary
+END
+
+CLOSE EmployeeCursor
+
+DEALLOCATE EmployeeCursor
+```
+
+![image output](image/output29.PNG)
+
 ## SQL-Server IF ELSE Statement
 
 The IF...ELSE statement is a control-flow statement that allows you to execute based on a specified condition.
