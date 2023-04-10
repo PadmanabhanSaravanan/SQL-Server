@@ -1556,6 +1556,117 @@ Output:
 
 ![image output](image/output7.PNG)
 
+## Stored Procedure
+
+* A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+* So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.
+* You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.
+
+### Create Procedure
+
+A procedure is created with the CREATE PROCEDURE statement. 
+
+Syntax:
+
+```markdown
+CREATE PROCEDURE procedure_name
+AS
+BEGIN
+sql_statement
+END;
+```
+
+Example:
+
+```markdown
+CREATE PROCEDURE employee.emoloyee_children
+AS
+BEGIN
+SELECT employees.employee_id, employees.first_name AS Parent ,dependents.first_name AS Child
+FROM employee.employees
+FULL JOIN employee.dependents
+ON employees.employee_id = dependents.employee_id;
+END;
+```
+
+Output:
+
+![image output](image/output8.PNG)
+
+### Execute Procedure
+
+A Procedure is executed using EXECUTE OR EXEC statement.
+
+Syntax:
+
+```markdown
+EXEC procedure_name;
+```
+
+Example:
+
+```markdown
+EXEC employee.emoloyee_children;
+```
+
+Output:
+
+![image output](image/output9.PNG)
+
+### Alter Procedure
+
+A Procedure is modified using ALTER PROCEDURE statement.
+
+Syntax:
+
+```markdown
+ALTER PROCEDURE procedure_name
+AS
+BEGIN
+sql_statement
+END;
+```
+
+Example:
+
+```markdown
+ALTER PROCEDURE employee.emoloyee_children
+AS
+BEGIN
+SELECT employees.employee_id, employees.first_name+' '+employees.last_name AS Parent ,dependents.first_name AS Child
+FROM employee.employees
+FULL JOIN employee.dependents
+ON employees.employee_id = dependents.employee_id;
+END;
+```
+Output:
+
+![image output](image/output10.PNG)
+
+Executing procedure after altering procudere:
+
+![image output](image/output11.PNG)
+
+### Drop Procedure
+
+A Procedure is droped using DROP PROCEDURE statement.
+
+Syntax:
+
+```markdown
+DROP PROCEDURE procedure_name
+```
+
+Example:
+
+```markdown
+DROP PROCEDURE employee.emoloyee_children;
+```
+
+Output:
+
+![image output](image/output12.PNG)
+
 ## SQL SERVER FUNCTIONS
 
 ### Aggregate functions
