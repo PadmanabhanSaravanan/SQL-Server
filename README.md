@@ -1812,7 +1812,65 @@ Output:
 
 ![image output](image/output20.PNG)
 
+### Stored Procedure Variable
 
+A variable is an object that holds a single value of a specific type e.g., integer, date, or varying character string.
+
+* Declaring a variable
+
+To declare a variable use the DECLARE statement.
+
+```markdown
+DECLARE @min_salary DECIMAL;
+```
+
+* Assigning a value to a variable
+
+To assign value to variable use SET statement.
+
+```markdown
+SET @min_salary = 0;
+```
+
+Example:
+
+```markdown
+CREATE PROCEDURE employee.variable(@name AS VARCHAR(max))
+AS
+BEGIN
+
+DECLARE @min_salary DECIMAL;
+DECLARE @max_salary DECIMAL;
+
+SET @min_salary = 0;
+SET @max_salary = 15000;
+
+     SELECT
+        first_name,
+		last_name,
+        salary
+    FROM 
+    employee.employees    
+      WHERE
+        salary >= @min_salary AND
+		salary <= @max_salary AND
+		first_name LIKE '%' + @name + '%'
+    ORDER BY
+        salary;
+END;
+```
+
+Execute Query:
+
+```markdown
+EXEC employee.variable @name='ha';
+```
+
+Output:
+
+![image output](image/output21.PNG)
+
+![image output](image/output22.PNG)
 
 ## SQL SERVER FUNCTIONS
 
