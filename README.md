@@ -1284,7 +1284,7 @@ WHERE salary>=5000;
 
 #### BETWEEN AND
 
-* BETWEEN and AND are actually translated by the mysql server to a pair of AND conditions (a>=lower limit) AND (a<= higher limit).
+* BETWEEN and AND are actually translated by the sql server server to a pair of AND conditions (a>=lower limit) AND (a<= higher limit).
 * Using BETWEEN AND has no performance benefits, and it is used logical simplicity.
 
 Example:
@@ -1299,7 +1299,7 @@ WHERE salary BETWEEN 1000 AND 10000;
 
 * It is used to test the values in a list. IN condition is also known as member ship condition
 * If characters or dates are used in a list they must be enclosed in a single quotation marks .
-* IN is actually translated by a mysql server to a set of OR conditions a=value1 or a= value2 or a=value3.
+* IN is actually translated by a sql server to a set of OR conditions a=value1 or a= value2 or a=value3.
 * Using IN has no performance benefits ,and is used for logical simplicity.
 
 Example:
@@ -1877,7 +1877,7 @@ Output:
 * A database cursor is a control structure that enables traversal over the records in a database. Cursors are used by database programmers to process individual rows returned by database system queries. 
 * Cursors enable manipulation of whole result sets at once. In this scenario, a cursor enables the rows in a result set to be processed sequentially. 
 * In SQL procedures, a cursor makes it possible to define a result set (a set of data rows) and perform complex logic on a row by row basis. 
-* MySQL supports cursors inside stored programs. The syntax is as in embedded SQL. Cursors have these properties
+* SQL Server supports cursors inside stored programs. The syntax is as in embedded SQL. Cursors have these properties
 
     1. Asensitive: The server may or may not make a copy of its result table
     2. Read only: Not updatable
