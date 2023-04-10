@@ -1971,6 +1971,41 @@ Output:
 
 ![image output](image/output26.PNG)
 
+## SQL-Server CONTINUE
+
+The CONTINUE statement stops the current iteration of the loop and starts the new one. 
+
+Syntax:
+
+```markdown
+WHILE Boolean_expression
+BEGIN
+    -- code to be executed
+    IF condition
+        CONTINUE;
+    -- code will be skipped if the condition is met
+END
+```
+
+Example:
+
+```markdown
+DECLARE @count INT = 10;
+
+WHILE @count < 15
+BEGIN
+	SET @count = @count + 1;
+	IF (@count =13)
+	CONTINUE;
+    PRINT @count;
+END;
+PRINT 'Query Executed';
+```
+
+Output: 
+
+![image output](image/output27.PNG)
+
 ## SQL SERVER FUNCTIONS
 
 ### Aggregate functions
