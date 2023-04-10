@@ -1887,7 +1887,7 @@ SQL Server Cursor Life Cycle:
 
 ![image cursor](image/SQL-Server-Cursor.png)
 
-### To use cursors in SQL-Server procedures
+### To use cursors in SQL-Server Procedures
 
 **Declare a cursor:**
 
@@ -1935,56 +1935,44 @@ DEALLOCATE cursor_name
 ### Example:
 
 ```markdown
-DECLARE @employeeid int;
-DECLARE @employeename nvarchar(30);
+CREATE PROCEDURE employee.employeesalary(@salary AS Decimal,@name AS VARCHAR(max))
+AS
+BEGIN
 
 DECLARE EmployeeCursor CURSOR FOR 
-SELECT employee_id, first_name+' '+last_name AS employeename FROM employee.employees where employee_id <= 150
+SELECT first_name+' '+last_name AS full_name,salary FROM employee.employees
+WHERE
+		salary <= salary AND
+		first_name LIKE '%' + @name + '%'
 
 OPEN EmployeeCursor 
 
-FETCH NEXT FROM EmployeeCursor INTO @employeeid,@employeename
+FETCH NEXT FROM EmployeeCursor INTO @name,@salary
 
 WHILE(@@FETCH_STATUS = 0)
 BEGIN 
-	PRINT 'Id = ' + CAST(@employeeid as NVARCHAR(10))+'  ' + 'Name = ' + @employeename
 
-	FETCH NEXT FROM EmployeeCursor INTO @employeeid,@employeename
+	PRINT @name +' = ' + CAST(@salary AS varchar)
+
+	FETCH NEXT FROM EmployeeCursor INTO @name,@salary
 END
 
 CLOSE EmployeeCursor
 
 DEALLOCATE EmployeeCursor
+
+END;
+```
+
+Execute Query:
+
+```markdown
+EXEC employee.employeesalary 15000,'jo';
 ```
 
 Output:
 
 ![image output](image/output28.PNG)
-
-### Example 2:
-
-```markdown
-DECLARE @employeename nvarchar(30);
-DECLARE @employeesalary decimal;
-
-DECLARE EmployeeCursor CURSOR FOR 
-SELECT first_name+' '+last_name AS employeename,salary FROM employee.employees where employee_id <= 108
-
-OPEN EmployeeCursor 
-
-FETCH NEXT FROM EmployeeCursor INTO @employeename,@employeesalary
-
-WHILE(@@FETCH_STATUS = 0)
-BEGIN 
-	PRINT @employeename +' = ' + CAST(@employeesalary AS varchar)
-
-	FETCH NEXT FROM EmployeeCursor INTO @employeename,@employeesalary
-END
-
-CLOSE EmployeeCursor
-
-DEALLOCATE EmployeeCursor
-```
 
 ![image output](image/output29.PNG)
 
