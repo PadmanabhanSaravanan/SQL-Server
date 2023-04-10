@@ -1461,6 +1461,101 @@ Output:
 
 ![image output](image/output4.PNG)
 
+## Views
+
+* View is a data object which does not contain any data. 
+* Contents of the view are the resultant of a base table. They are operated just like base table but they don’t contain any data of their own. 
+* The difference between a view and a table is that views are definitions built on top of other tables (or views).
+* If data is changed in the underlying table, the same change is reflected in the view. 
+* A view can be built on top of a single or multiple tables.
+* Views can have column names and expressions.
+* You can use any clauses in views.
+* Views can be used in INSERT/UPDATE/DELETE.
+* Views can contain expressions in the select list.
+
+View Commands are:
+
+* [Create View](#create-view)
+* [Alter View](#alter-view)
+* [Drop View](#drop-view)
+
+### Create View 
+
+A view is created with the CREATE VIEW statement. 
+
+Syntax:
+
+```markdown 
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+Example:
+
+```markdown
+USE Employee;
+GO
+
+CREATE VIEW employee.employee_relationship AS
+SELECT employees.employee_id, employees.first_name AS Parent ,dependents.first_name AS Child
+FROM employee.employees
+FULL JOIN employee.dependents
+ON employees.employee_id = dependents.employee_id;
+```
+
+Output:
+
+![image output](image/output5.PNG)
+
+### Alter View 
+
+A view can be updated with the ALTER VIEW statement.
+
+Syntax:
+
+```markdown
+ALTER VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+Example:
+
+```markdown
+ALTER VIEW employee.employee_relationship AS
+SELECT employees.employee_id, employees.first_name AS Parent,employees.last_name ,dependents.first_name AS Child
+FROM employee.employees
+FULL JOIN employee.dependents
+ON employees.employee_id = dependents.employee_id;
+```
+
+Output:
+
+![image output](image/output6.PNG)
+
+### Drop View
+
+A view is deleted with the DROP VIEW statement.
+
+Syntax:
+
+```markdown
+DROP VIEW view_name;
+```
+
+Example:
+
+```markdown
+DROP VIEW employee.employee_relationship;
+```
+
+Output:
+
+![image output](image/output7.PNG)
+
 ## SQL SERVER FUNCTIONS
 
 ### Aggregate functions
