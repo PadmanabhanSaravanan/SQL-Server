@@ -1667,6 +1667,153 @@ Output:
 
 ![image output](image/output12.PNG)
 
+### Stored Procedure Parameter
+
+* [Creating a stored procedure with one parameter](#creating-a-stored-procedure-with-one-parameter)
+* [Creating a stored procedure with multiple parameters](#creating-a-stored-procedure-with-multiple-parameters)
+* [Creating text parameters](#creating-text-parameters)
+* [Creating optional parameters](#creating-optional-parameters)
+
+#### Creating a stored procedure with one parameter
+
+Example:
+
+```markdown
+CREATE PROCEDURE employee.minsalary(@min_salary AS DECIMAL)
+AS
+BEGIN
+    SELECT
+        first_name+' '+last_name AS full_name,
+        salary
+    FROM 
+    employee.employees    
+      WHERE
+        salary >= @min_salary
+    ORDER BY
+        salary;
+END;
+```
+
+Execute Query:
+
+```markdown
+EXEC employee.minsalary 10000;
+```
+
+Output:
+
+![image output](image/output13.PNG)
+
+![image output](image/output14.PNG)
+
+#### Creating a stored procedure with multiple parameters
+
+Example:
+
+```markdown
+CREATE PROCEDURE employee.salary(@min_salary AS DECIMAL,@max_salary AS DECIMAL)
+AS
+BEGIN
+    SELECT
+        first_name+' '+last_name AS full_name,
+        salary
+    FROM 
+    employee.employees    
+      WHERE
+        salary >= @min_salary AND
+		salary <= @max_salary
+    ORDER BY
+        salary;
+END;
+```
+
+Execute Query:
+
+```markdown
+EXEC employee.salary 5000,10000;
+```
+
+Output:
+
+![image output](image/output15.PNG)
+
+![image output](image/output16.PNG)
+
+#### Creating text parameters
+
+Example:
+
+```markdown
+CREATE PROCEDURE employee.name(@min_salary AS DECIMAL,
+                               @max_salary AS DECIMAL,
+							   @name AS VARCHAR(max))
+AS
+BEGIN
+    SELECT
+        first_name,
+        salary
+    FROM 
+    employee.employees    
+      WHERE
+        salary >= @min_salary AND
+		salary <= @max_salary AND
+		first_name LIKE '%' + @name + '%'
+    ORDER BY
+        salary;
+END;
+```
+
+Execute Query:
+
+```markdown
+EXEC employee.name 5000,10000,'ALEX';
+```
+
+Output:
+
+![image output](image/output17.PNG)
+
+![image output](image/output18.PNG)
+
+#### Creating optional parameters
+
+Example:
+
+```markdown
+CREATE PROCEDURE employee.optionalprocedure(@min_salary AS DECIMAL = 0,
+                               @max_salary AS DECIMAL = 15000,
+							   @name AS VARCHAR(max))
+AS
+BEGIN
+    SELECT
+        first_name,
+		last_name,
+        salary
+    FROM 
+    employee.employees    
+      WHERE
+        salary >= @min_salary AND
+		salary <= @max_salary AND
+		first_name LIKE '%' + @name + '%'
+    ORDER BY
+        salary;
+END;
+```
+
+Execute Query:
+
+```markdown
+EXEC employee.optional @min_salary = 0, @max_salary = 15000 , @name = 'jo';
+```
+
+Output:
+
+![image output](image/output19.PNG)
+
+![image output](image/output20.PNG)
+
+
+
 ## SQL SERVER FUNCTIONS
 
 ### Aggregate functions
