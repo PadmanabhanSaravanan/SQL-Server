@@ -2531,22 +2531,7 @@ SQL Server provides various aggregate functions, and the most commonly used aggr
 | MIN()                    | This function returns the minimum (lowest) value in a set.                                           |
 | MAX()                    | This function returns the maximum (highest) value in a set.                                          |
 
-<br>
-
-This table shows some other aggregate functions used in SQL Server:
-
-| **_Aggregate Function_** | **_Descriptions_**                                                                                                                                                                                       |
-|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CHECKSUM_AGG             | It calculates the checksum of the values in a defined set.                                                                                                                                               |
-| COUNT_BIG()              | It counts the number of elements, including NULL values in a defined set. This function is the same as the COUNT() function, but it returns a BIG INT data type, whereas COUNT returns an INT data type. |
-| STDEV()                  | It calculates the statistical standard deviation of each value in the defined expression on the basis of a sample data population.                                                                       |
-| STDEVP()                 | It calculates the standard deviation for each value in the given expression on the basis of an entire data population.                                                                                   |
-| VAR()                    | It calculates the statistical variance of each element in the defined expression on the basis of a sample data population.                                                                               |
-| VARP()                   | It calculates the statistical variance of each element in the defined expression on the basis of an entire data population.                                                                              |
-| GROUPING()               | It signifies whether or not a GROUP BY lists specified column expression is aggregated. If the result set shows 1, it means the result set is aggregated and, if not, returns 0.                         |
-| GROUPING_ID()            | It is used to computes the level of grouping.                                                                                                                                                            |
-
-**COUNT**
+#### **COUNT**
 
 SQL Server COUNT() is an aggregate function that returns the number of items found in a set.
 
@@ -2556,7 +2541,7 @@ Example:
 SELECT COUNT (*) AS total_employee FROM employee.employees;
 ```
 
-**SUM**
+#### **SUM**
 
 The SUM() function calculates the sum of a set of values.
 
@@ -2566,7 +2551,7 @@ Example:
 SELECT SUM(salary) AS total_salary FROM employee.employees;
 ```
 
-**AVG**
+#### **AVG**
 
 The AVG() function returns the average value of an expression.
 
@@ -2576,7 +2561,7 @@ Example:
 SELECT AVG(salary) AS avg_salary FROM employee.employees;
 ```
 
-**MAX**
+#### **MAX**
 
 The MAX() function returns the maximum value in a set of values.
 
@@ -2586,7 +2571,7 @@ Example:
 SELECT MAX(salary) AS max_salary FROM employee.employees;
 ```
 
-**MIN**
+#### **MIN**
 
 The MIN() function returns the minimum value in a set of values.
 
@@ -2636,7 +2621,7 @@ The following table listed each of the functions with a brief description:
 | UNICODE             | This function returns a character's integer value as defined by the Unicode standard.                                                                      |
 | UPPER               | This function converts the lower case character into the upper case.                                                                                       |
 
-**ASCII**
+#### **ASCII**
 
 The ASCII() function returns the ASCII value for the specific character.
 
@@ -2647,7 +2632,7 @@ SELECT ASCII('A') FROM employee.employees;
 SELECT first_name,ASCII(first_name) FROM employee.employees;
 ```
 
-**CHARINDEX**
+#### **CHARINDEX**
 
 The CHARINDEX() function searches for a substring in a string, and returns the position.
 
@@ -2663,7 +2648,7 @@ Example:
 SELECT CHARINDEX('l', 'Employee') AS Position;
 ```
 
-**CONCAT**
+#### **CONCAT**
 
 The CONCAT() function adds two or more strings together.
 
@@ -2673,7 +2658,7 @@ Example:
 SELECT CONCAT('employee','name');
 ```
 
-**SOUNDEX**
+#### **SOUNDEX**
 
 The SOUNDEX() function returns a four-character code to evaluate the similarity of two expressions.
 
@@ -2683,7 +2668,7 @@ Example:
 SELECT SOUNDEX('employee'), SOUNDEX('location');
 ```
 
-**DIFFERENCE**
+#### **DIFFERENCE**
 
 The DIFFERENCE() function compares two SOUNDEX values, and returns an integer. The integer value indicates the match for the two SOUNDEX values, from 0 to 4.
 
@@ -2696,7 +2681,7 @@ SELECT DIFFERENCE('employee','student');
 SELECT DIFFERENCE('Juice','Jucy');
 ```
 
-**LEFT**
+#### **LEFT**
 
 The LEFT() function extracts a number of characters from a string (starting from left).
 
@@ -2706,7 +2691,7 @@ Example:
 SELECT LEFT (first_name, 2) AS ExtractString FROM employee.employees;
 ```
 
-**RIGHT**
+#### **RIGHT**
 
 The RIGHT() function extracts a number of characters from a string (starting from right).
 
@@ -2716,7 +2701,7 @@ Example:
 SELECT RIGHT (first_name, 2) AS ExtractString FROM employee.employees;
 ```
 
-**LOWER**
+#### **LOWER**
 
 The LOWER() function converts a string to lower-case.
 
@@ -2726,7 +2711,7 @@ Example:
 SELECT LOWER('EMPLOYEE') AS lowercase;
 ```
 
-**UPPER**
+#### **UPPER**
 
 The UPPER() function converts a string to upper-case.
 
@@ -2736,7 +2721,7 @@ Example:
 SELECT UPPER('employee') AS uppercase;
 ```
 
-**LTRIM**
+#### **LTRIM**
 
 The LTRIM() function removes leading spaces from a string.
 
@@ -2746,7 +2731,7 @@ Example:
 SELECT LTRIM('       Employee') AS lefttrim;
 ```
 
-**RTRIM**
+#### **RTRIM**
 
 The RTRIM() function removes trailing spaces from a string.
 
@@ -2756,7 +2741,7 @@ Example:
 SELECT RTRIM('Employee     ')AS righttrim;
 ```
 
-**QUOTENAME**
+#### **QUOTENAME**
 
 The QUOTENAME() function returns a Unicode string with delimiters added to make the string a valid SQL Server delimited identifier.
 
@@ -2766,7 +2751,7 @@ Example:
 SELECT QUOTENAME('Employee','()');
 ```
 
-**REPLICATE**
+#### **REPLICATE**
 
 The REPLICATE() function repeats a string a specified number of times.
 
@@ -2829,9 +2814,7 @@ SELECT REPLICATE (first_name, 3) AS Replicate_name FROM employee.employees;
 |----------------|-----------------------------------------------------------------------------------------------------------------------|
 | ISDATE         | This function is used to check the entered dates follows the standard format of date, time, or datetime value or not. |
 
-#### Returning the current date and time
-
-**CURRENT_TIMESTAMP()**
+#### **CURRENT_TIMESTAMP()**
 
 The CURRENT_TIMESTAMP function returns the current date and time, in a 'YYYY-MM-DD hh:mm:ss.mmm' format.
 
@@ -2841,7 +2824,7 @@ Example:
 SELECT CURRENT_TIMESTAMP AS currentDateAndTime;
 ```
 
-**GETDATE()**
+#### **GETDATE()**
 
 The GETDATE() function returns the current database system date and time, in a 'YYYY-MM-DD hh:mm:ss.mmm' format.
 
@@ -2851,7 +2834,7 @@ Example:
 SELECT GETDATE() AS currentDate;
 ```
 
-**GETUTCDATE()**
+#### **GETUTCDATE()**
 
 The GETUTCDATE() function returns the current database system UTC date and time, in a 'YYYY-MM-DD hh:mm:ss.mmm' format.
 
@@ -2861,7 +2844,7 @@ Example:
 SELECT GETUTCDATE();
 ```
 
-**SYSDATETIME**
+#### **SYSDATETIME**
 
 The SYSDATETIME() function returns the date and time of the computer where the SQL Server is running.
 
@@ -2871,7 +2854,7 @@ Example:
 SELECT SYSDATETIME();
 ```
 
-**SYSUTCDATETIME**
+#### **SYSUTCDATETIME**
 
 The SYSUTCDATETIME() function returns the system's current date and time based on the UTC timestamp as an integer.
 
@@ -2881,7 +2864,7 @@ Example:
 SELECT SYSUTCDATETIME() AS Date;  
 ```
 
-**SYSDATETIMEOFFSET()**
+#### **SYSDATETIMEOFFSET()**
 
 The SYSDATETIMEOFFSET() function returns the system's current date and time with the timezone offset.
 
@@ -2891,9 +2874,7 @@ Example:
 SELECT SYSDATETIMEOFFSET() AS Date;  
 ```
 
-#### Returning the date and time Parts
-
-**DATENAME()**
+#### **DATENAME()**
 
 This function is used to get a portion of the date in day, month, or year as a character string.
 
@@ -2907,7 +2888,7 @@ SELECT DATENAME(minute, '2017/08/25 08:36') AS DatePartString;
 SELECT DATENAME(second, '2017/08/25 08:36:58') AS DatePartString;
 ```
 
-**DATEPART()**
+#### **DATEPART()**
 
 This function is used to get the portion of the date as an integer number.
 
@@ -2918,7 +2899,7 @@ SELECT DATEPART(yy, '2017/08/25') AS DatePartString;
 SELECT DATEPART(month, '2017/08/25') AS DatePartString;
 ```
 
-**YEAR()**
+#### **YEAR()**
 
 This function is used to get the year value from the input dates as an integer.
 
@@ -2928,7 +2909,7 @@ Example:
 SELECT YEAR(hire_date) AS year FROM employee.employees;
 ```
 
-**MONTH()**
+#### **MONTH()**
 
 This function is used to get the month value from the input dates as an integer.
 
@@ -2938,7 +2919,7 @@ Example:
 SELECT MONTH(hire_date) AS month FROM employee.employees;
 ```
 
-**DAY()**
+#### **DAY()**
 
 This function is used to get the day value from the input dates as an integer.  
 
@@ -2948,9 +2929,7 @@ Example:
 SELECT DAY(hire_date) AS day FROM employee.employees;
 ```
 
-#### Returning a difference between two dates
-
-**DATEDIFF**
+#### **DATEDIFF**
 
 This function is to get the difference in a date part of the two input dates values.
 
@@ -2962,9 +2941,7 @@ SELECT DATEDIFF(month, '2011/08/25', '2017/08/25') AS MonthDiff;
 SELECT DATEDIFF(day, '2011/08/25', '2011/08/30') AS MonthDiff;
 ```
 
-#### Modifying dates
-
-**DATEADD()**
+#### **DATEADD()**
 
 This function is used to add an integer value to a date part of the input dates and returns the new date value.
 
@@ -2974,7 +2951,7 @@ Example:
 SELECT DATEADD(year, 11, hire_date) AS YearAdd FROM employee.employees;
 ```
 
-**EOMONTH**
+#### **EOMONTH**
 
 This function is used to get the last day of the month with the specified date and an optional offset.   
 
@@ -2984,7 +2961,7 @@ Example:
 SELECT EOMONTH(hire_date) AS EndDateoftheMonth FROM employee.employees;
 ```
 
-**SWITCHOFFSET**
+#### **SWITCHOFFSET**
 
 This function is used to modify the timezone offset of a datetime offset value and preserves the UTC value.
 
@@ -2994,7 +2971,7 @@ Example:
 SELECT SWITCHOFFSET(hire_date,'-05:00') AS result FROM employee.employees;
 ```
 
-**TODATETIMEOFFSET**
+#### **TODATETIMEOFFSET**
 
 This function is used to change the DATETIME2 value into a DATETIMEOFFSET value. 
 
@@ -3004,9 +2981,7 @@ Example:
 SELECT TODATETIMEOFFSET(GETDATE(),'-05:00') AS result,TODATETIMEOFFSET(GETDATE(),180);
 ```
 
-#### Constructing date and time from their parts
-
-**DATEFROMPARTS**
+#### **DATEFROMPARTS**
 
 This function is used to get a date value from the specified day, month, or year.
 
@@ -3016,7 +2991,7 @@ Example:
 SELECT DATEFROMPARTS(2023, 04, 04) AS Result1, DATEFROMPARTS(2023, NULL, 04) AS Result2;  
 ```
 
-**DATETIME2FROMPARTS**
+#### **DATETIME2FROMPARTS**
 
 This function is used to get a DATETIME2 value from the date and time arguments.
 
@@ -3026,7 +3001,7 @@ Example:
 SELECT DATETIME2FROMPARTS ( 2023, 10, 31, 11, 59, 59, 0, 0 ) AS Result1,  DATETIME2FROMPARTS(2023, NULL, 31, 11, 59, 59, 0, 0) AS Result2;    
 ```
 
-**DATETIMEOFFSETFROMPARTS**
+#### **DATETIMEOFFSETFROMPARTS**
 
 This function is used to get a DATETIMEOFFSET value from the date and time arguments.
 
@@ -3037,7 +3012,7 @@ SELECT DATETIMEOFFSETFROMPARTS(2023, 10, 11, 20, 35, 30, 4000, 10, 30, 4) AS Res
 DATETIMEOFFSETFROMPARTS(NULL, 10, 11, 20, 35, 30, 4000, 10, 30, 4) AS Result2;  
 ```
 
-**TIMEFROMPARTS**
+#### **TIMEFROMPARTS**
 
 This function is used to get a time value from the time parts with precision.
 
@@ -3047,9 +3022,7 @@ Example:
 SELECT TIMEFROMPARTS(20, 55, 59, 55, 3) AS Result1,  TIMEFROMPARTS(10, NULL, 19, 5, 2) AS Result2;  
 ```
 
-#### Validating date and time values
-
-**ISDATE**
+#### **ISDATE**
 
 This function is used to check the entered dates follows the standard format of date, time, or datetime value or not.
 
@@ -3078,7 +3051,7 @@ Window functions operate on a set of rows and return a single aggregated value f
 | ROW_NUMBER   | Assign a unique sequential integer to rows within a partition of a result set, the first row starts from 1. |
 
 
-**DENSE_RANK**
+#### **DENSE_RANK**
 
 Assign a rank value to each row within a partition of a result, with no gaps in rank values.
 
@@ -3090,11 +3063,136 @@ SELECT first_name,last_name,
 	   FROM employee.employees;
 ```
 
-**FIRST_VALUE**
+#### **FIRST_VALUE**
 
 Get the value of the first row in an ordered partition of a result set.  
 
 Example:
 
+```markdown
+SELECT employee_id, first_name+' '+last_name AS full_name,job_id, salary,
+FIRST_VALUE(first_name) OVER (PARTITION BY job_id ORDER BY salary) AS FirstValue
+FROM employee.employees
+```
 
+Output:
 
+![image output](image/output49.PNG)
+
+#### **LAG**
+
+Lag function is used to access previous row data along with current row data
+
+Example:
+
+```markdown
+SELECT employee_id, first_name+' '+last_name AS full_name,job_id, salary,
+        LAG(Salary, 1, -1) OVER (ORDER BY Salary) AS Lag_1
+FROM employee.employees
+```
+
+Output:
+
+![image output](image/output50.PNG)
+
+#### **LAST_VALUE**
+
+The LAST_VALUE() function is a window function that returns the last value in an ordered partition of a result set.
+
+Example:
+
+```markdown
+SELECT employee_id, first_name+' '+last_name AS full_name, salary,
+LAST_VALUE(first_name) OVER (ORDER BY salary ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS LastValue
+FROM employee.employees
+```
+
+Output:
+
+![image output](image/output51.PNG)
+
+#### **LEAD**
+
+Lead function is used to access subsequent row data along with current row data
+
+Example:
+
+```markdown
+SELECT employee_id, first_name+' '+last_name AS full_name,job_id, salary,
+          LEAD(Salary, 2, -1) OVER (ORDER BY Salary) AS Lead
+FROM employee.employees
+```
+
+Output:
+
+![image output](image/output52.PNG)
+
+#### **NTILE**
+
+The SQL Server NTILE() is a window function that distributes rows of an ordered partition into a specified number of approximately equal groups, or buckets. It assigns each group a bucket number starting from one. For each row in a group, the NTILE() function assigns a bucket number representing the group to which the row belongs.
+
+Syntax:
+
+```markdown
+NTILE (Number_of_Groups) OVER (ORDER BY Col1, Col2, ...)
+```
+
+Example:
+
+```markdown
+SELECT employee_id, first_name+' '+last_name AS full_name,job_id, salary,
+          NTILE(5) OVER (ORDER BY salary) AS [Ntile]
+FROM employee.employees
+```
+
+Output:
+
+![image output](image/output53.PNG)
+
+#### **PERCENT_RANK**
+
+The PERCENT_RANK() function evaluates the relative standing of a value within a partition of a result set.
+
+Example:
+
+```markdown
+SELECT employee_id, first_name+' '+last_name AS full_name,job_id, salary,
+         PERCENT_RANK() OVER (ORDER BY salary) AS percent_rank
+FROM employee.employees
+```
+
+Output:
+
+![image output](image/output54.PNG)
+
+#### **RANK**
+
+The RANK() function is a window function that assigns a rank to each row within a partition of a result set.
+
+Example:
+
+```markdown
+SELECT employee_id, first_name+' '+last_name AS full_name,job_id, salary,
+         RANK() OVER (ORDER BY salary) AS rank
+FROM employee.employees
+```
+
+Output:
+
+![image output](image/output55.PNG)
+
+#### **ROW_NUMBER**
+
+Assign a unique sequential integer to rows within a partition of a result set, the first row starts from 1.
+
+Example:
+
+```markdown
+SELECT employee_id, first_name+' '+last_name AS full_name,job_id, salary,
+         ROW_NUMBER() OVER (PARTITION BY job_id ORDER BY job_id) AS rownumber
+FROM employee.employees
+```
+
+Output:
+
+![image output](image/output56.PNG)
