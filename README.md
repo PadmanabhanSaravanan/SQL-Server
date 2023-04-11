@@ -1990,6 +1990,7 @@ SQL Server provides three type of triggers:
 
 1. [Creating Triggers in SQL-Server](#sql-server-create-trigger)
 2. [SQL Server INSTEAD OF Trigger](#sql-server-instead-of-trigger)
+3. [SQL Server DDL Trigger](#sql-server-ddl-trigger)
 
 ### SQL-Server Create Trigger
 
@@ -2177,7 +2178,98 @@ The following statement shows the contents of the production.brand_approvals tab
 SELECT employee_id FROM employee.employees_approval
 ```
 
-![image output](image/ouptut41.PNG)
+![image output](image/ouptut40_1.PNG)
+
+### SQL Server DDL Trigger
+
+SQL Server DDL triggers respond to server or database events rather than to table data modifications. These events created by the Transact-SQL statement that normally starts with one of the following keywords CREATE, ALTER, DROP, GRANT, DENY, REVOKE, or UPDATE STATISTICS.
+
+The DDL triggers are useful in the following cases:
+
+* Record changes in the database schema.
+* Prevent some specific changes to the database schema.
+* Respond to a change in the database schema.
+
+Syntax:
+
+```markdown
+CREATE TRIGGER trigger_name
+ON { DATABASE |  ALL SERVER}
+[WITH ddl_trigger_option]
+FOR {event_type | event_group }
+AS {sql_statement}
+```
+
+Example:
+
+1. **First, create a new table named index_logs to log the index changes**
+
+```markdown
+CREATE TABLE employee.index_logs (
+    log_id INT IDENTITY PRIMARY KEY,
+    event_data XML NOT NULL,
+    changed_by SYSNAME NOT NULL
+);
+GO
+```
+
+Output:
+
+![image output](image/output42.PNG)
+
+2. **Create a DDL trigger to track index changes and insert events data into the index_logs table**
+
+```markdown
+CREATE TRIGGER trg_index_changes
+ON DATABASE
+FOR	
+    CREATE_INDEX,
+    ALTER_INDEX, 
+    DROP_INDEX
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO employee.index_logs (
+        event_data,
+        changed_by
+    )
+    VALUES (
+        EVENTDATA(),
+        USER
+    );
+END;
+```
+
+Output:
+
+![image output](image/output41.PNG)
+
+3. **Create indexes for the first_name and last_name columns of the employee.employees table**
+
+```markdown
+CREATE NONCLUSTERED INDEX nidx_fname
+ON employee.employees(first_name);
+GO
+
+CREATE NONCLUSTERED INDEX nidx_lname
+ON employee.employees(last_name);
+GO
+```
+
+Output:
+
+![image output](image/output43.PNG)
+
+4. **Query data from the employee.index_changes table to check whether the index creation event was captured by the trigger properly**
+
+```markdown
+SELECT * FROM employee.index_logs;
+```
+
+Output:
+
+![image output](image/output44.PNG)
 
 ## SQL-Server IF ELSE Statement
 
