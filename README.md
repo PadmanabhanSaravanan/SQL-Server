@@ -1984,7 +1984,6 @@ SQL Server provides three type of triggers:
 
 * Data manipulation language (DML) triggers which are invoked automatically in response to INSERT, UPDATE, and DELETE events against tables.
 * Data definition language (DDL) triggers which fire in response to CREATE, ALTER, and DROP statements. DDL triggers also fire in response to some system stored procedures that perform DDL-like operations.
-* Logon triggers which fire in response to LOGON events
 
 <br>
 
@@ -1993,6 +1992,8 @@ SQL Server provides three type of triggers:
 3. [SQL Server DDL Trigger](#sql-server-ddl-trigger)
 4. [SQL Server DISABLE TRIGGER](#sql-server-disable-trigger)
 5. [SQL Server ENABLE TRIGGER](#sql-server-enable-trigger)
+6. [SQL Server MODIFY TRIGGER](#modify-trigger)
+7. [SQL Server DROP TRIGGER](#sql-server-drop-trigger)
 
 ### SQL-Server Create Trigger
 
@@ -2320,6 +2321,63 @@ Output:
 In the below image check on objet explorer you can see region_trigger is enabled
 
 ![image output](image/output46.PNG)
+
+### Modify Trigger 
+
+The ALTER TRIGGER statement is used to modify the definition of an existing trigger without altering the permissions or dependencies.
+
+Syntax:
+
+```markdown
+ALTER TRIGGER trigger_name   
+ON { Table name or view name }   
+[ WITH  ]  
+{ FOR | AFTER | INSTEAD OF }   
+{ [INSERT], [UPDATE] , [DELETE] }   
+AS
+    sql_statements 
+
+```
+
+Example:
+
+ALTER TRIGGER employee.region_trigger
+ON employee.regions
+AFTER INSERT,DELETE
+AS
+BEGIN 
+     SET NOCOUNT ON;
+	 INSERT INTO employee.regions_log(region_id,region_name,updated_at,operation)
+	 SELECT i.region_id,i.region_name,GETUTCDATE(),'INS'
+	 FROM inserted i
+	 UNION ALL 
+	 SELECT d.region_id,d.region_name,GETUTCDATE(),'DEL'
+	 FROM deleted d;
+END
+
+Output:
+
+![image output](image/output47.PNG)
+
+### SQL Server DROP TRIGGER
+
+The SQL Server DROP TRIGGER statement drops one or more triggers from the database
+
+Syntax:
+
+```markdown
+DROP TRIGGER [ IF EXISTS ] [schema_name.]trigger_name [ ,...n ];
+```
+
+Example:
+
+```markdown
+DROP TRIGGER IF EXISTS sales.trg_member_insert;
+```
+
+Output:
+
+![image output](image/output48.PNG)
 
 ## SQL-Server IF ELSE Statement
 
