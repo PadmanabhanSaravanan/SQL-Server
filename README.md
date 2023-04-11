@@ -1976,6 +1976,102 @@ Output:
 
 ![image output](image/output29.PNG)
 
+## SQL-Server Triggers
+
+SQL Server triggers are special stored procedures that are executed automatically in response to the database object, database, and server events.
+
+SQL Server provides three type of triggers:
+
+* Data manipulation language (DML) triggers which are invoked automatically in response to INSERT, UPDATE, and DELETE events against tables.
+* Data definition language (DDL) triggers which fire in response to CREATE, ALTER, and DROP statements. DDL triggers also fire in response to some system stored procedures that perform DDL-like operations.
+* Logon triggers which fire in response to LOGON events
+
+<br>
+
+1. [Creating Triggers in SQL-Server](#sql-server-create-trigger)
+
+### SQL-Server Create Trigger
+
+The CREATE TRIGGER statement allows you to create a new trigger that is fired automatically whenever an event such as INSERT, DELETE, or UPDATE occurs against a table.
+
+Syntax:
+
+```markdown
+CREATE TRIGGER [schema_name.]trigger_name
+ON table_name
+AFTER  {[INSERT],[UPDATE],[DELETE]}
+[NOT FOR REPLICATION]
+AS
+{sql_statements}
+```
+
+1. **Create a table for logging the changes**
+
+```markdown
+CREATE TABLE employee.regions_log (
+	change_id INT IDENTITY PRIMARY KEY,
+	region_id INT NOT NULL,
+	region_name VARCHAR (25) DEFAULT NULL,
+	updated_at DATETIME NOT NULL,
+    operation CHAR(3) NOT NULL,
+    CHECK(operation = 'INS' or operation='DEL')
+);
+```
+
+Output:
+
+![image output](image/output30.PNG)
+
+2. **Creating an after DML trigger**
+
+```markdown
+CREATE TRIGGER employee.region_trigger
+ON employee.regions
+AFTER INSERT,DELETE
+AS
+BEGIN 
+     SET NOCOUNT ON;
+	 INSERT INTO employee.regions_log(region_id,region_name,updated_at,operation)
+	 SELECT i.region_id,i.region_name,GETDATE(),'INS'
+	 FROM inserted i
+	 UNION ALL 
+	 SELECT d.region_id,d.region_name,GETDATE(),'DEL'
+	 FROM deleted d;
+END
+```
+
+Output:
+
+![image output](image/output31.PNG)
+
+3. **Testing the trigger**
+
+```markdown
+SET IDENTITY_INSERT employee.regions ON
+
+INSERT INTO employee.regions(region_id,region_name) VALUES (10,'INDIA')
+```
+
+Output:
+
+![image output](image/output32.PNG)
+
+```markdown
+SELECT * FROM employee.regions_log;
+```
+
+![image output](image/output33.PNG)
+
+Delete any id from employee.regions
+
+```markdown
+DELETE FROM employee.regions WHERE region_id=10;
+```
+
+![image output](image/output34.PNG)
+
+![image output](image/output35.PNG)
+
 ## SQL-Server IF ELSE Statement
 
 The IF...ELSE statement is a control-flow statement that allows you to execute based on a specified condition.
