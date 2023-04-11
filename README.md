@@ -2515,7 +2515,14 @@ Output:
 
 ## SQL SERVER FUNCTIONS
 
-### Aggregate functions
+* [**Aggregate functions**](#aggregate-functions)
+* [**String Functions**](#string-functions)
+* [**Date Functions**](#date-functions)
+* [**Windows Function**](#windows-function)
+* [**System Functions**](#system-function)
+
+
+### **Aggregate functions**
 
 SQL-Server aggregate functions retrieve a single value after performing a calculation on a set of values.
 
@@ -2581,7 +2588,7 @@ Example:
 SELECT MIN(salary) AS min_salary FROM employee.employees;
 ```
 
-### String Functions
+### **String Functions**
 
 SQL string functions are used primarily for string manipulation.
 
@@ -2761,7 +2768,7 @@ Example:
 SELECT REPLICATE (first_name, 3) AS Replicate_name FROM employee.employees;
 ```
 
-### Date Functions
+### **Date Functions**
 
 **Returning the current date and time**
 
@@ -3032,7 +3039,7 @@ Example:
 SELECT ISDATE('2020-25-01') AS Result1, ISDATE('2020-12-06') AS Result2;
 ```
 
-### Windows Function
+### **Windows Function**
 
 Window functions operate on a set of rows and return a single aggregated value for each row. The term Window describes the set of rows in the database on which the function will operate.
 
@@ -3196,3 +3203,156 @@ FROM employee.employees
 Output:
 
 ![image output](image/output56.PNG)
+
+### **System Function**
+
+| **_Name_**                 | **_Description_**                                                                                                                        |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| CAST                       | cast a value of one type to another.                                                                                                     |
+| CONVERT                    | convert a value of one type to another.                                                                                                  |
+| CHOOSE                     | return one of the two values based on the result of the first argument.                                                                  |
+| ISNULL                     | replace NULL with a specified value.                                                                                                     |
+| ISNUMERIC                  | check if an expression is a valid numeric type.                                                                                          |
+| IIF                        | add if-else logic to a query.                                                                                                            |
+| TRY_CAST                   | cast a value of one type to another and return NULL if the cast fails.                                                                   |
+| TRY_CONVERT                | convert a value of one type to another and return the value to be translated into the specified type. It returns NULL if the cast fails. |
+| TRY_PARSE                  | convert a string to a date/time or a number and return NULL if the conversion fails.                                                     |
+
+#### **CAST**
+
+cast a value of one type to another. 
+
+Example:
+
+```markdown
+SELECT 
+    CAST('2019-03-14' AS DATETIME) result;
+```
+
+Output:
+
+![image output](image/output57.PNG)
+
+#### **CONVERT**
+
+convert a value of one type to another.
+
+Example:
+
+```markdown
+SELECT 
+    CONVERT(DATETIME, '2019-03-14') result;
+```
+
+Output:
+
+![image output](image/output58.PNG)
+
+#### **CHOOSE**
+
+return one of the two values based on the result of the first argument. 
+
+Example:
+
+```markdown
+SELECT 
+    CHOOSE(1, 'First', 'Second', 'Third') Result;
+```
+
+Output:
+
+![image output](image/output59.PNG)
+
+#### **ISNULL**
+
+replace NULL with a specified value.
+
+Example:
+
+```markdown
+SELECT 
+    ISNULL(NULL,20) result;
+```
+
+Output:
+
+![image output](image/output60.PNG)
+
+#### **ISNUMERIC**
+
+check if an expression is a valid numeric type.
+
+Example:
+
+```markdown
+SELECT 
+    ISNUMERIC('$10') result;
+```
+
+Output:
+
+![image output](image/output61.PNG)
+
+#### **IIF**
+
+add if-else logic to a query.
+
+Example:
+
+```markdown
+SELECT 
+    IIF(10 < 20, 'True', 'False') Result ;
+```
+
+Output:
+
+![image output](image/output62.PNG)
+
+#### **TRY_CAST**
+
+cast a value of one type to another and return NULL if the cast fails.
+
+Example:
+
+```markdown
+SELECT 
+    TRY_CAST('100.5' AS INT) Result;
+```
+
+Output:
+
+![image output](image/output63.PNG)
+
+#### **TRY_CONVERT**
+
+convert a value of one type to another and return the value to be translated into the specified type. It returns NULL if the cast fails.
+
+Example:
+
+```markdown
+SELECT 
+    TRY_CONVERT( INT, '100.5') Result;
+```
+
+Output:
+
+![image output](image/output64.PNG)
+
+#### **TRY_PARSE**
+
+convert a string to a date/time or a number and return NULL if the conversion fails.
+
+Example:
+
+```markdown
+SELECT 
+    CASE
+        WHEN TRY_PARSE('12-08-2022' AS DATE) IS NULL
+        THEN 'Cast failed'
+        ELSE 'Cast succeeded'
+    END AS result;
+```
+
+Output:
+
+![image output](image/output65.PNG)
