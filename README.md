@@ -1992,6 +1992,7 @@ SQL Server provides three type of triggers:
 2. [SQL Server INSTEAD OF Trigger](#sql-server-instead-of-trigger)
 3. [SQL Server DDL Trigger](#sql-server-ddl-trigger)
 4. [SQL Server DISABLE TRIGGER](#sql-server-disable-trigger)
+5. [SQL Server ENABLE TRIGGER](#sql-server-enable-trigger)
 
 ### SQL-Server Create Trigger
 
@@ -2296,6 +2297,29 @@ Output:
 In the below image check on objet explorer you can see region_trigger is disabled indicated by * mark on the trigger
 
 ![image output](image/output45.PNG)
+
+### SQL Server ENABLE TRIGGER
+
+Enable trigger reactivates the disabled trigger. Use the ENABLE TRIGGER statement to enable a trigger to fire when an event occurs.
+
+Syntax:
+
+```markdown
+ENABLE TRIGGER [schema_name.][trigger_name] 
+ON [object_name | DATABASE | ALL SERVER]
+```
+
+Example:
+
+```markdown
+ENABLE TRIGGER region_trigger ON employee.regions;
+```
+
+Output:
+
+In the below image check on objet explorer you can see region_trigger is enabled
+
+![image output](image/output46.PNG)
 
 ## SQL-Server IF ELSE Statement
 
