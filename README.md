@@ -1991,6 +1991,7 @@ SQL Server provides three type of triggers:
 1. [Creating Triggers in SQL-Server](#sql-server-create-trigger)
 2. [SQL Server INSTEAD OF Trigger](#sql-server-instead-of-trigger)
 3. [SQL Server DDL Trigger](#sql-server-ddl-trigger)
+4. [SQL Server DISABLE TRIGGER](#sql-server-disable-trigger)
 
 ### SQL-Server Create Trigger
 
@@ -2270,6 +2271,31 @@ SELECT * FROM employee.index_logs;
 Output:
 
 ![image output](image/output44.PNG)
+
+### SQL Server DISABLE TRIGGER
+
+Triggers when created in SQL Server are enabled by default. You can disable a trigger temporarily using the DISABLE TRIGGER statement.
+
+Disable trigger does not delete the trigger. The trigger exists in the current database but it doesn't fire
+
+Syntax:
+
+```markdown
+DISABLE TRIGGER [schema_name.][trigger_name] 
+ON [object_name | DATABASE | ALL SERVER]
+```
+
+Example:
+
+```markdown
+DISABLE TRIGGER ALL ON employee.regions;
+```
+
+Output:
+
+In the below image check on objet explorer you can see region_trigger is disabled indicated by * mark on the trigger
+
+![image output](image/output45.PNG)
 
 ## SQL-Server IF ELSE Statement
 
