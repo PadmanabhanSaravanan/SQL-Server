@@ -1989,6 +1989,7 @@ SQL Server provides three type of triggers:
 <br>
 
 1. [Creating Triggers in SQL-Server](#sql-server-create-trigger)
+2. [SQL Server INSTEAD OF Trigger](#sql-server-instead-of-trigger)
 
 ### SQL-Server Create Trigger
 
@@ -2071,6 +2072,112 @@ DELETE FROM employee.regions WHERE region_id=10;
 ![image output](image/output34.PNG)
 
 ![image output](image/output35.PNG)
+
+### SQL Server INSTEAD OF Trigger
+
+INSTEAD OF trigger skips a DML statement and execute other statements.
+
+Syntax:
+
+```markdown
+CREATE TRIGGER [schema_name.] trigger_name
+ON {table_name | view_name }
+INSTEAD OF {[INSERT] [,] [UPDATE] [,] [DELETE] }
+AS
+{sql_statements}
+```
+
+Example:
+
+1. **create a new table named employee.employees_approval for storing pending approval employees**
+
+```markdown
+CREATE TABLE employee.employees_approval (
+employee_id INT IDENTITY(1,1) PRIMARY KEY,
+	first_name VARCHAR (20) DEFAULT NULL,
+	last_name VARCHAR (25)  NULL,
+	email VARCHAR (100)  NULL,
+	phone_number VARCHAR (20) DEFAULT NULL,
+	hire_date DATE  NULL,
+	job_id INT  NULL,
+	salary DECIMAL (8, 2)  NULL,
+	manager_id INT DEFAULT NULL,
+	department_id INT DEFAULT NULL,
+);
+```
+
+Output:
+
+![image output](image/output36.PNG)
+
+2. **Create view named employee.view_empl**
+
+```markdown
+CREATE VIEW employee.view_empl
+AS
+SELECT 
+employee_id,
+'Approved' approval_status
+FROM employee.employees
+UNION 
+SELECT 
+employee_id,
+'Pending Approval' approval_status
+FROM 
+employee.employees_approval;
+```
+
+Output:
+
+![image output](image/output37.PNG)
+
+3. **Create trigger for the above view INSTEAD OF INSERT**
+
+```markdown
+CREATE TRIGGER employee.trigger_view_empl
+ON employee.view_empl
+INSTEAD OF INSERT 
+AS
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO employee.employees_approval(employee_id)
+	SELECT  i.employee_id
+	FROM inserted i
+	WHERE i.employee_id NOT IN(
+	SELECT employee_id FROM employee.employees
+	);
+END
+```
+
+Output:
+
+![image output](image/output38.PNG)
+
+4. **Insert value in view**
+
+```markdown
+INSERT INTO employee.view_empl(employee_id) VALUES (256);
+```
+
+Output:
+
+![image output](image/output39.PNG)
+
+5. **If you query data from the employee.view_empl table, you will see a new row appear**
+
+```markdown
+SELECT employee_id,approval_status FROM employee.view_empl;
+```
+
+![image output](image/output40.PNG)
+
+The following statement shows the contents of the production.brand_approvals table
+
+```markdown
+SELECT employee_id FROM employee.employees_approval
+```
+
+![image output](image/ouptut41.PNG)
 
 ## SQL-Server IF ELSE Statement
 
