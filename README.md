@@ -35,14 +35,14 @@ A database is a systematic collection of data. They support electronic storage a
 
 **Types of Databases**
 
-[Centralized Database](#centralized-database)  
-[Distributed Databse](#distributed-databse) 
-[NoSql Database](#nosql-database) 
-[Cloud Database](#cloud-database) 
-[Relational Database](#relational-database) 
-[Network Database](#network-database) 
-[Object-Oriented Database](#object-oriented-database) 
-[Hierarchical Database](#hierarchical-database) 
+* [Centralized Database](#centralized-database)  
+* [Distributed Databse](#distributed-databse) 
+* [NoSql Database](#nosql-database) 
+* [Cloud Database](#cloud-database) 
+* [Relational Database](#relational-database) 
+* [Network Database](#network-database) 
+* [Object-Oriented Database](#object-oriented-database) 
+* [Hierarchical Database](#hierarchical-database) 
 
 #### Centralized Database
 
