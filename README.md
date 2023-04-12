@@ -421,6 +421,10 @@ CREATE TABLE Persons (
 );
 ```
 
+Output:
+
+![image output](image/output66.PNG)
+
 <br>
 
 ### UNIQUE
@@ -443,6 +447,10 @@ CREATE TABLE Persons (
 
 ```
 
+Output:
+
+![image output](image/output67.PNG)
+
 ### PRIMARY KEY
 
 <br>
@@ -464,7 +472,9 @@ CREATE TABLE Persons (
     CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
 );
 ```
-<br>
+Output:
+
+![image output](image/output68.PNG)
 
 ### FOREIGN KEY
 
@@ -481,15 +491,27 @@ A FOREIGN KEY is a field (or collection of fields) in one table, that refers to 
 FOREIGN KEY Example
 
 ```markdown
-CREATE TABLE orders (
-    order_id int NOT NULL,
-    product varchar(255),
-    total int,
-    customer_id int,
-    PRIMARY KEY (order_id),
-    FOREIGN KEY (customer_id) REFERENCES Persons(order_id)
+CREATE TABLE Customers (
+  id INT,
+  first_name VARCHAR(40),
+  last_name VARCHAR(40),
+  age INT,
+  country VARCHAR(10),
+  CONSTRAINT CustomersPK PRIMARY KEY (id)
+);
+
+CREATE TABLE Orders (
+  order_id INT,
+  item VARCHAR(40),
+  amount INT,
+  customer_id INT REFERENCES Customers(id),
+  CONSTRAINT OrdersPK PRIMARY KEY (order_id)
 );
 ```
+
+Output:
+
+![image output](image/output69.PNG)
 
 ### DEFAULT
 
@@ -510,6 +532,10 @@ CREATE TABLE Persons (
     City varchar(255) DEFAULT 'Sandnes'
 );
 ```
+
+Output:
+
+![image output](image/output70.PNG)
 
 ### CHECK
 
@@ -533,6 +559,10 @@ CREATE TABLE Persons (
     Age int CHECK (Age>=18)
 );
 ```
+
+Output:
+
+![image output](image/output71.PNG)
 
 ## Data Definition Language(DDL)
 
@@ -594,26 +624,30 @@ Syntax:
 Create Command Example
 
 ```markdown
-
-    /* to create database */
-    CREATE DATABASE EmployeeManagement;
+CREATE DATABASE EmployeeManagement;
+GO
 
     /* to create schema */
-    CREATE SCHEMA employee;
+CREATE SCHEMA employees;
+GO
 
     /* to create table */
-    CREATE TABLE employee.regions (
+CREATE TABLE employees.regions (
 	    region_id INT IDENTITY(1,1) PRIMARY KEY,
 	    region_name VARCHAR (25) DEFAULT NULL
     );
 
-    CREATE TABLE employee.countries (
+CREATE TABLE employees.countries (
 	    country_id CHAR (2) PRIMARY KEY,
 	    country_name VARCHAR (40) DEFAULT NULL,
 	    region_id INT NOT NULL,
-	    FOREIGN KEY (region_id) REFERENCES employee.regions (region_id)
+	    FOREIGN KEY (region_id) REFERENCES employees.regions (region_id)
     );
 ```
+
+Output:
+
+![image output](image/output72.PNG)
 
 ### Alter Command 
 
@@ -639,6 +673,10 @@ Example:
     ADD resigned_date DATE;
 ```
 
+Output:
+
+![image output](image/output73.PNG)
+
 <br>
 
 * **Modify column**
@@ -658,6 +696,10 @@ Example:
     ALTER TABLE employee.employees
     ALTER COLUMN resigned_date DateTime;
 ```
+
+Output:
+
+![image output](image/output74.PNG)
 
 <br>
 
@@ -679,6 +721,10 @@ Example:
     DROP COLUMN resigned_date;
 ```
 
+Output:
+
+![image output](image/output75.PNG)
+
 <br>
 
 * **Adding constraints**
@@ -688,6 +734,10 @@ Example:
 ```markdown
     ALTER TABLE employee.employees ADD UNIQUE (email);
 ```
+
+Output:
+
+![image output](image/output76.PNG)
 
 ### Drop Command
 
@@ -718,6 +768,10 @@ Example:
     DROP TABLE IF EXISTS employee.employees;
 ```
 
+Output:
+
+![image output](image/output77.PNG)
+
 ### Truncate Command
 
 TRUNCATE command removes all the records from a table. But this command will not destroy the table's structure. 
@@ -737,6 +791,10 @@ Example:
 ```markdown
     TRUNCATE TABLE employee.employees;
 ```
+
+Output:
+
+![image output](image/output78.PNG)
 
 ## Data Manipulation Langauage(DML)
 
@@ -779,6 +837,10 @@ Example:
 INSERT INTO employee.regions(region_id,region_name) VALUES (1,'Europe');
 ```
 
+Output:
+
+![image output](image/output79.PNG)
+
 <br>
 
 **Methods of inserting null values:**
@@ -808,8 +870,12 @@ Example:
 ```markdown
 UPDATE employee.employees
 SET first_name='steve'
-WHERE employee_id='100';
+WHERE employee_id='101';
 ```
+
+Output:
+
+![image output](image/output80.PNG)
 
 ### Delete Command
 
@@ -837,8 +903,12 @@ Example:
 DELETE FROM employee.employees;
 
 /* To Delete single record */
-DELETE FROM employee.employees WHERE employee_id='100';
+DELETE FROM employee.employees WHERE employee_id='101';
 ```
+
+Output:
+
+![image output](image/output81.PNG)
 
 ## Data Control Language
 
@@ -888,6 +958,10 @@ GRANT SELECT ON employee.employees TO user1;
 GRANT INSERT, UPDATE, DELETE, SELECT ON employee.employees TO user1;
 ```
 
+Output:
+
+![image output](image/output82.PNG)
+
 ### Revoke Command
 
 It is used to take back the privileges from any user, use the REVOKE command.
@@ -910,11 +984,15 @@ Example:
 
 ```markdown
 /* revoke read only from a User */
-GRANT SELECT ON employee.employees TO user1;
+REVOKE SELECT ON employee.employees TO user1;
 
 /* revoke insert,update,delete & select function from a user */
-GRANT INSERT, UPDATE, DELETE, SELECT ON employee.employees TO user1;
+REVOKE INSERT, UPDATE, DELETE, SELECT ON employee.employees TO user1;
 ```
+
+Output:
+
+![image output](image/output83.PNG)
 
 ## Transaction Control Language(TCL)
 
@@ -962,9 +1040,13 @@ Example:
 
 ```markdown
     BEGIN TRANSACTION;
-    INSERT INTO employee.regions(region_id,region_name) VALUES ('6','India');
+    INSERT INTO employee.regions(region_id,region_name) VALUES ('10','India');
     COMMIT;
 ```
+
+Output:
+
+![image output](image/output84.PNG)
 
 ### Savepoint 
 
@@ -989,8 +1071,14 @@ Example:
 ```markdown
 BEGIN TRANSACTION;
 SAVE TRANSACTION TransactionA;
-INSERT INTO employee.regions(region_id,region_name) VALUES ('6','India');
+INSERT INTO employee.regions(region_id,region_name) VALUES ('11','India');
 ```
+
+Output:
+
+![image output](image/output85.PNG)
+
+![image output](image/output86.PNG)
 
 ### Rollback 
 
@@ -1012,6 +1100,14 @@ Example:
 ```markdown
 ROLLBACK TRANSACTION TransactionA;
 ```
+
+Output:
+
+![image output](image/output87.PNG)
+
+in below image region id 11 is been roll backed
+
+![image output](image/output88.PNG)
 
 ## Data Query/Retrival Language(DQL/DRL)
 
@@ -1044,6 +1140,11 @@ SELECT * FROM employee.employees;
 
 SELECT employee_id,first_name,last_name FROM employee.employees;
 ```
+
+Output:
+
+![image output](image/output89.PNG)
+
 <br>
 
 ### Arithmetic Expressions:
@@ -1058,6 +1159,10 @@ Example:
 SELECT employee_id,first_name + last_name,salary,(20*salary-100)/2 FROM employee.employees;
 ```
 
+Output:
+
+![image output](image/output90.PNG)
+
 ### Column aliases
 
 * Renames column heading
@@ -1071,6 +1176,10 @@ Example:
 ```markdown
 SELECT employee_id , first_name+ ' ' + last_name AS 'full_name' FROM employee.employees;
 ``` 
+
+Output:
+
+![image output](image/output91.PNG)
 
 ### Clauses
 
@@ -1098,6 +1207,10 @@ Example:
 ```markdown
 SELECT DISTINCT manager_id FROM employee.employees;
 ```
+
+Output:
+
+![image output](image/output92.PNG)
 
 #### WHERE
 
@@ -1128,6 +1241,10 @@ Example:
 ```markdown
 SELECT first_name + ' ' + last_name AS 'full_name' FROM employee.employees WHERE manager_id='101';
 ```
+
+Output:
+
+![image output](image/output93.PNG)
 
 #### ORDER BY 
 
@@ -1162,6 +1279,10 @@ FROM employee.employees
 ORDER BY manager_id DESC;
 ```
 
+Output:
+
+![image output](image/output94.PNG)
+
 #### GROUP BY
 
 * We use GROUP BY clause to divide the rows in a table into groups.
@@ -1192,6 +1313,10 @@ GROUP BY job_id
 ORDER BY job_id DESC;
 ```
 
+Output:
+
+![image output](image/output95.PNG)
+
 #### HAVING
 
 * The HAVING Clause enables you to specify conditions that filter which group results appear in the results.
@@ -1220,6 +1345,10 @@ HAVING COUNT (job_id) >= 3
 ORDER BY job_id DESC;
 ```
 
+Output:
+
+![image output](image/output96.PNG)
+
 ### Logical conditions
 
 <br>
@@ -1240,6 +1369,10 @@ FROM employee.employees
 WHERE (salary>1000 AND job_id='1');
 ```
 
+Output:
+
+![image output](image/output97.PNG)
+
 * **OR**
 
 ```markdown
@@ -1248,6 +1381,10 @@ FROM employee.employees
 WHERE (salary>5000 OR job_id='5');
 ```
 
+Output:
+
+![image output](image/output98.PNG)
+
 * **NOT**
 
 ```markdown
@@ -1255,6 +1392,10 @@ SELECT first_name+' '+last_name AS full_name,salary,job_id
 FROM employee.employees
 WHERE NOT job_id=5;
 ```
+
+Output:
+
+![image output](image/output99.PNG)
 
 ### Comparision conditions
 
@@ -1274,6 +1415,10 @@ SELECT first_name+' '+last_name AS full_name,salary
 FROM employee.employees
 WHERE salary>=5000;
 ```
+
+Output:
+
+![image output](image/output100.PNG)
 
 ### Other Comparision operator
 
@@ -1295,6 +1440,10 @@ FROM employee.employees
 WHERE salary BETWEEN 1000 AND 10000;
 ```
 
+Output:
+
+![image output](image/output101.PNG)
+
 #### IN
 
 * It is used to test the values in a list. IN condition is also known as member ship condition
@@ -1309,6 +1458,10 @@ SELECT first_name+' '+last_name AS full_name,job_id
 FROM employee.employees
 WHERE job_id IN(1,5);
 ```
+
+Output:
+
+![image output](image/output102.PNG)
 
 #### LIKE
 
@@ -1325,21 +1478,23 @@ FROM employee.employees
 WHERE first_name LIKE 'a%';
 ```
 
+Output:
+
+![image output](image/output103.PNG)
+
 #### IS NULL
 	
 Example:
 
 ```markdown
-SELECT employee_id,first_name,manager_id
+SELECT employee_id,first_name,last_name
 FROM employee.employees
-WHERE manager_id is NULL;
+WHERE phone_number is NULL;
 ```
 
-```markdown
-SELECT employee_id,first_name,manager_id
-FROM employee.employees
-WHERE manager_id is NOT NULL;
-```
+Output:
+
+![image output](image/output104.PNG)
 
 ## Joins 
 
