@@ -2,74 +2,93 @@
 
 ![image sql-server-logo](image/sql-server_logo.png)
 
+## Table of Content 
+
+1. [**Introduction to SQLServer**](#introduction-to-sqlserver) <!-- style="font-size:20px" -->
+2. [**Data Objects**](#data-objects) <!-- style="font-size:20px" -->
+3. [**Data Types**](#data-types) <!-- style="font-size:20px" -->
+4. [**Constraints**](#constraints)<!-- style="font-size:20px" -->
+5. [**Data Definition Language**](#data-definition-language)<!-- style="font-size:20px" -->
+6. [**Data Manipulation Langauage**](#data-manipulation-langauage)<!-- style="font-size:20px" -->
+7. [**Data Control Language**](#data-control-language)<!-- style="font-size:20px" -->
+8. [**Transaction Control Language**](#transaction-control-language)<!-- style="font-size:20px" -->
+9. [**Data Query or Retrival Language**](#data-query-or-retrival-language)<!-- style="font-size:20px" -->
+10. [**SQL-Server Joins**](#joins)<!-- style="font-size:20px" -->
+11. [**SQL-Server Views**](#views)<!-- style="font-size:20px" -->
+12. [**SQL-Server Stored Procedure**](#stored-procedure)<!-- style="font-size:20px" -->
+13. [**SQL-Server Cursor**](#sql-server-cursor)<!-- style="font-size:20px" -->
+14. [**SQL-Server Triggers**](#sql-server-triggers)<!-- style="font-size:20px" -->
+15. [**SQL-Server Control flow Statements**](#sql-server-control-flow-statements)<!-- style="font-size:20px" -->
+16. [**SQL-Server Functions**](#sql-server-functions)<!-- style="font-size:20px" -->
+17. [**Reference**](#reference)<!-- style="font-size:20px" -->
+
 ## Introduction to SQLServer
 
 * [**What is Database**](#what-is-database) <!-- style="font-size:20px" -->
 * [**What is SQL Server**](#what-is-sql-server) <!-- style="font-size:20px" -->
 * [**Installation of SQL Server**](#installation-of-sql-server) <!-- style="font-size:20px" -->
+* [**Sample Database**](#sample-database)<!-- style="font-size:20px" -->
 
 ### What is Database
 
-> A database is a systematic collection of data. They support electronic storage and manipulation of data. Databases make data management easy.
+A database is a systematic collection of data. They support electronic storage and manipulation of data. Databases make data management easy.
 
-{{1-2}}
-> **Types of Databases**
-> <br>
-> <hr>
-> <li> [Centralized Database](#centralized-database) </li> 
-> <li> [Distributed Databse](#distributed-databse) </li>
-> <li> [NoSql Database](#nosql-database) </li>
-> <li> [Cloud Database](#cloud-database) </li>
-> <li> [Relational Database](#relational-database) </li>
-> <li> [Network Database](#network-database) </li>
-> <li> [Object-Oriented Database](#object-oriented-database) </li>
-> <li> [Hierarchical Database](#hierarchical-database) </li>
+**Types of Databases**
+
+[Centralized Database](#centralized-database)  
+[Distributed Databse](#distributed-databse) 
+[NoSql Database](#nosql-database) 
+[Cloud Database](#cloud-database) 
+[Relational Database](#relational-database) 
+[Network Database](#network-database) 
+[Object-Oriented Database](#object-oriented-database) 
+[Hierarchical Database](#hierarchical-database) 
 
 #### Centralized Database
 
-> A centralized database is stored at a single location such as a mainframe computer. It is maintained and modified from that location only and usually accessed using an internet connection such as a LAN or WAN. The centralized database is used by organisations such as colleges, companies, banks etc.
+A centralized database is stored at a single location such as a mainframe computer. It is maintained and modified from that location only and usually accessed using an internet connection such as a LAN or WAN. The centralized database is used by organisations such as colleges, companies, banks etc.
 
 ![img centralized](image/Centralized.png)
 
 #### Distributed Databse
 
-> A distributed database is basically a database that is not limited to one system, it is spread over different sites, i.e, on multiple computers or over a network of computers.
+A distributed database is basically a database that is not limited to one system, it is spread over different sites, i.e, on multiple computers or over a network of computers.
 
 ![img distributed](image/distributed.jpg)
 
 #### NoSql Database
 
-> NoSQL Database is a non-relational Data Management System, that does not require a fixed schema.
+NoSQL Database is a non-relational Data Management System, that does not require a fixed schema.
 
 ![img nosql](image/Nosql-1.png)
 
 #### Cloud Database
 
-> A cloud database is a database service built and accessed through a cloud platform. It serves many of the same functions as a traditional database with the added flexibility of cloud computing.
+A cloud database is a database service built and accessed through a cloud platform. It serves many of the same functions as a traditional database with the added flexibility of cloud computing.
 
 ![img cloud](image/cloud.png)
 
 #### Relational Database
 
-> A relational database organizes data into rows and columns, which collectively form a table. Data is typically structured across multiple tables, which can be joined together via a primary key or a foreign key.
+A relational database organizes data into rows and columns, which collectively form a table. Data is typically structured across multiple tables, which can be joined together via a primary key or a foreign key.
 
 ![img relational](image/relational.png)
 
 #### Network Database
 
-> A network database is a type of database model wherein multiple member records or files can be linked to multiple owner files and vice versa.
+A network database is a type of database model wherein multiple member records or files can be linked to multiple owner files and vice versa.
 
 ![img network](image/network.png)
 
 #### Object-Oriented Database
 
-> object-oriented database management system is the data model in which data is stored in form of objects, which are instances of classes. These classes and objects together make an object-oriented data model.
+object-oriented database management system is the data model in which data is stored in form of objects, which are instances of classes. These classes and objects together make an object-oriented data model.
 
 ![img oops](image/oops.png)
 
 #### Hierarchical Database
 
-> A hierarchical model represents the data in a tree-like structure in which there is a single parent for each record.
+A hierarchical model represents the data in a tree-like structure in which there is a single parent for each record.
 
 ![img Hierarchical](image/hierarchical.png)
 
@@ -115,153 +134,142 @@ SQLOS provides many operating system services such as memory and I/O management.
 
 ##### Download SQL-Server
 
-{{1-4}}
-> **Step 1:** Go to the official page through this URL: https://www.microsoft.com/en-in/sql-server/sql-server-downloads.
+**Step 1:** Go to the official page through this URL: https://www.microsoft.com/en-in/sql-server/sql-server-downloads.
 
-{{2-4}}
-> **Step 2:** Sekect the Developer version ,Click on the "Download now" button. Immediately the SQL Server setup starts downloading on our system.
-> ![image sql-step1](image/sql-step-1.PNG)
+**Step 2:** Sekect the Developer version ,Click on the "Download now" button. Immediately the SQL Server setup starts downloading on our system.
+![image sql-step1](image/sql-step-1.PNG)
 
-{{3-4}}
-> **Step 3:** Once the file has been downloaded, we will get the setup named "SQL2022-SSEI-DEV.exe."
-> ![image sql-step2](image/sql-step-2.PNG)
+**Step 3:** Once the file has been downloaded, we will get the setup named "SQL2022-SSEI-DEV.exe."
+![image sql-step2](image/sql-step-2.PNG)
 
 ##### Install SQL-server
 
-{{1-15}}
-> **Step 1:** Double click on "SQL2022-SSEI-DEV.exe" setup file. We will get the below screen with three options: Basic, Custom, and Download Media files. Here, we will select the 'Basic' option to install the basic version that includes all of the default configurations needed to learn Microsoft SQL Server.
-> ![image install-sql-server](image/install-ms-sql-step1.png)
+**Step 1:** Double click on "SQL2022-SSEI-DEV.exe" setup file. We will get the below screen with three options: Basic, Custom, and Download Media files. Here, we will select the 'Basic' option to install the basic version that includes all of the default configurations needed to learn Microsoft SQL Server.
+![image install-sql-server](image/install-ms-sql-step1.png)
 
-{{2-15}}
-> **Step 2:** Next, the installer will ask where to save the download. Once selected press Install.
-> <br>
-> ![image install-sql-server](image/install-ms-sql-server2.png)
+**Step 2:** Next, the installer will ask where to save the download. Once selected press Install.
 
-{{3-15}}
-> **Step 3:** This will download and run the install package.
-> ![image install-sql-server](image/install-ms-sql-server3.png)
+![image install-sql-server](image/install-ms-sql-server2.png)
 
-{{4-15}}
-> **Step 4:** The SQL Server Installation Center will open after the download completes and on the Installation page, we have the following install options:
-> ![image install-sql-server](image/install-ms-sql-server4.png)
-> We will pick "New SQL Server stand-alone installation or add features to an existing installation".
+**Step 3:** This will download and run the install package.
+![image install-sql-server](image/install-ms-sql-server3.png)
 
-{{5-15}}
-> **Step 5:** On the next screen, you can enter a product key or use a free edition. The free evaluation edition is good for 180 days, which is what we will use.
-> ![image install-sql-server](image/install-ms-sql-server5.png)
+**Step 4:** The SQL Server Installation Center will open after the download completes and on the Installation page, we have the following install options:
+![image install-sql-server](image/install-ms-sql-server4.png)
+We will pick "New SQL Server stand-alone installation or add features to an existing installation".
 
-{{6-15}}
-> **Step 6:** Read the license terms to make sure that you agree and press Next.
-> ![image install-sql-server](image/install-ms-sql-server6.png)
+**Step 5:** On the next screen, you can enter a product key or use a free edition. The free evaluation edition is good for 180 days, which is what we will use.
+![image install-sql-server](image/install-ms-sql-server5.png)
 
-{{7-15}}
-> **Step 7:** The Microsoft Update can check if there are updates. You can enable this option and Microsoft Update will check for updates. Press Next to continue.
-> ![image install-sql-server](image/install-ms-sql-server7.png)
+**Step 6:** Read the license terms to make sure that you agree and press Next.
+![image install-sql-server](image/install-ms-sql-server6.png)
 
-{{8-15}}
-> **Step 8:** The install rules window verifies possible problems during the installation.
-> ![image install-sql-server](image/install-ms-sql-server8.png)
+**Step 7:** The Microsoft Update can check if there are updates. You can enable this option and Microsoft Update will check for updates. Press Next to continue.
+![image install-sql-server](image/install-ms-sql-server7.png)
 
-{{9-15}}
-> **Step 9:** Feature Selection, Select Database Engine Service
-> ![image install-sql-server](image/install-ms-sql-server10.png)
+**Step 8:** The install rules window verifies possible problems during the installation.
+![image install-sql-server](image/install-ms-sql-server8.png)
 
-{{10-15}}
-> **Step 10:** In the instance configuration, we enter a name to be used for the SQL Server instance.
-> ![image install-sql-server](image/install-ms-sql-server11.png)
+**Step 9:** Feature Selection, Select Database Engine Service
+![image install-sql-server](image/install-ms-sql-server10.png)
 
-{{11-15}}
-> **Step 11:** The server configuration allows creating or adding service accounts for the different services used by SQL Server. You can use the defaults or create new accounts with custom security and passwords to run the services.
-> ![image install-sql-server](image/install-ms-sql-server12.png)
+**Step 10:** In the instance configuration, we enter a name to be used for the SQL Server instance.
+![image install-sql-server](image/install-ms-sql-server11.png)
 
-{{12-15}}
-> **Step 12:** The database engine configuration allows you to configure several parts of the installation.
-> ![image install-sql-server](image/install-ms-sql-server13.png)
+**Step 11:** The server configuration allows creating or adding service accounts for the different services used by SQL Server. You can use the defaults or create new accounts with custom security and passwords to run the services.
+![image install-sql-server](image/install-ms-sql-server12.png)
 
-{{13-15}}
-> **Step 13:** Once everything is configured, you can check the configuration and press the Install button to continue.
-> ![image install-sql-server](image/install-ms-sql-server14.png)
+**Step 12:** The database engine configuration allows you to configure several parts of the installation.
+![image install-sql-server](image/install-ms-sql-server13.png)
 
-{{14-15}}
-> **Step 14:** If everything is successful, MS SQL Server 2022 will be installed, and the relational database management system is ready for use.
-> ![image install-sql-server](image/install-ms-sql-server15.png)
+**Step 13:** Once everything is configured, you can check the configuration and press the Install button to continue.
+![image install-sql-server](image/install-ms-sql-server14.png)
+
+**Step 14:** If everything is successful, MS SQL Server 2022 will be installed, and the relational database management system is ready for use.
+![image install-sql-server](image/install-ms-sql-server15.png)
 
 ##### Install SQL-Server Management Studio
 
-{{1-5}}
-> **Step 1:** Click to download sql server management studio from below link
-> <br>
-> https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16
-> <br>
-> double-click the installation file SSMS-Setup-ENU.exe to launch the SSM installer. The installation process of SMSS is straightforward. you need to follow the screen sequence.
+**Step 1:** Click to download sql server management studio from below link
 
-{{2-5}}
-> **Step 2:** Click the Install button
-> ![image install-sql-server](image/install-SSMS-step-1-1.png)
+https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16
 
-{{3-5}}
-> **Step 3:** Wait for a few minutes while the installer sets up the software:
-> ![image install-sql-server](image/install-SSMS-step-2-1.png)
+double-click the installation file SSMS-Setup-ENU.exe to launch the SSM installer. The installation process of SMSS is straightforward. you need to follow the screen sequence.
 
-{{4-5}}
-> **Step 4:** Once setup is completed, click the Close button:
-> ![image install-sql-server](image/install-SSMS-step-3-1.png)
-> Now, you should have SQL Server 2022  and SQL Server Management Studio installed on your computer.
+**Step 2:** Click the Install button
+![image install-sql-server](image/install-SSMS-step-1-1.png)
+
+**Step 3:** Wait for a few minutes while the installer sets up the software:
+![image install-sql-server](image/install-SSMS-step-2-1.png)
+
+**Step 4:** Once setup is completed, click the Close button:
+![image install-sql-server](image/install-SSMS-step-3-1.png)
+Now, you should have SQL Server 2022  and SQL Server Management Studio installed on your computer.
 
 ##### Connect to SQL Server
 
-{{1-5}}
-> **Step 1:** First, launch the Microsoft SQL Server Management Studio from the Start menu:
-> ![image connect-sql-server](image/SSMS-connect-to-SQL-Server.png)
+**Step 1:** First, launch the Microsoft SQL Server Management Studio from the Start menu:
+![image connect-sql-server](image/SSMS-connect-to-SQL-Server.png)
 
-{{2-5}}
-> **Step 2:** Next, from the Connect menu under the Object Explorer, choose the Database Engine…
-> ![image connect-sql-server](image/SSMS-connect-to-SQL-Server-2.png)
+**Step 2:** Next, from the Connect menu under the Object Explorer, choose the Database Engine…
+![image connect-sql-server](image/SSMS-connect-to-SQL-Server-2.png)
 
-{{3-5}}
-> **Step 3:** Then, enter the information for the Server name (localhost), Authentication (SQL Server Authentication), and password for the  sa user and click the Connect button to connect to the SQL Server. Note that you should use the sa user and password that you entered during the installation.
-> ![image connect-sql-server](image/SSMS-connect-to-SQL-Server-3.png)
+**Step 3:** Then, enter the information for the Server name (localhost), Authentication (SQL Server Authentication), and password for the  sa user and click the Connect button to connect to the SQL Server. Note that you should use the sa user and password that you entered during the installation.
+![image connect-sql-server](image/SSMS-connect-to-SQL-Server-3.png)
 
-{{4-5}}
-> **Step 4:** if the connection is established successfully, then you will see the following Object Explorer panel:
-> ![image connect-sql-server](image/SSMS-connect-to-SQL-Server-4.png)
+**Step 4:** if the connection is established successfully, then you will see the following Object Explorer panel:
+![image connect-sql-server](image/SSMS-connect-to-SQL-Server-4.png)
 
 #### Docker SQL Server Installation
 
-{{1-6}}
-> **Step 1:** Install Docker to the system click on below link to download and then install .
-> <br>
-> https://docs.docker.com/desktop/install/windows-install/
+**Step 1:** Install Docker to the system click on below link to download and then install .
 
-{{2-6}}
->  **Step 2:** Now that you’ve installed Docker, you can open up the terminal and supply the following command to check if Docker has been successfully installed on your device:
-> <br>
->  <p style="padding: 10px; border: 2px solid black; background-color:white;"> docker -v </p>
-> <br>
-> ![image docker](image/docker-1.jpg)
+https://docs.docker.com/desktop/install/windows-install/
 
-{{3-6}}
-> **Step 3:** As you can see from the figure above, Docker has been installed successfully and you can see the installed version as well. With Docker up and running, the next step is to pull the official SQL Server Docker image from Docker Hub and get down to brass tacks.
-> <br>
-> Next, you will be creating a directory for this exercise and opening the terminal in that directory. Once in the directory, run the command given below to pull the docker image from the repository to your local device:
-> <br>
->  <p style="padding: 10px; border: 2px solid black; background-color:white;"> docker pull mcr.microsoft.com/mssql/server </p>
-> <br>
-> ![image docker](image/docker-2.jpg)
 
-{{4-6}}
-> **Step 4:** Once the SQL Server Docker Image has been pulled and extracted, you need to start the SQL Server Docker Container for this image. A Container in Docker is a running instance of the Docker image that can be started by performing the command as follows:
-> <br>
-> <p style="padding: 10px; border: 2px solid black; background-color:white;"> docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" -p 1433:1433 --name sql1 --hostname sql1 -d mcr.microsoft.com/mssql/server:2022-latest </p>
-> <br>
-> ![image docker](image/docker-3.jpg)
+**Step 2:** Now that you’ve installed Docker, you can open up the terminal and supply the following command to check if Docker has been successfully installed on your device:
 
-{{5-6}}
-> **Step 5:** As visible from the figure above, on running the command as mentioned in the previous step, an ID is returned. This is the unique ID of the SQL Server Docker Container that is currently running the SQL Server Instance. You can also verify the containers that currently running by leveraging the command as follows:
-> <br>
-> <p style="padding: 10px; border: 2px solid black; background-color:white;"> docker container ls </p>
-> <br>
-> ![image docker](image/docker-4.jpg)
+```markdown
+docker -v 
+```
+
+Output:
+
+![image docker](image/docker-1.jpg)
+
+**Step 3:** As you can see from the figure above, Docker has been installed successfully and you can see the installed version as well. With Docker up and running, the next step is to pull the official SQL Server Docker image from Docker Hub and get down to brass tacks.
+
+Next, you will be creating a directory for this exercise and opening the terminal in that directory. Once in the directory, run the command given below to pull the docker image from the repository to your local device:
+
+```markdown
+ docker pull mcr.microsoft.com/mssql/server
+```
+
+Output:
+
+![image docker](image/docker-2.jpg)
+
+**Step 4:** Once the SQL Server Docker Image has been pulled and extracted, you need to start the SQL Server Docker Container for this image. A Container in Docker is a running instance of the Docker image that can be started by performing the command as follows:
+
+```markdown
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong@Passw0rd>" -p 1433:1433 --name sql1 --hostname sql1 -d mcr.microsoft.com/mssql/server:2022-latest
+```
+
+Output:
+
+![image docker](image/docker-3.jpg)
+
+**Step 5:** As visible from the figure above, on running the command as mentioned in the previous step, an ID is returned. This is the unique ID of the SQL Server Docker Container that is currently running the SQL Server Instance. You can also verify the containers that currently running by leveraging the command as follows:
+
+```markdown
+docker container ls 
+```
+
+![image docker](image/docker-4.jpg)
+
+### Sample Database 
+
+Click on the link for sample database [link](https://github.com/PadmanabhanSwayaan/SQL-Server/tree/sqlserver-v15.0/sql)
 
 ## Data Objects 
 
@@ -391,12 +399,12 @@ The Different types of datatypes are :
 **SQL Server Constraints are :**
 
 
-1. NOT NULL
-2. UNIQUE
-3. PRIMARY KEY
-4. FOREIGN KEY
-5. DEFAULT
-6. CHECK
+1. [NOT NULL](#not-null)
+2. [UNIQUE](#unique)
+3. [PRIMARY KEY](#primary-key)
+4. [FOREIGN KEY](#foreign-key)
+5. [DEFAULT](#default)
+6. [CHECK](#check)
 
 <br>
 
@@ -564,29 +572,16 @@ Output:
 
 ![image output](image/output71.PNG)
 
-## Data Definition Language(DDL)
+## Data Definition Language
 
 A data definition language (DDL) is a computer language used to create and modify the structure of database objects in a database. These database objects include views, schemas, tables, indexes, etc.
 
-<br>
-
-| **_Object_**          | **_Description_**                                                         |
-|-----------------------|---------------------------------------------------------------------------|
-|     Table             |     Basic   unit of storage composed     of rows and columns              |
-|     View              |     Logically   represents subsets of     data from one or more tables    |
-|     Sequence Index    |     Numeric value generator                                               |
-|     Index             |     Improves   the performance of     some queries                        |
-|     Synonym           |     Gives   alternative names to     objects                              |
-| Schema                | collection of database objects associated with a database                 |
-
-<br>
-
 **Data Definition Laungauge Commands are as follows**
 
-1. CREATE
-2. ALTER
-3. DROP
-4. TRUNCATE
+1. [CREATE](#create-command)
+2. [ALTER](#alter-command)
+3. [DROP](#drop-command)
+4. [TRUNCATE](#truncate-command)
 
 ### Create Command
 
@@ -796,21 +791,15 @@ Output:
 
 ![image output](image/output78.PNG)
 
-## Data Manipulation Langauage(DML)
+## Data Manipulation Langauage
 
 The DML commands in Structured Query Language change the data present in the SQL database. We can easily access, store, modify, update and delete the existing records from the database using DML commands.
 
-<br>
-
-| **_Object_**          | **_Description_**                                                         |
-|-----------------------|---------------------------------------------------------------------------|
-|     Table             |     Basic   unit of storage composed     of rows and columns              |
-
 DML Commands are :
 
-* Insert Command
-* Update Command
-* Delete Command
+* [Insert Command](#insert-command)
+* [Update Command](#update-command)
+* [Delete Command](#delete-command)
 
 ### Insert Command
 
@@ -914,21 +903,10 @@ Output:
 
 It is used to control privileges in Database. To perform any operation in the database, such as for creating tables, sequences or views, a user needs privileges. 
 
-<br>
-
-| **_Object_**          | **_Description_**                                                         |
-|-----------------------|---------------------------------------------------------------------------|
-|     Table             |     Basic   unit of storage composed     of rows and columns              |
-|     View              |     Logically   represents subsets of     data from one or more tables    |
-|     Sequence Index    |     Numeric value generator                                               |
-|     Index             |     Improves   the performance of     some queries                        |
-|     Synonym           |     Gives   alternative names to     objects                              |
-| Schema                | collection of database objects associated with a database                 |
-
 The DCL statements are
 
-* GRANT
-* REVOKE 
+* [GRANT](#grant-command)
+* [REVOKE](#revoke-command) 
 
 ### Grant Command
 
@@ -994,7 +972,7 @@ Output:
 
 ![image output](image/output83.PNG)
 
-## Transaction Control Language(TCL)
+## Transaction Control Language
 
 **Database Transactions:**
 
@@ -1009,9 +987,9 @@ A transaction begins with the first statement is encounterd and ends when one of
 
 You can control the logic of transactions by using the
 
-* Commit
-* Savepoint
-* Rollback
+* [Commit](#commit)
+* [Savepoint](#savepoint)
+* [Rollback](#rollback)
 
 ### Commit 
 
@@ -1109,7 +1087,7 @@ in below image region id 11 is been roll backed
 
 ![image output](image/output88.PNG)
 
-## Data Query/Retrival Language(DQL/DRL)
+## Data Query or Retrival Language
 
 **SELECT** statement is used to retrieve the information from database using select statement you can do the following
 
@@ -1183,11 +1161,11 @@ Output:
 
 ### Clauses
 
-* DISTINCT
-* WHERE
-* ORDER BY
-* GROUP BY
-* HAVING 
+* [DISTINCT](#distinct)
+* [WHERE](#where)
+* [ORDER BY](#order-by)
+* [GROUP BY](#group-by)
+* [HAVING](#having) 
 
 #### DISTINCT
 
@@ -1219,11 +1197,11 @@ Output:
 * Condition is composed of column names ,expressions constants ,and a comparison operator.
 * Where consists of three elements.
 
-        -> column name
+        -column name
 
-        -> comparison condition
+        -comparison condition
 
-        -> column name, constant or list of values
+        -column name, constant or list of values
 
 * Character strings and date values are enclosed in single quotation marks.
 * The WHERE clause is not only used in the SELECT statement, but it is also used in the UPDATE, DELETE statement, etc.,
@@ -1250,9 +1228,9 @@ Output:
 
 * We sort rows by using order by clause .
 
-        -> ASC: ascending order , default
+        -ASC: ascending order , default
 
-        -> DSC: descending order.
+        -DSC: descending order.
 
 * The order by clause comes last in the select statement.
 * Order by clause is executed last in the query execution .it is placed last unless the for update clause is used.
@@ -1359,7 +1337,7 @@ Output:
 |     OR                |     Returns true if either component conditions   are true    |
 |     NOT               |     Returns true if false, Returns false if   true            |
 
-Example:
+Examples:
 
 * **AND**
 
@@ -1402,7 +1380,7 @@ Output:
 | **_Operator_**  | **_Meaning_**                   |
 |-----------------|---------------------------------|
 |     =           |     Equal to                    |
-|     >           |     Greater than                |
+|      >          |     Greater than                |
 |     >=          |     Greater than or Equal to    |
 |     <           |     Less than                   |
 |     <=          |     Less than or Equal to       |
@@ -1422,10 +1400,10 @@ Output:
 
 ### Other Comparision operator
 
-* BETWEEN AND
-* IN
-* LIKE
-* IS NULL
+* [BETWEEN AND](#between-and)
+* [IN](#in)
+* [LIKE](#like)
+* [IS NULL](#is-null)
 
 #### BETWEEN AND
 
@@ -1716,6 +1694,13 @@ Output:
 * A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
 * So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.
 * You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.
+
+1. [Create Procedure](#create-procedure)
+2. [Execute Procedure](#execute-procedure)
+3. [Alter Procedure](#alter-procedure)
+4. [Drop Procedure](#drop-procedure)
+5. [Stored Procedure Parameter](#stored-procedure-parameter)
+6. [Stored Procedure Variable](#stored-procedure-variable)
 
 ### Create Procedure
 
@@ -2534,7 +2519,16 @@ Output:
 
 ![image output](image/output48.PNG)
 
-## SQL-Server IF ELSE Statement
+## SQL-Server Control flow Statements
+
+Control statements are SQL statements that allow SQL to be used as a structured programming language. SQL control statements provide the capability to control the logic flow, declare and set variables, and handle warnings.
+
+* [SQL-Server IF ELSE Statement](#sql-server-if-else-statement)
+* [SQL-Server WHILE Loop](#sql-server-while-loop)
+* [SQL-Server BREAK](#sql-server-break)
+* [SQL-Server CONTINUE](#sql-server-continue)
+
+### SQL-Server IF ELSE Statement
 
 The IF...ELSE statement is a control-flow statement that allows you to execute based on a specified condition.
 
@@ -2568,7 +2562,7 @@ Output:
 
 ![image output](image/output24.PNG)
 
-## SQL-Server WHILE Loop
+### SQL-Server WHILE Loop
 
 The WHILE statement is a control-flow statement that allows you to execute a statement block repeatedly as long as a specified condition is TRUE.
 
@@ -2598,7 +2592,7 @@ Output:
 
 ![image output](image/output25.PNG)
 
-## SQL-Server BREAK
+### SQL-Server BREAK
 
 We use WHILE statement to create a loop,To exit the current iteration of a loop use the BREAK statement.
 
@@ -2633,7 +2627,7 @@ Output:
 
 ![image output](image/output26.PNG)
 
-## SQL-Server CONTINUE
+### SQL-Server CONTINUE
 
 The CONTINUE statement stops the current iteration of the loop and starts the new one. 
 
@@ -2670,6 +2664,10 @@ Output:
 
 ## SQL SERVER FUNCTIONS
 
+Functions in SQL Server are the database objects that contains a set of SQL statements to perform a specific task. A function accepts input parameters, perform actions, and then return the result.
+
+Different types of sql server functions are as follows
+
 * [**Aggregate functions**](#aggregate-functions)
 * [**String Functions**](#string-functions)
 * [**Date Functions**](#date-functions)
@@ -2687,11 +2685,11 @@ SQL Server provides various aggregate functions, and the most commonly used aggr
 
 | **_Aggregate Function_** | **_Descriptions_**                                                                                   |
 |--------------------------|------------------------------------------------------------------------------------------------------|
-| COUNT()                  | This function counts the number of elements or rows, including NULL values in the defined set.       |
-| SUM()                    | This function calculates the total sum of all NON-NULL values in the given set.                      |
-| AVG()                    | This function performs a calculation on NON-NULL values to get the average of them in a defined set. |
-| MIN()                    | This function returns the minimum (lowest) value in a set.                                           |
-| MAX()                    | This function returns the maximum (highest) value in a set.                                          |
+| [COUNT()](#count)        | This function counts the number of elements or rows, including NULL values in the defined set.       |
+| [SUM()](#sum)            | This function calculates the total sum of all NON-NULL values in the given set.                      |
+| [AVG()](#avg)            | This function performs a calculation on NON-NULL values to get the average of them in a defined set. |
+| [MIN()](#min)            | This function returns the minimum (lowest) value in a set.                                           |
+| [MAX()](#max)            | This function returns the maximum (highest) value in a set.                                          |
 
 #### **COUNT**
 
@@ -2769,39 +2767,39 @@ SQL string functions are used primarily for string manipulation.
 
 The following table listed each of the functions with a brief description:
 
-| **_Function Name_** | **_Descriptions_**                                                                                                                                         |
-|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ASCII               | This function displays the ASCII value of a character.                                                                                                     |
-| CHAR                | This function converts the specified integer code (ASCII) into a single-byte character.                                                                    |
-| CHARINDEX           | This function returns the first expression's starting position if a character expression is found inside a second character expression.                    |
-| CONCAT              | This function returns a single string by joining two or more strings.                                                                                      |
-| CONCAT_WS           | This function concatenates multiple strings into a single and spate them with a separator specified in the first position.                                 |
-| DIFFERENCE          | This function returns an integer value by comparing the two strings SOUNDEX() values.                                                                      |
-| FORMAT              | This function is used to change the text format of the string into any other format.                                                                       |
-| LEFT                | This function returns the substring from the left of the string to a specified number of characters.                                                       |
-| LEN                 | This function returns the number of characters in a string, including trailing spaces.                                                                     |
-| LOWER               | This function is used to convert the upper case character into lower case.                                                                                 |
-| LTRIM               | This function returns a string from a given string after removing all leading spaces.                                                                      |
-| NCHAR               | This function is used to get the Unicode character with the provided integer code based on the UNICODE standard.                                           |
-| PATINDEX            | This function returns the first occurrence of a pattern in a string's starting place. If the string is not found, it returns zero.                         |
-| QUOTENAME           | This function returns a Unicode string including the delimiters, converting the input string into a valid delimited identifier.                            |
-| REPLACE             | This function is used to replace all occurrences of the substring in a specified string with another string value.                                         |
-| REPLICATE           | This function repeats the string with the specified number of times.                                                                                       |
-| REVERSE             | This function displays the character string in reverse order.                                                                                              |
-| RIGHT               | This function returns the substring from the right of the string to a specified number of characters.                                                      |
-| RTRIM               | This function returns a string from a given string after removing all trailing spaces.                                                                     |
-| SOUNDEX             | It is used to calculate the similarity of two strings using a four-character (SOUNDEX) code.                                                               |
-| SPACE               | This function is used to finds the string of repeated spaces.                                                                                              |
-| STR                 | This function is used to return the character data converted from numeric data.                                                                            |
-| STRING_AGG          | This function concatenates the values of string expressions and inserts separator values in between. It does not add a separator at the end of the string. |
-| STRING_ESCAPE       | This function escapes special characters in a string and produces a new string containing the characters that were escaped.                                |
-| STRING_SPLIT        | It is a table-valued function that divides a string into rows of substrings using a separator of your choice.                                              |
-| STUFF               | This function removes a portion of a string and replaces it with another substring beginning at a specified position.                                      |
-| SUBSTRING           | This function extracts a substring from a string that begins at a specific position and ends at a specific length.                                         |
-| TRANSLATE           | This function combines several one-to-one translations into a single operation.                                                                            |
-| TRIM                | This function returns a new string after removing all leading and trailing blanks from a given string.                                                     |
-| UNICODE             | This function returns a character's integer value as defined by the Unicode standard.                                                                      |
-| UPPER               | This function converts the lower case character into the upper case.                                                                                       |
+| **_Function Name_**      | **_Descriptions_**                                                                                                                                         |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [ASCII](#ascii)          | This function displays the ASCII value of a character.                                                                                                     |
+| [CHAR](#)                | This function converts the specified integer code (ASCII) into a single-byte character.                                                                    |
+| [CHARINDEX](#charindex)  | This function returns the first expression's starting position if a character expression is found inside a second character expression.                    |
+| [CONCAT](#concat)        | This function returns a single string by joining two or more strings.                                                                                      |
+| [CONCAT_WS](#)           | This function concatenates multiple strings into a single and spate them with a separator specified in the first position.                                 |
+| [DIFFERENCE](#difference)| This function returns an integer value by comparing the two strings SOUNDEX() values.                                                                      |
+| [FORMAT](#)              | This function is used to change the text format of the string into any other format.                                                                       |
+| [LEFT](#left)            | This function returns the substring from the left of the string to a specified number of characters.                                                       |
+| [LEN](#)                 | This function returns the number of characters in a string, including trailing spaces.                                                                     |
+| [LOWER](#lower)          | This function is used to convert the upper case character into lower case.                                                                                 |
+| [LTRIM](#ltrim)          | This function returns a string from a given string after removing all leading spaces.                                                                      |
+| [NCHAR](#)               | This function is used to get the Unicode character with the provided integer code based on the UNICODE standard.                                           |
+| [PATINDEX](#)            | This function returns the first occurrence of a pattern in a string's starting place. If the string is not found, it returns zero.                         |
+| [QUOTENAME](#quotename)  | This function returns a Unicode string including the delimiters, converting the input string into a valid delimited identifier.                            |
+| [REPLACE](#)             | This function is used to replace all occurrences of the substring in a specified string with another string value.                                         |
+| [REPLICATE](#replicate)  | This function repeats the string with the specified number of times.                                                                                       |
+| [REVERSE](#)             | This function displays the character string in reverse order.                                                                                              |
+| [RIGHT](#right)          | This function returns the substring from the right of the string to a specified number of characters.                                                      |
+| [RTRIM](#rtrim)          | This function returns a string from a given string after removing all trailing spaces.                                                                     |
+| [SOUNDEX](#soundex)      | It is used to calculate the similarity of two strings using a four-character (SOUNDEX) code.                                                               |
+| [SPACE](#)               | This function is used to finds the string of repeated spaces.                                                                                              |
+| [STR](#)                 | This function is used to return the character data converted from numeric data.                                                                            |
+| [STRING_AGG](#)          | This function concatenates the values of string expressions and inserts separator values in between. It does not add a separator at the end of the string. |
+| [STRING_ESCAPE](#)       | This function escapes special characters in a string and produces a new string containing the characters that were escaped.                                |
+| [STRING_SPLIT](#)        | It is a table-valued function that divides a string into rows of substrings using a separator of your choice.                                              |
+| [STUFF](#)               | This function removes a portion of a string and replaces it with another substring beginning at a specified position.                                      |
+| [SUBSTRING](#)           | This function extracts a substring from a string that begins at a specific position and ends at a specific length.                                         |
+| [TRANSLATE](#)           | This function combines several one-to-one translations into a single operation.                                                                            |
+| [TRIM](#)                | This function returns a new string after removing all leading and trailing blanks from a given string.                                                     |
+| [UNICODE](#)             | This function returns a character's integer value as defined by the Unicode standard.                                                                      |
+| [UPPER](#)               | This function converts the lower case character into the upper case.                                                                                       |
 
 #### **ASCII**
 
@@ -2999,56 +2997,56 @@ Output:
 
 **Returning the current date and time**
 
-| **_Function_**    | **_Descriptions_**                                                                                                                            |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| CURRENT_TIMESTAMP | This function is used to get the current date and time values without including the time zone offset.                                         |
-| GETUTCDATE        | This function is used to get the current UTC date and time values as an integer.                                                              |
-| GETDATE           | This function is used to get the system's current date and time on which the SQL Server is installed.                                         |
-| SYSDATETIME       | This function is used to get the system's current date and time with more fractional second precision without including the time zone offset. |
-| SYSUTCDATETIME    | This function is used to get the system's current date and time value based on the UTC timestamp as an integer.                               |
-| SYSDATETIMEOFFSET | This function is used to get the system's current date and time with the time zone offset.                                                    |
+| **_Function_**                          | **_Descriptions_**                                                                                                                            |
+|-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| [CURRENT_TIMESTAMP](#current-timestamp) | This function is used to get the current date and time values without including the time zone offset.                                         |
+| [GETUTCDATE](#getutcdate)               | This function is used to get the current UTC date and time values as an integer.                                                              |
+| [GETDATE](#getdate)                     | This function is used to get the system's current date and time on which the SQL Server is installed.                                         |
+| [SYSDATETIME](#sysdatetime)             | This function is used to get the system's current date and time with more fractional second precision without including the time zone offset. |
+| [SYSUTCDATETIME](#sysutcdatetime)       | This function is used to get the system's current date and time value based on the UTC timestamp as an integer.                               |
+| [SYSDATETIMEOFFSET](#sysdatetimeoffset) | This function is used to get the system's current date and time with the time zone offset.                                                    |
 
 **Returning the date and time Parts**
 
-| **_Function_** | **_Descriptions_**                                                                               |
-|----------------|--------------------------------------------------------------------------------------------------|
-| DATENAME       | This function is used to get a portion of the date in day, month, or year as a character string. |
-| DATEPART       | This function is used to get the portion of the date as an integer number.                       |
-| DAY            | This function is used to get the day value from the input dates as an integer.                   |
-| MONTH          | This function is used to get the month value from the input dates as an integer.                 |
-| YEAR           | This function is used to get the year value from the input dates as an integer.                  |
+| **_Function_**              | **_Descriptions_**                                                                               |
+|-----------------------------|--------------------------------------------------------------------------------------------------|
+| [DATENAME](#datename)       | This function is used to get a portion of the date in day, month, or year as a character string. |
+| [DATEPART](#datepart)       | This function is used to get the portion of the date as an integer number.                       |
+| [DAY](#day)                 | This function is used to get the day value from the input dates as an integer.                   |
+| [MONTH](#month)             | This function is used to get the month value from the input dates as an integer.                 |
+| [YEAR](#year)               | This function is used to get the year value from the input dates as an integer.                  |
 
 **Returning a difference between two dates**
 
-| **_Function_** | **_Descriptions_**                                                                   |
-|----------------|--------------------------------------------------------------------------------------|
-| DATEDIFF       | This function is to get the difference in a date part of the two input dates values. |
+| **_Function_**              | **_Descriptions_**                                                                   |
+|-----------------------------|--------------------------------------------------------------------------------------|
+| [DATEDIFF](#datediff)       | This function is to get the difference in a date part of the two input dates values. |
 
 **Modifying dates**
 
-| **_Function_**   | **_Descriptions_**                                                                                              |
-|------------------|-----------------------------------------------------------------------------------------------------------------|
-| DATEADD          | This function is used to add an integer value to a date part of the input dates and returns the new date value. |
-| EOMONTH          | This function is used to get the last day of the month with the specified date and an optional offset.          |
-| SWITCHOFFSET     | This function is used to modify the timezone offset of a datetime offset value and preserves the UTC value.     |
-| TODATETIMEOFFSET | This function is used to change the DATETIME2 value into a DATETIMEOFFSET value.                                |
+| **_Function_**                       | **_Descriptions_**                                                                                              |
+|--------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| [DATEADD](#dateadd)                  | This function is used to add an integer value to a date part of the input dates and returns the new date value. |
+| [EOMONTH](#eomonth)                  | This function is used to get the last day of the month with the specified date and an optional offset.          |
+| [SWITCHOFFSET](#switchoffset)        | This function is used to modify the timezone offset of a datetime offset value and preserves the UTC value.     |
+| [TODATETIMEOFFSET](#todatetimeoffset)| This function is used to change the DATETIME2 value into a DATETIMEOFFSET value.                                |
 
 **Constructing date and time from their parts**
 
-| **_Function_**          | **_Descriptions_**                                                                    |
-|-------------------------|---------------------------------------------------------------------------------------|
-| DATEFROMPARTS           | This function is used to get a date value from the specified day, month, or year.     |
-| DATETIME2FROMPARTS      | This function is used to get a DATETIME2 value from the date and time arguments.      |
-| DATETIMEOFFSETFROMPARTS | This function is used to get a DATETIMEOFFSET value from the date and time arguments. |
-| TIMEFROMPARTS           | This function is used to get a time value from the time parts with precision.         |
+| **_Function_**                                      | **_Descriptions_**                                                                    |
+|-----------------------------------------------------|---------------------------------------------------------------------------------------|
+| [DATEFROMPARTS](#datefromparts)                     | This function is used to get a date value from the specified day, month, or year.     |
+| [DATETIME2FROMPARTS](#datetime2fromparts)           | This function is used to get a DATETIME2 value from the date and time arguments.      |
+| [DATETIMEOFFSETFROMPARTS](#datetimeoffsetfromparts) | This function is used to get a DATETIMEOFFSET value from the date and time arguments. |
+| [TIMEFROMPARTS](#timefromparts)                     | This function is used to get a time value from the time parts with precision.         |
 
 **Validating date and time values**
 
-| **_Function_** | **_Descriptions_**                                                                                                    |
-|----------------|-----------------------------------------------------------------------------------------------------------------------|
-| ISDATE         | This function is used to check the entered dates follows the standard format of date, time, or datetime value or not. |
+| **_Function_**            | **_Descriptions_**                                                                                                    |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| [ISDATE](#isdate)         | This function is used to check the entered dates follows the standard format of date, time, or datetime value or not. |
 
-#### **CURRENT_TIMESTAMP()**
+#### **CURRENT-TIMESTAMP()**
 
 The CURRENT_TIMESTAMP function returns the current date and time, in a 'YYYY-MM-DD hh:mm:ss.mmm' format.
 
@@ -3352,20 +3350,20 @@ Window functions operate on a set of rows and return a single aggregated value f
 
 <br>
 
-| **_Name_**   | **_Description_**                                                                                           |
-|--------------|-------------------------------------------------------------------------------------------------------------|
-| DENSE_RANK   | Assign a rank value to each row within a partition of a result, with no gaps in rank values.                |
-| FIRST_VALUE  | Get the value of the first row in an ordered partition of a result set.                                     |
-| LAG          | Provide access to a row at a given physical offset that comes before the current row.                       |
-| LAST_VALUE   | Get the value of the last row in an ordered partition of a result set.                                      |
-| LEAD         | Provide access to a row at a given physical offset that follows the current row.                            |
-| NTILE        | Distribute rows of an ordered partition into a number of groups or buckets                                  |
-| PERCENT_RANK | Calculate the percent rank of a value in a set of values.                                                   |
-| RANK         | Assign a rank value to each row within a partition of a result set                                          |
-| ROW_NUMBER   | Assign a unique sequential integer to rows within a partition of a result set, the first row starts from 1. |
+| **_Name_**                    | **_Description_**                                                                                           |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------|
+| [DENSE_RANK](#dense-rank)     | Assign a rank value to each row within a partition of a result, with no gaps in rank values.                |
+| [FIRST_VALUE](#first-value)   | Get the value of the first row in an ordered partition of a result set.                                     |
+| [LAG](#lag)                   | Provide access to a row at a given physical offset that comes before the current row.                       |
+| [LAST_VALUE](#last-value)     | Get the value of the last row in an ordered partition of a result set.                                      |
+| [LEAD](#lead)                 | Provide access to a row at a given physical offset that follows the current row.                            |
+| [NTILE](#ntile)               | Distribute rows of an ordered partition into a number of groups or buckets                                  |
+| [PERCENT_RANK](#percent-rank) | Calculate the percent rank of a value in a set of values.                                                   |
+| [RANK](#rank)                 | Assign a rank value to each row within a partition of a result set                                          |
+| [ROW_NUMBER](#row-number)     | Assign a unique sequential integer to rows within a partition of a result set, the first row starts from 1. |
 
 
-#### **DENSE_RANK**
+#### **DENSE-RANK**
 
 Assign a rank value to each row within a partition of a result, with no gaps in rank values.
 
@@ -3381,7 +3379,7 @@ Output:
 
 ![image output](image/output144.PNG)
 
-#### **FIRST_VALUE**
+#### **FIRST-VALUE**
 
 Get the value of the first row in an ordered partition of a result set.  
 
@@ -3413,7 +3411,7 @@ Output:
 
 ![image output](image/output50.PNG)
 
-#### **LAST_VALUE**
+#### **LAST-VALUE**
 
 The LAST_VALUE() function is a window function that returns the last value in an ordered partition of a result set.
 
@@ -3467,7 +3465,7 @@ Output:
 
 ![image output](image/output53.PNG)
 
-#### **PERCENT_RANK**
+#### **PERCENT-RANK**
 
 The PERCENT_RANK() function evaluates the relative standing of a value within a partition of a result set.
 
@@ -3499,7 +3497,7 @@ Output:
 
 ![image output](image/output55.PNG)
 
-#### **ROW_NUMBER**
+#### **ROW-NUMBER**
 
 Assign a unique sequential integer to rows within a partition of a result set, the first row starts from 1.
 
@@ -3517,17 +3515,17 @@ Output:
 
 ### **System Function**
 
-| **_Name_**                 | **_Description_**                                                                                                                        |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| CAST                       | cast a value of one type to another.                                                                                                     |
-| CONVERT                    | convert a value of one type to another.                                                                                                  |
-| CHOOSE                     | return one of the two values based on the result of the first argument.                                                                  |
-| ISNULL                     | replace NULL with a specified value.                                                                                                     |
-| ISNUMERIC                  | check if an expression is a valid numeric type.                                                                                          |
-| IIF                        | add if-else logic to a query.                                                                                                            |
-| TRY_CAST                   | cast a value of one type to another and return NULL if the cast fails.                                                                   |
-| TRY_CONVERT                | convert a value of one type to another and return the value to be translated into the specified type. It returns NULL if the cast fails. |
-| TRY_PARSE                  | convert a string to a date/time or a number and return NULL if the conversion fails.                                                     |
+| **_Name_**                          | **_Description_**                                                                                                                        |
+|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| [CAST](#cast)                       | cast a value of one type to another.                                                                                                     |
+| [CONVERT](#convert)                 | convert a value of one type to another.                                                                                                  |
+| [CHOOSE](#choose)                   | return one of the two values based on the result of the first argument.                                                                  |
+| [ISNULL](#isnull)                   | replace NULL with a specified value.                                                                                                     |
+| [ISNUMERIC](#isnumeric)             | check if an expression is a valid numeric type.                                                                                          |
+| [IIF](#iif)                         | add if-else logic to a query.                                                                                                            |
+| [TRY_CAST](#try-cast)               | cast a value of one type to another and return NULL if the cast fails.                                                                   |
+| [TRY_CONVERT](#try-convert)         | convert a value of one type to another and return the value to be translated into the specified type. It returns NULL if the cast fails. |
+| [TRY_PARSE](#try-parse)             | convert a string to a date/time or a number and return NULL if the conversion fails.                                                     |
 
 #### **CAST**
 
@@ -3619,7 +3617,7 @@ Output:
 
 ![image output](image/output62.PNG)
 
-#### **TRY_CAST**
+#### **TRY-CAST**
 
 cast a value of one type to another and return NULL if the cast fails.
 
@@ -3634,7 +3632,7 @@ Output:
 
 ![image output](image/output63.PNG)
 
-#### **TRY_CONVERT**
+#### **TRY-CONVERT**
 
 convert a value of one type to another and return the value to be translated into the specified type. It returns NULL if the cast fails.
 
@@ -3649,7 +3647,7 @@ Output:
 
 ![image output](image/output64.PNG)
 
-#### **TRY_PARSE**
+#### **TRY-PARSE**
 
 convert a string to a date/time or a number and return NULL if the conversion fails.
 
@@ -3667,3 +3665,12 @@ SELECT
 Output:
 
 ![image output](image/output65.PNG)
+
+## REFERENCE
+
+FOR INSTALLATION 
+
+* SQL-server https://learn.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server?view=sql-server-ver16
+* Docker SQL-Server https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&pivots=cs1-cmd
+
+
