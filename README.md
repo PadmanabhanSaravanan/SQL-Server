@@ -2336,7 +2336,7 @@ The following statement shows the contents of the production.brand_approvals tab
 SELECT employee_id FROM employee.employees_approval
 ```
 
-![image output](image/ouptut40_1.PNG)
+![image output](image/output145.PNG)
 
 ### SQL Server DDL Trigger
 
@@ -2703,6 +2703,10 @@ Example:
 SELECT COUNT (*) AS total_employee FROM employee.employees;
 ```
 
+Output:
+
+![image output](image/output105.PNG)
+
 #### **SUM**
 
 The SUM() function calculates the sum of a set of values.
@@ -2712,6 +2716,10 @@ Example:
 ```markdown
 SELECT SUM(salary) AS total_salary FROM employee.employees;
 ```
+
+Output:
+
+![image output](image/output106.PNG)
 
 #### **AVG**
 
@@ -2723,6 +2731,10 @@ Example:
 SELECT AVG(salary) AS avg_salary FROM employee.employees;
 ```
 
+Output:
+
+![image output](image/output107.PNG)
+
 #### **MAX**
 
 The MAX() function returns the maximum value in a set of values.
@@ -2733,6 +2745,10 @@ Example:
 SELECT MAX(salary) AS max_salary FROM employee.employees;
 ```
 
+Output:
+
+![image output](image/output108.PNG)
+
 #### **MIN**
 
 The MIN() function returns the minimum value in a set of values.
@@ -2742,6 +2758,10 @@ Example:
 ```markdown
 SELECT MIN(salary) AS min_salary FROM employee.employees;
 ```
+
+Output:
+
+![image output](image/output109.PNG)
 
 ### **String Functions**
 
@@ -2794,6 +2814,10 @@ SELECT ASCII('A') FROM employee.employees;
 SELECT first_name,ASCII(first_name) FROM employee.employees;
 ```
 
+Output:
+
+![image output](image/output110.PNG)
+
 #### **CHARINDEX**
 
 The CHARINDEX() function searches for a substring in a string, and returns the position.
@@ -2810,6 +2834,10 @@ Example:
 SELECT CHARINDEX('l', 'Employee') AS Position;
 ```
 
+Output:
+
+![image output](image/output111.PNG)
+
 #### **CONCAT**
 
 The CONCAT() function adds two or more strings together.
@@ -2820,6 +2848,10 @@ Example:
 SELECT CONCAT('employee','name');
 ```
 
+Output:
+
+![image output](image/output112.PNG)
+
 #### **SOUNDEX**
 
 The SOUNDEX() function returns a four-character code to evaluate the similarity of two expressions.
@@ -2829,6 +2861,10 @@ Example:
 ```markdown
 SELECT SOUNDEX('employee'), SOUNDEX('location');
 ```
+
+Output:
+
+![image output](image/output113.PNG)
 
 #### **DIFFERENCE**
 
@@ -2843,6 +2879,10 @@ SELECT DIFFERENCE('employee','student');
 SELECT DIFFERENCE('Juice','Jucy');
 ```
 
+Output:
+
+![image output](image/output114.PNG)
+
 #### **LEFT**
 
 The LEFT() function extracts a number of characters from a string (starting from left).
@@ -2852,6 +2892,10 @@ Example:
 ```markdown
 SELECT LEFT (first_name, 2) AS ExtractString FROM employee.employees;
 ```
+
+Output:
+
+![image output](image/output115.PNG)
 
 #### **RIGHT**
 
@@ -2863,6 +2907,10 @@ Example:
 SELECT RIGHT (first_name, 2) AS ExtractString FROM employee.employees;
 ```
 
+Output:
+
+![image output](image/output116.PNG)
+
 #### **LOWER**
 
 The LOWER() function converts a string to lower-case.
@@ -2872,6 +2920,10 @@ Example:
 ```markdown
 SELECT LOWER('EMPLOYEE') AS lowercase;
 ```
+
+Output:
+
+![image output](image/output117.PNG)
 
 #### **UPPER**
 
@@ -2883,6 +2935,10 @@ Example:
 SELECT UPPER('employee') AS uppercase;
 ```
 
+Output:
+
+![image output](image/output118.PNG)
+
 #### **LTRIM**
 
 The LTRIM() function removes leading spaces from a string.
@@ -2892,6 +2948,10 @@ Example:
 ```markdown
 SELECT LTRIM('       Employee') AS lefttrim;
 ```
+
+Output:
+
+![image output](image/output119.PNG)
 
 #### **RTRIM**
 
@@ -2903,6 +2963,10 @@ Example:
 SELECT RTRIM('Employee     ')AS righttrim;
 ```
 
+Output:
+
+![image output](image/output120.PNG)
+
 #### **QUOTENAME**
 
 The QUOTENAME() function returns a Unicode string with delimiters added to make the string a valid SQL Server delimited identifier.
@@ -2913,6 +2977,10 @@ Example:
 SELECT QUOTENAME('Employee','()');
 ```
 
+Output:
+
+![image output](image/output121.PNG)
+
 #### **REPLICATE**
 
 The REPLICATE() function repeats a string a specified number of times.
@@ -2922,6 +2990,10 @@ Example:
 ```markdown
 SELECT REPLICATE (first_name, 3) AS Replicate_name FROM employee.employees;
 ```
+
+Output:
+
+![image output](image/output122.PNG)
 
 ### **Date Functions**
 
@@ -2986,6 +3058,10 @@ Example:
 SELECT CURRENT_TIMESTAMP AS currentDateAndTime;
 ```
 
+Output:
+
+![image output](image/output123.PNG)
+
 #### **GETDATE()**
 
 The GETDATE() function returns the current database system date and time, in a 'YYYY-MM-DD hh:mm:ss.mmm' format.
@@ -2995,6 +3071,10 @@ Example:
 ```markdown
 SELECT GETDATE() AS currentDate;
 ```
+
+Output:
+
+![image output](image/output124.PNG)
 
 #### **GETUTCDATE()**
 
@@ -3006,6 +3086,10 @@ Example:
 SELECT GETUTCDATE();
 ```
 
+Output:
+
+![image output](image/output125.PNG)
+
 #### **SYSDATETIME**
 
 The SYSDATETIME() function returns the date and time of the computer where the SQL Server is running.
@@ -3015,6 +3099,10 @@ Example:
 ```markdown
 SELECT SYSDATETIME();
 ```
+
+Output:
+
+![image output](image/output126.PNG)
 
 #### **SYSUTCDATETIME**
 
@@ -3026,6 +3114,10 @@ Example:
 SELECT SYSUTCDATETIME() AS Date;  
 ```
 
+Output:
+
+![image output](image/output127.PNG)
+
 #### **SYSDATETIMEOFFSET()**
 
 The SYSDATETIMEOFFSET() function returns the system's current date and time with the timezone offset.
@@ -3036,6 +3128,10 @@ Example:
 SELECT SYSDATETIMEOFFSET() AS Date;  
 ```
 
+Output:
+
+![image output](image/output128.PNG)
+
 #### **DATENAME()**
 
 This function is used to get a portion of the date in day, month, or year as a character string.
@@ -3045,10 +3141,11 @@ Example:
 ```markdown
 SELECT DATENAME(yy, '2017/08/25') AS DatePartString;
 SELECT DATENAME(month, '2017/08/25') AS DatePartString;
-SELECT DATENAME(hour, '2017/08/25 08:36') AS DatePartString;
-SELECT DATENAME(minute, '2017/08/25 08:36') AS DatePartString;
-SELECT DATENAME(second, '2017/08/25 08:36:58') AS DatePartString;
 ```
+
+Output:
+
+![image output](image/output129.PNG)
 
 #### **DATEPART()**
 
@@ -3061,6 +3158,10 @@ SELECT DATEPART(yy, '2017/08/25') AS DatePartString;
 SELECT DATEPART(month, '2017/08/25') AS DatePartString;
 ```
 
+Output:
+
+![image output](image/output130.PNG)
+
 #### **YEAR()**
 
 This function is used to get the year value from the input dates as an integer.
@@ -3070,6 +3171,10 @@ Example:
 ```markdown
 SELECT YEAR(hire_date) AS year FROM employee.employees;
 ```
+
+Output:
+
+![image output](image/output131.PNG)
 
 #### **MONTH()**
 
@@ -3081,6 +3186,10 @@ Example:
 SELECT MONTH(hire_date) AS month FROM employee.employees;
 ```
 
+Output:
+
+![image output](image/output132.PNG)
+
 #### **DAY()**
 
 This function is used to get the day value from the input dates as an integer.  
@@ -3091,6 +3200,10 @@ Example:
 SELECT DAY(hire_date) AS day FROM employee.employees;
 ```
 
+Output:
+
+![image output](image/output133.PNG)
+
 #### **DATEDIFF**
 
 This function is to get the difference in a date part of the two input dates values.
@@ -3100,8 +3213,12 @@ Example:
 ```markdown
 SELECT DATEDIFF(hour, '2017/08/25 07:00', '2017/08/30 12:45') AS HourDiff;
 SELECT DATEDIFF(month, '2011/08/25', '2017/08/25') AS MonthDiff;
-SELECT DATEDIFF(day, '2011/08/25', '2011/08/30') AS MonthDiff;
+SELECT DATEDIFF(day, '2011/08/25', '2011/08/30') AS DayDiff;
 ```
+
+Output:
+
+![image output](image/output134.PNG)
 
 #### **DATEADD()**
 
@@ -3113,6 +3230,10 @@ Example:
 SELECT DATEADD(year, 11, hire_date) AS YearAdd FROM employee.employees;
 ```
 
+Output:
+
+![image output](image/output135.PNG)
+
 #### **EOMONTH**
 
 This function is used to get the last day of the month with the specified date and an optional offset.   
@@ -3122,6 +3243,10 @@ Example:
 ```markdown
 SELECT EOMONTH(hire_date) AS EndDateoftheMonth FROM employee.employees;
 ```
+
+Output:
+
+![image output](image/output136.PNG)
 
 #### **SWITCHOFFSET**
 
@@ -3133,6 +3258,10 @@ Example:
 SELECT SWITCHOFFSET(hire_date,'-05:00') AS result FROM employee.employees;
 ```
 
+Output:
+
+![image output](image/output137.PNG)
+
 #### **TODATETIMEOFFSET**
 
 This function is used to change the DATETIME2 value into a DATETIMEOFFSET value. 
@@ -3142,6 +3271,10 @@ Example:
 ```markdown
 SELECT TODATETIMEOFFSET(GETDATE(),'-05:00') AS result,TODATETIMEOFFSET(GETDATE(),180);
 ```
+
+Output:
+
+![image output](image/output138.PNG)
 
 #### **DATEFROMPARTS**
 
@@ -3153,6 +3286,10 @@ Example:
 SELECT DATEFROMPARTS(2023, 04, 04) AS Result1, DATEFROMPARTS(2023, NULL, 04) AS Result2;  
 ```
 
+Output:
+
+![image output](image/output139.PNG)
+
 #### **DATETIME2FROMPARTS**
 
 This function is used to get a DATETIME2 value from the date and time arguments.
@@ -3162,6 +3299,10 @@ Example:
 ```markdown
 SELECT DATETIME2FROMPARTS ( 2023, 10, 31, 11, 59, 59, 0, 0 ) AS Result1,  DATETIME2FROMPARTS(2023, NULL, 31, 11, 59, 59, 0, 0) AS Result2;    
 ```
+
+Output:
+
+![image output](image/output140.PNG)
 
 #### **DATETIMEOFFSETFROMPARTS**
 
@@ -3174,6 +3315,10 @@ SELECT DATETIMEOFFSETFROMPARTS(2023, 10, 11, 20, 35, 30, 4000, 10, 30, 4) AS Res
 DATETIMEOFFSETFROMPARTS(NULL, 10, 11, 20, 35, 30, 4000, 10, 30, 4) AS Result2;  
 ```
 
+Output:
+
+![image output](image/output141.PNG)
+
 #### **TIMEFROMPARTS**
 
 This function is used to get a time value from the time parts with precision.
@@ -3184,6 +3329,10 @@ Example:
 SELECT TIMEFROMPARTS(20, 55, 59, 55, 3) AS Result1,  TIMEFROMPARTS(10, NULL, 19, 5, 2) AS Result2;  
 ```
 
+Output:
+
+![image output](image/output142.PNG)
+
 #### **ISDATE**
 
 This function is used to check the entered dates follows the standard format of date, time, or datetime value or not.
@@ -3193,6 +3342,9 @@ Example:
 ```markdown
 SELECT ISDATE('2020-25-01') AS Result1, ISDATE('2020-12-06') AS Result2;
 ```
+Output:
+
+![image output](image/output143.PNG)
 
 ### **Windows Function**
 
@@ -3224,6 +3376,10 @@ SELECT first_name,last_name,
        DENSE_RANK() OVER (ORDER BY salary) AS Rank_No 
 	   FROM employee.employees;
 ```
+
+Output:
+
+![image output](image/output144.PNG)
 
 #### **FIRST_VALUE**
 
