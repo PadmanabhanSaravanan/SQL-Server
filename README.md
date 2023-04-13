@@ -35,14 +35,14 @@ A database is a systematic collection of data. They support electronic storage a
 
 **Types of Databases**
 
-* [Centralized Database](#centralized-database)  
-* [Distributed Databse](#distributed-databse) 
-* [NoSql Database](#nosql-database) 
-* [Cloud Database](#cloud-database) 
-* [Relational Database](#relational-database) 
-* [Network Database](#network-database) 
-* [Object-Oriented Database](#object-oriented-database) 
-* [Hierarchical Database](#hierarchical-database) 
+* [**Centralized Database**](#centralized-database)  
+* [**Distributed Databse**](#distributed-databse) 
+* [**NoSql Database**](#nosql-database) 
+* [**Cloud Database**](#cloud-database) 
+* [**Relational Database**](#relational-database) 
+* [**Network Database**](#network-database) 
+* [**Object-Oriented Database**](#object-oriented-database) 
+* [**Hierarchical Database**](#hierarchical-database) 
 
 #### Centralized Database
 
@@ -399,12 +399,12 @@ The Different types of datatypes are :
 **SQL Server Constraints are :**
 
 
-1. [NOT NULL](#not-null)
-2. [UNIQUE](#unique)
-3. [PRIMARY KEY](#primary-key)
-4. [FOREIGN KEY](#foreign-key)
-5. [DEFAULT](#default)
-6. [CHECK](#check)
+1. [**NOT NULL**](#not-null)
+2. [**UNIQUE**](#unique)
+3. [**PRIMARY KEY**](#primary-key)
+4. [**FOREIGN KEY**](#foreign-key)
+5. [**DEFAULT**](#default)
+6. [**CHECK**](#check)
 
 <br>
 
@@ -578,10 +578,10 @@ A data definition language (DDL) is a computer language used to create and modif
 
 **Data Definition Laungauge Commands are as follows**
 
-1. [CREATE](#create-command)
-2. [ALTER](#alter-command)
-3. [DROP](#drop-command)
-4. [TRUNCATE](#truncate-command)
+1. [**CREATE**](#create-command)
+2. [**ALTER**](#alter-command)
+3. [**DROP**](#drop-command)
+4. [**TRUNCATE**](#truncate-command)
 
 ### Create Command
 
@@ -797,9 +797,9 @@ The DML commands in Structured Query Language change the data present in the SQL
 
 DML Commands are :
 
-* [Insert Command](#insert-command)
-* [Update Command](#update-command)
-* [Delete Command](#delete-command)
+* [**Insert Command**](#insert-command)
+* [**Update Command**](#update-command)
+* [**Delete Command**](#delete-command)
 
 ### Insert Command
 
@@ -905,8 +905,8 @@ It is used to control privileges in Database. To perform any operation in the da
 
 The DCL statements are
 
-* [GRANT](#grant-command)
-* [REVOKE](#revoke-command) 
+* [**GRANT**](#grant-command)
+* [**REVOKE**](#revoke-command) 
 
 ### Grant Command
 
@@ -987,9 +987,9 @@ A transaction begins with the first statement is encounterd and ends when one of
 
 You can control the logic of transactions by using the
 
-* [Commit](#commit)
-* [Savepoint](#savepoint)
-* [Rollback](#rollback)
+* [**Commit**](#commit)
+* [**Savepoint**](#savepoint)
+* [**Rollback**](#rollback)
 
 ### Commit 
 
@@ -1161,11 +1161,11 @@ Output:
 
 ### Clauses
 
-* [DISTINCT](#distinct)
-* [WHERE](#where)
-* [ORDER BY](#order-by)
-* [GROUP BY](#group-by)
-* [HAVING](#having) 
+* [**DISTINCT**](#distinct)
+* [**WHERE**](#where)
+* [**ORDER BY**](#order-by)
+* [**GROUP BY**](#group-by)
+* [**HAVING**](#having) 
 
 #### DISTINCT
 
@@ -1400,10 +1400,10 @@ Output:
 
 ### Other Comparision operator
 
-* [BETWEEN AND](#between-and)
-* [IN](#in)
-* [LIKE](#like)
-* [IS NULL](#is-null)
+* [**BETWEEN AND**](#between-and)
+* [**IN**](#in)
+* [**LIKE**](#like)
+* [**IS NULL**](#is-null)
 
 #### BETWEEN AND
 
@@ -1480,10 +1480,10 @@ SQL Server (Transact-SQL) JOINS are used to retrieve data from multiple tables. 
 
 There are 4 different types of SQL Server joins:
 
-* [INNER JOIN](#inner-join) 
-* [LEFT JOIN](#left-join) 
-* [RIGHT JOIN](#right-join)
-* [FULL JOIN](#full-join)
+* [**INNER JOIN**](#inner-join) 
+* [**LEFT JOIN**](#left-join) 
+* [**RIGHT JOIN**](#right-join)
+* [**FULL JOIN**](#full-join)
 
 ### INNER JOIN
 
@@ -1608,9 +1608,9 @@ Output:
 
 View Commands are:
 
-* [Create View](#create-view)
-* [Alter View](#alter-view)
-* [Drop View](#drop-view)
+* [**Create View**](#create-view)
+* [**Alter View**](#alter-view)
+* [**Drop View**](#drop-view)
 
 ### Create View 
 
@@ -1695,12 +1695,12 @@ Output:
 * So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.
 * You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.
 
-1. [Create Procedure](#create-procedure)
-2. [Execute Procedure](#execute-procedure)
-3. [Alter Procedure](#alter-procedure)
-4. [Drop Procedure](#drop-procedure)
-5. [Stored Procedure Parameter](#stored-procedure-parameter)
-6. [Stored Procedure Variable](#stored-procedure-variable)
+1. [**Create Procedure**](#create-procedure)
+2. [**Execute Procedure**](#execute-procedure)
+3. [**Alter Procedure**](#alter-procedure)
+4. [**Drop Procedure**](#drop-procedure)
+5. [**Stored Procedure Parameter**](#stored-procedure-parameter)
+6. [**Stored Procedure Variable**](#stored-procedure-variable)
 
 ### Create Procedure
 
@@ -1809,10 +1809,10 @@ Output:
 
 ### Stored Procedure Parameter
 
-* [Creating a stored procedure with one parameter](#creating-a-stored-procedure-with-one-parameter)
-* [Creating a stored procedure with multiple parameters](#creating-a-stored-procedure-with-multiple-parameters)
-* [Creating text parameters](#creating-text-parameters)
-* [Creating optional parameters](#creating-optional-parameters)
+* [**Creating a stored procedure with one parameter**](#creating-a-stored-procedure-with-one-parameter)
+* [**Creating a stored procedure with multiple parameters**](#creating-a-stored-procedure-with-multiple-parameters)
+* [**Creating text parameters**](#creating-text-parameters)
+* [**Creating optional parameters**](#creating-optional-parameters)
 
 #### Creating a stored procedure with one parameter
 
@@ -2127,13 +2127,13 @@ SQL Server provides three type of triggers:
 
 <br>
 
-1. [Creating Triggers in SQL-Server](#sql-server-create-trigger)
-2. [SQL Server INSTEAD OF Trigger](#sql-server-instead-of-trigger)
-3. [SQL Server DDL Trigger](#sql-server-ddl-trigger)
-4. [SQL Server DISABLE TRIGGER](#sql-server-disable-trigger)
-5. [SQL Server ENABLE TRIGGER](#sql-server-enable-trigger)
-6. [SQL Server MODIFY TRIGGER](#modify-trigger)
-7. [SQL Server DROP TRIGGER](#sql-server-drop-trigger)
+1. [**Creating Triggers in SQL-Server**](#sql-server-create-trigger)
+2. [**SQL Server INSTEAD OF Trigger**](#sql-server-instead-of-trigger)
+3. [**SQL Server DDL Trigger**](#sql-server-ddl-trigger)
+4. [**SQL Server DISABLE TRIGGER**](#sql-server-disable-trigger)
+5. [**SQL Server ENABLE TRIGGER**](#sql-server-enable-trigger)
+6. [**SQL Server MODIFY TRIGGER**](#modify-trigger)
+7. [**SQL Server DROP TRIGGER**](#sql-server-drop-trigger)
 
 ### SQL-Server Create Trigger
 
@@ -2481,6 +2481,7 @@ AS
 
 Example:
 
+```markdown
 ALTER TRIGGER employee.region_trigger
 ON employee.regions
 AFTER INSERT,DELETE
@@ -2494,6 +2495,7 @@ BEGIN
 	 SELECT d.region_id,d.region_name,GETUTCDATE(),'DEL'
 	 FROM deleted d;
 END
+```
 
 Output:
 
@@ -2523,10 +2525,10 @@ Output:
 
 Control statements are SQL statements that allow SQL to be used as a structured programming language. SQL control statements provide the capability to control the logic flow, declare and set variables, and handle warnings.
 
-* [SQL-Server IF ELSE Statement](#sql-server-if-else-statement)
-* [SQL-Server WHILE Loop](#sql-server-while-loop)
-* [SQL-Server BREAK](#sql-server-break)
-* [SQL-Server CONTINUE](#sql-server-continue)
+* [**SQL-Server IF ELSE Statement**](#sql-server-if-else-statement)
+* [**SQL-Server WHILE Loop**](#sql-server-while-loop)
+* [**SQL-Server BREAK**](#sql-server-break)
+* [**SQL-Server CONTINUE**](#sql-server-continue)
 
 ### SQL-Server IF ELSE Statement
 
