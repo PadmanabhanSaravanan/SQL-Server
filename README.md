@@ -2012,6 +2012,53 @@ Output:
 
 ![image output](image/output22.PNG)
 
+### Stored Procedure Output Parameters
+
+To create an output parameter for a stored procedure, you use the following syntax
+
+Syntax:
+
+```markdown
+parameter_name data_type OUTPUT
+```
+
+A stored procedure can have many output parameters. In addition, the output parameters can be in any valid data type e.g., integer, date, and varying character.
+
+Example:
+
+```markdown
+CREATE PROCEDURE employee.employeecount (
+	@department_id INT,
+    @emplooyee_count INT OUTPUT
+) AS
+BEGIN
+    SELECT 
+        first_name,last_name
+    FROM
+        employee.employees
+    WHERE
+        department_id = @department_id;
+
+    SELECT @emplooyee_count = @@ROWCOUNT;
+END;
+```
+
+![image output](image/output146.PNG)
+
+```markdown
+DECLARE @count INT;
+
+EXEC employee.employeecount
+    @department_id = 10,
+    @emplooyee_count = @count OUTPUT;
+
+SELECT @count AS 'Number of employees';
+```
+
+![image output](image/output147.PNG)
+
+
+
 ## SQL-Server Cursor
 
 * A database cursor is a control structure that enables traversal over the records in a database. Cursors are used by database programmers to process individual rows returned by database system queries. 
