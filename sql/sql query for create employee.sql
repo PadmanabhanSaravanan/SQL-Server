@@ -1,3 +1,12 @@
+
+/* to create database */
+CREATE DATABASE EmployeeManagement;
+GO
+
+/* to create schema */
+CREATE SCHEMA employees;
+GO
+
 USE Employee;
 go
 
