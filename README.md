@@ -1,7 +1,7 @@
 # SQL-Server
 
 ![image sql-server-logo](image/sql-server_logo.png)
-
+  
 ## Table of Content 
 
 1. [**Introduction to SQLServer**](#introduction-to-sqlserver) <!-- style="font-size:20px" -->
@@ -54,11 +54,15 @@ A centralized database is stored at a single location such as a mainframe comput
 
 A distributed database is basically a database that is not limited to one system, it is spread over different sites, i.e, on multiple computers or over a network of computers.
 
+**Example :** Telephone and cellular networks.
+
 ![img distributed](image/distributed.jpg)
 
 #### NoSql Database
 
 NoSQL Database is a non-relational Data Management System, that does not require a fixed schema.
+
+**Example :** Financial services and payments, Logistics and asset management.
 
 ![img nosql](image/Nosql-1.png)
 
@@ -66,11 +70,15 @@ NoSQL Database is a non-relational Data Management System, that does not require
 
 A cloud database is a database service built and accessed through a cloud platform. It serves many of the same functions as a traditional database with the added flexibility of cloud computing.
 
+**Example :** Netflix, uber, github and salesforce.
+
 ![img cloud](image/cloud.png)
 
 #### Relational Database
 
 A relational database organizes data into rows and columns, which collectively form a table. Data is typically structured across multiple tables, which can be joined together via a primary key or a foreign key.
+
+**Example :** Snapchat and Instagram.
 
 ![img relational](image/relational.png)
 
@@ -91,6 +99,8 @@ object-oriented database management system is the data model in which data is st
 A hierarchical model represents the data in a tree-like structure in which there is a single parent for each record.
 
 ![img Hierarchical](image/hierarchical.png)
+
+The IBM Information Management System (IMS) and RDM Mobile
 
 ### What is SQL Server
 
@@ -134,7 +144,7 @@ SQLOS provides many operating system services such as memory and I/O management.
 
 ##### Download SQL-Server
 
-**Step 1:** Go to the official page through this URL: https://www.microsoft.com/en-in/sql-server/sql-server-downloads.
+**Step 1:** Go to the official page through this URL: https://www.microsoft.com/en-in/sql-server/sql-server-downloads
 
 **Step 2:** Sekect the Developer version ,Click on the "Download now" button. Immediately the SQL Server setup starts downloading on our system.
 ![image sql-step1](image/sql-step-1.PNG)
@@ -269,7 +279,174 @@ docker container ls
 
 ### Sample Database 
 
-Click on the link for sample database [link](https://github.com/PadmanabhanSwayaan/SQL-Server/tree/sqlserver-v15.0/sql)
+* Click on the link for creating database and tables [link](https://github.com/PadmanabhanSaravanan/SQL-Server/blob/sqlserver-v15.0/sql/sql%20query%20for%20create%20employee.sql)
+
+* Click on the link for inserting data to tables [link](https://github.com/PadmanabhanSaravanan/SQL-Server/blob/sqlserver-v15.0/sql/sql%20query%20to%20load.sql)    
+
+
+## Sql Server Architecture
+
+SQL Server architecture is classified into the following parts :
+
+* [**General architecture**](#general-architecture)
+
+* [**Memory architecture**](#memory-architecture)
+
+* [**Data file architecture**](#data-file-architecture)
+
+* [**Log file architecture**](#log-file-architecture)
+
+### General architecture
+
+<br>
+
+**Client** − Where the request initiated.
+
+**Query** − SQL query which is high level language.
+
+**Logical Units** − Keywords, expressions and operators, etc.
+
+**N/W Packets** − Network related code.
+
+**Protocols** − In SQL Server we have 4 protocols.
+
+* Shared memory (for local connections and troubleshooting purpose).
+
+* Named pipes (for connections which are in LAN connectivity).
+
+* TCP/IP (for connections which are in WAN connectivity).
+
+* VIA-Virtual Interface Adapter (requires special hardware to set up by vendor and also deprecated from SQL 2012 version).
+
+**Server** − Where SQL Services got installed and databases reside.
+
+**Relational Engine** − This is where real execution will be done. It contains Query parser, Query optimizer and Query executor.
+
+**Query Parser** (Command Parser) and Compiler (Translator) − This will check syntax of the query and it will convert the query to machine language.
+
+**Query Optimizer** − It will prepare the execution plan as output by taking query, statistics and Algebrizer tree as input.
+
+**Execution Plan** − It is like a roadmap, which contains the order of all the steps to be performed as part of the query execution.
+
+**Query Executor** − This is where the query will be executed step by step with the help of execution plan and also the storage engine will be contacted.
+
+**Storage Engine** − It is responsible for storage and retrieval of data on the storage system (disk, SAN, etc.,), data manipulation, locking and managing transactions.
+
+**SQL OS** − This lies between the host machine (Windows OS) and SQL Server. All the activities performed on database engine are taken care of by SQL OS. SQL OS provides various operating system services, such as memory management deals with buffer pool, log buffer and deadlock detection using the blocking and locking structure.
+
+**Checkpoint Process** − Checkpoint is an internal process that writes all dirty pages (modified pages) from Buffer Cache to Physical disk. Apart from this, it also writes the log records from log buffer to physical file. Writing of Dirty pages from buffer cache to data file is also known as Hardening of dirty pages.
+
+It is a dedicated process and runs automatically by SQL Server at specific intervals. SQL Server runs checkpoint process for each database individually. Checkpoint helps to reduce the recovery time for SQL Server in the event of unexpected shutdown or system crash\Failure.    
+
+### Memory architecture
+
+Following are some of the salient features of memory architecture.
+
+* One of the primary design goals of all database software is to minimize disk I/O because disk reads and writes are among the most resource-intensive operations.
+
+* Memory in windows can be called with Virtual Address Space, shared by Kernel mode (OS mode) and User mode (Application like SQL Server).
+
+* SQL Server "User address space" is broken into two regions: MemToLeave and Buffer Pool.
+
+* Size of MemToLeave (MTL) and Buffer Pool (BPool) is determined by SQL Server during startup.
+
+* Buffer management is a key component in achieving I/O highly efficiency. The buffer management component consists of two mechanisms: the buffer manager to access and update database pages, and the buffer pool to reduce database file I/O.
+
+* The buffer pool is further divided into multiple sections. The most important ones being the buffer cache (also referred to as data cache) and procedure cache. Buffer cache holds the data pages in memory so that frequently accessed data can be retrieved from cache. The alternative would be reading data pages from the disk. Reading data pages from cache optimizes performance by minimizing the number of required I/O operations which are inherently slower than retrieving data from the memory.
+
+* Procedure cache keeps the stored procedure and query execution plans to minimize the number of times that query plans have to be generated. You can find out information about the size and activity within the procedure cache using DBCC PROCCACHE statement.
+
+### Data file architecture
+
+Data File architecture has the following components −
+
+* [**File Groups**](#file-groups)
+* [**Files**](#files)
+* [**Extents**](#extents)
+* [**Pages**](#pages)
+
+#### File Groups
+
+* Database files can be grouped together in file groups for allocation and administration purposes. No file can be a member of more than one file group. Log files are never part of a file group. Log space is managed separately from data space.
+
+* There are two types of file groups in SQL Server, Primary and User-defined. Primary file group contains the primary data file and any other files not specifically assigned to another file group. All pages for the system tables are allocated in the primary file group. User-defined file groups are any file groups specified using the file group keyword in create database or alter database statement.
+
+* One file group in each database operates as the default file group. When SQL Server allocates a page to a table or index for which no file group was specified when they were created, the pages are allocated from default file group. To switch the default file group from one file group to another file group, it should have db_owner fixed db role.
+
+* By default, primary file group is the default file group. User should have db_owner fixed database role in order to take backup of files and file groups individually.
+
+#### Files
+
+* Databases have three types of files - Primary data file, Secondary data file, and Log file. Primary data file is the starting point of the database and points to the other files in the database.
+
+* Every database has one primary data file. We can give any extension for the primary data file but the recommended extension is .mdf. Secondary data file is a file other than the primary data file in that database. Some databases may have multiple secondary data files. Some databases may not have a single secondary data file. Recommended extension for secondary data file is .ndf.
+
+* Log files hold all of the log information used to recover the database. Database must have at least one log file. We can have multiple log files for one database. The recommended extension for log file is .ldf.
+
+* The location of all the files in a database are recorded in both master database and the primary file for the database. Most of the time, the database engine uses the file location from the master database.
+
+* Files have two names − Logical and Physical. Logical name is used to refer to the file in all T-SQL statements. Physical name is the OS_file_name, it must follow the rules of OS. Data and Log files can be placed on either FAT or NTFS file systems, but cannot be placed on compressed file systems. There can be up to 32,767 files in one database.
+
+#### Extents
+
+Extents are basic unit in which space is allocated to tables and indexes. An extent is 8 contiguous pages or 64KB. SQL Server has two types of extents - Uniform and Mixed. Uniform extents are made up of only single object. Mixed extents are shared by up to eight objects.
+
+#### Pages
+
+It is the fundamental unit of data storage in MS SQL Server. The size of the page is 8KB. The start of each page is 96 byte header used to store system information such as type of page, amount of free space on the page and object id of the object owning the page. There are 9 types of data pages in SQL Server.
+
+* **Data** − Data rows with all data except text, ntext and image data.
+
+* **Index** − Index entries.
+
+* **Tex\Image** − Text, image and ntext data.
+
+* **GAM** − Information about allocated extents.
+
+* **SGAM** − Information about allocated extents at system level.
+
+* **Page Free Space (PFS)** − Information about free space available on pages.
+
+* **Index Allocation Map (IAM)** − Information about extents used by a table or index.
+
+* **Bulk Changed Map (BCM)** − Information about extents modified by bulk operations since the last backup log statement.
+
+* **Differential Changed Map (DCM)** − Information about extents that have changed since the last backup database statement.
+
+### Log file architecture
+
+The SQL Server transaction log operates logically as if the transaction log is a string of log records. Each log record is identified by Log Sequence Number (LSN). Each log record contains the ID of the transaction that it belongs to.
+
+Log records for data modifications record either the logical operation performed or they record the before and after images of the modified data. The before image is a copy of the data before the operation is performed; the after image is a copy of the data after the operation has been performed.
+
+The steps to recover an operation depend on the type of log record −
+
+* Logical operation logged.
+
+    => To roll the logical operation forward, the operation is performed again.
+
+    => To roll the logical operation back, the reverse logical operation is performed.
+
+* Before and after image logged.
+
+    => To roll the operation forward, the after image is applied.
+
+
+    => To roll the operation back, the before image is applied.
+
+<br>
+
+Different types of operations are recorded in the transaction log. These operations include −
+
+* The start and end of each transaction.
+
+* Every data modification (insert, update, or delete). This includes changes by system stored procedures or data definition language (DDL) statements to any table, including system tables.
+
+* Every extent and page allocation or de allocation.
+
+* Creating or dropping a table or index.
+
+
 
 ## Data Objects 
 
@@ -315,6 +492,36 @@ The Different types of datatypes are :
 | numeric         | Used for scale and fixed precision numbers | −10^38+1                            | 10^381−1                             | 5 to 17 bytes      |
 | money           | Used monetary data                         | −922,337, 203, 685,477.5808         | +922,337, 203, 685,477.5807          | 8 bytes            |
 | smallmoney      | Used monetary data                         | −214,478.3648                       | +214,478.3647                        | 4 bytes            |
+
+Syntax:
+
+```markdown 
+CREATE TABLE table_name (
+    column_name numeric(precision, scale)
+);
+```
+
+![output image](image/output158.png)
+
+Example:
+
+```markdown 
+CREATE TABLE employee.employee_salary (
+    account_number integer,
+    account_name varchar(50),
+    salary numeric (8,2)
+);
+
+INSERT INTO employee.employee_salary 
+VALUES (1, 'Sushant', 123456.3333);
+```
+
+![output image](image/output157.png)
+
+
+**Note:** Only two digits after the decimal point are kept in the database because the scale was set to 2.
+
+* Exact numeric is used in examination marks, height, weight, the number of students in a class, share values, price of goods, monthly bills, fees and others.
 
 ### Approximate Numeric
  <br>
@@ -396,6 +603,10 @@ The Different types of datatypes are :
 
 <br>
 
+[Refer create command in data definition language for creation of database and schema.](#create-command)
+
+<br>
+
 **SQL Server Constraints are :**
 
 
@@ -446,7 +657,7 @@ The ***UNIQUE*** constraint ensures that all values in a column are different.
 UNIQUE Constraint Example
 
 ```markdown
-CREATE TABLE Persons (
+CREATE TABLE Person1 (
     ID int NOT NULL UNIQUE,
     LastName varchar(255) NOT NULL,
     FirstName varchar(255),
@@ -472,7 +683,7 @@ Primary keys must contain UNIQUE values, and cannot contain NULL values.
 PRIMARY KEY Example
 
 ```markdown 
-CREATE TABLE Persons (
+CREATE TABLE Person2 (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,
     FirstName varchar(255),
@@ -532,7 +743,7 @@ The ***DEFAULT*** constraint is used to set a default value for a column.
 DEFAULT Example
 
 ```markdown
-CREATE TABLE Persons (
+CREATE TABLE Person3 (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,
     FirstName varchar(255),
@@ -560,7 +771,7 @@ If you define a ***CHECK*** constraint on a table it can limit the values in cer
 CHECK Example
 
 ```markdown
-CREATE TABLE Persons (
+CREATE TABLE Person4 (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,
     FirstName varchar(255),
@@ -619,11 +830,11 @@ Syntax:
 Create Command Example
 
 ```markdown
-CREATE DATABASE EmployeeManagement;
+CREATE DATABASE Employee;
 GO
 
     /* to create schema */
-CREATE SCHEMA employees;
+CREATE SCHEMA employee;
 GO
 
     /* to create table */
@@ -899,6 +1110,54 @@ Output:
 
 ![image output](image/output81.PNG)
 
+## Create a login using SSMS
+
+1. In Object Explorer, expand the folder of the server instance in which you want to create the new login.
+
+2. Right-click the Security folder, point to New, and select Login.
+
+![image output](image/output154.png)      
+
+3. In the Login - New dialog box, on the General page, enter the name of a user in the Login name box. Alternately, select Search... to open the Select User or Group dialog box.
+
+    **In search:** 
+
+        a. Under Select this object type, select Object Types to open the Object Types dialog box and select any or all of the   following: Built-in security principals, Groups, and Users. Built-in security principals and Users are selected by default. When finished, select OK.
+
+        b. Under From this location, select Locations to open the Locations dialog box and select one of the available server locations. When finished, select OK.
+
+        c. Under Enter the object name to select (examples), enter the user or group name that you want to find. For more information, see Select Users, Computers, or Groups Dialog Box.
+
+        d. Select OK
+
+![image output](image/output155.png)
+
+4. To create a login based on a Windows principal, select Windows authentication. This is the default selection.
+
+5. To create a login that is saved on a SQL Server database, select SQL Server authentication.
+
+    a. In the Password box, enter a password for the new user. Enter that password again into the Confirm Password box.
+
+    b. When changing an existing password, select Specify old password, and then type the old password in the Old password box.
+
+    c. To enforce password policy options for complexity and enforcement, select Enforce password policy. For more information, see    Password Policy. This is a default option when SQL Server authentication is selected.
+
+    d. To enforce password policy options for expiration, select Enforce password expiration. Enforce password policy must be selected to enable this checkbox. This is a default option when SQL Server authentication is selected.
+
+    e. To force the user to create a new password after the first time the login is used, select User must change password at next login. Enforce password expiration must be selected to enable this checkbox. This is a default option when SQL Server authentication is selected.
+
+6. From the Default database list, select a default database for the login. Master is the default for this option.
+
+7. From the Default language list, select a default language for the login.
+
+8. Select OK.    
+
+![image output](image/output156.png)
+
+For more details and options:
+visit https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-login?view=sql-server-ver16#SSMSProcedure
+
+
 ## Data Control Language
 
 It is used to control privileges in Database. To perform any operation in the database, such as for creating tables, sequences or views, a user needs privileges. 
@@ -939,6 +1198,11 @@ GRANT INSERT, UPDATE, DELETE, SELECT ON employee.employees TO user1;
 Output:
 
 ![image output](image/output82.PNG)
+
+* If permission is denied for the user it will show error as below
+
+![image output](image/output160.PNG)
+
 
 ### Revoke Command
 
@@ -2293,6 +2557,7 @@ SQL Server provides three type of triggers:
 
 * Data manipulation language (DML) triggers which are invoked automatically in response to INSERT, UPDATE, and DELETE events against tables.
 * Data definition language (DDL) triggers which fire in response to CREATE, ALTER, and DROP statements. DDL triggers also fire in response to some system stored procedures that perform DDL-like operations.
+* Logon triggers which fire in response to LOGON events.
 
 <br>
 
@@ -3836,6 +4101,125 @@ SELECT
 Output:
 
 ![image output](image/output65.PNG)
+
+
+## Creating Backups
+
+1. [**Method 1 – Using T-SQL**](#method-1-–-using-t-sql)
+2. [**Method 2 – Using SQL SERVER Management Studio**](#method-2-–-using-sql-server-management-studio)
+
+
+### Method 1 – Using T-SQL
+
+**Full Type**
+
+```markdown
+Backup database <Your database name> to disk = '<Backup file location + file name>'
+```
+
+**Differential Type**
+
+```markdown
+Backup database <Your database name> to 
+   disk = '<Backup file location + file name>' with differential
+```
+
+**Log Type**
+
+```markdown
+Backup log <Your database name> to disk = '<Backup file location + file name>'
+```
+
+![output image](image/output161.png)
+
+
+### Method 2 – Using SQL SERVER Management Studio
+
+**Step 1** − Connect to database instance named 'EmployeeDB' and expand databases folder as shown in the following snapshot.
+
+![output image](image/output162.png)
+
+
+
+**Step 2** − Right-click on 'EmployeeDB' database and select tasks. Click Backup and the following screen will appear.
+
+![output image](image/output163.png)
+
+![output image](image/output164.png)
+
+**Step 3** − Select backup type (Full\diff\log) and make sure to check destination path which is where the backup file will be created. Select options at the top left corner to see the following screen.
+
+![output image](image/output165.png)
+
+**Step 4** − Click OK to create 'EmployeeDB' database full backup as shown in the following snapshot.
+
+![output image](image/output166.png)
+
+
+## MS SQL Server - Restoring Databases
+
+Restoring is the process of copying data from a backup and applying logged transactions to the data. Restore is what you do with backups. Take the backup file and turn it back into a database.
+
+The Restore database option can be done using either of the following two methods.
+
+1. [**Method 1 – T-SQL**](#method-1-–-t-sql)
+
+2. [**Method 2 – SQL SERVER Management Studio**](#method-2-–-sql-server-management-studio)
+
+
+### Method 1 – T-SQL
+
+**Syntax**
+
+```markdown
+Restore database <Your database name> from disk = '<Backup file location + file name>'
+```
+
+
+**Example**
+
+* The following command is used to restore database called 'EmployeeDB' with backup file name 'EmployeeDB_Full.bak' which is available in 'D:\' location if you are overwriting the existed database.
+
+```markdown
+Restore database EmployeeDB from disk = ' D:\EmployeeDB_Full.bak' with replace
+```
+
+
+* if you are creating a new database with this restore command and there is no similar path of data, log files in target server, then use move option like the following command.
+
+Make sure the D:\Data path exists as used in the following command for data and log files.
+
+```markdown
+RESTORE DATABASE EmployeeDB FROM DISK = 'D:\ EmployeeDB_Full.bak' WITH MOVE 'EmployeeDB' TO 
+   'D:\Data\EmployeeDB.mdf', MOVE 'EmployeeDB_Log' TO 'D:\EmployeeDB_Log.ldf'
+```
+
+
+### Method 2 – SQL SERVER Management Studio
+
+**Step 1** − Connect to database instance named 'EmployeeDB' and right-click on databases folder. Click Restore database as shown in the following snapshot.
+
+![output image](image/output167.png)
+
+
+**Step 2** − Select device radio button and click on ellipse to select the backup file as shown in the following snapshot.
+
+
+![output image](image/output174.png)
+
+![output image](image/output172.png)
+
+
+**Step 3** − Click OK and the following screen pops up.
+
+![output image](image/output171.png)
+
+
+**Step 4** - click OK to restore 'EmployeeDB' database as shown in the following snapshot.
+
+![output image](image/output173.png)
+
+
 
 ## REFERENCE
 
