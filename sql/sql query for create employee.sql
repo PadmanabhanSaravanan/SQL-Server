@@ -1,7 +1,13 @@
-USE Employee;
+
+/* to create database */
+CREATE DATABASE Employee;
+GO
+
+/* to create schema */
+CREATE SCHEMA employee;
 go
 
-CREATE SCHEMA employee;
+USE Employee;
 go
 
 CREATE TABLE employee.regions (
